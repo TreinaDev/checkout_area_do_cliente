@@ -1,0 +1,16 @@
+<% @plans.each do |p| %>
+<dl>
+  <dt><%= Plan.human_attribute_name('platform') %></dt>
+  <dd><%= p.platform %></dd>
+  <dt><%= Plan.human_attribute_name('price') %></dt>
+  <dd><%= p.price %></dd>
+  <dt><%= Plan.human_attribute_name('limit_monthly') %></dt>
+  <dd><%= p.limit_monthly %></dd>
+  <dt><%= Plan.human_attribute_name('limit_daily') %></dt>
+  <dd><%= p.limit_daily %></dd>
+  <dt><%= Plan.human_attribute_name('cost') %></dt>
+  <dd><%= p.cost %> por mensagem</dd>
+  <dt><%= Plan.human_attribute_name('promo') %></dt>
+  <dd><%= p.promo %></dd>
+</dl>
+<% end %>
