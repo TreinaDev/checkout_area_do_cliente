@@ -24,13 +24,13 @@ feature 'Client registers' do
   scenario 'and fields cannot be blank' do
     visit root_path
     click_on 'Entrar'
-    click_on 'Registrar-se'       
+    click_on 'Registrar-se'
     within 'form' do
       click_on 'Registrar-se'
     end
 
     expect(page).to have_content('Email não pode ficar em branco')
-    expect(page).to have_content('Senha não pode ficar em branco')    
+    expect(page).to have_content('Senha não pode ficar em branco')
     expect(page).not_to have_link('Sair')
     expect(page).to have_link('Entrar')
     expect(current_path).not_to eq(root_path)
@@ -50,10 +50,9 @@ feature 'Client registers' do
       click_on 'Registrar-se'
     end
 
-    expect(page).to have_content('Email já está em uso')    
+    expect(page).to have_content('Email já está em uso')
     expect(page).not_to have_link('Sair')
     expect(page).to have_link('Entrar')
     expect(current_path).not_to eq(root_path)
   end
-
 end
