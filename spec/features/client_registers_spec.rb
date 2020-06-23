@@ -35,4 +35,25 @@ feature 'Client registers' do
     expect(page).to have_link('Entrar')
     expect(current_path).not_to eq(root_path)
   end
+
+  scenario 'and email must be uniq' do
+    client = build(:client)
+    client.save
+
+    visit root_path
+    click_on 'Entrar'
+    click_on 'Registrar-se'
+    fill_in 'Email', with: client.email
+    fill_in 'Senha', with: client.password
+    fill_in 'Confirmação de senha', with: client.password
+    within 'form' do
+      click_on 'Registrar-se'
+    end
+
+    expect(page).to have_content('Email já está em uso')    
+    expect(page).not_to have_link('Sair')
+    expect(page).to have_link('Entrar')
+    expect(current_path).not_to eq(root_path)
+  end
+
 end
