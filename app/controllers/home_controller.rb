@@ -1,13 +1,11 @@
 class HomeController < ApplicationController
-  def index 
+  def index
     @plans = Plan.all
   end
-  
-  private 
+
+  private
 
   def authenticate_visitor
-    if not client_signed_in? 
-      redirect_to root_path
-    end
+    return unless client_signed_in? redirect_to root_path
   end
 end

@@ -1,16 +1,16 @@
 <% @plans.each do |p| %>
 <dl>
-  <dt><%= Plan.human_attribute_name('platform') %></dt>
+  <dt>Plataforma: </dt>
   <dd><%= p.platform %></dd>
-  <dt><%= Plan.human_attribute_name('price') %></dt>
+  <dt>Preço: </dt>
   <dd><%= p.price %></dd>
-  <dt><%= Plan.human_attribute_name('limit_monthly') %></dt>
+  <dt>Limite mensal: </dt>
   <dd><%= p.limit_monthly %></dd>
-  <dt><%= Plan.human_attribute_name('limit_daily') %></dt>
+  <dt>Limite diário: </dt>
   <dd><%= p.limit_daily %></dd>
-  <dt><%= Plan.human_attribute_name('cost') %></dt>
+  <dt>Custo: </dt>
   <dd><%= p.cost %> por mensagem</dd>
-  <dt><%= Plan.human_attribute_name('promo') %></dt>
+  <dt>Promoção: </dt>
   <dd><%= p.promo %></dd>
 </dl>
 <% end %>

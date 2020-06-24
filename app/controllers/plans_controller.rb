@@ -1,7 +1,4 @@
 class PlansController < ApplicationController
   before_action :authenticate_client!
-  def index   
-  end
-
-  
+  def index; end
 end
