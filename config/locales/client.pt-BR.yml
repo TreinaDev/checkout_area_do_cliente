@@ -1,8 +1,23 @@
+---
 pt-BR:
   activerecord:
     models:
-      client: Cliente 
+      client:
+        one: Cliente
+        other: Clientes
     attributes:
       client:
         email: Email
         password: Senha
+        password_confirmation: Confirmação de senha
+  clients:
+    shared:
+      links:
+        sign_up: Registrar-se       
+    registrations:
+      new:
+        sign_up: Registrar-se
+  layouts:
+    application:
+      sign_in: Entrar
+      sign_out: Sair

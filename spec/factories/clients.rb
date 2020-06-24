@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :client do
-    email { 'client@email.com' }
-        
+    email { Faker::Internet.email }
+    password { '123456' }
   end
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Client logs in' do
   scenario 'sucessfully' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
+    create(:client, email: 'teste@teste.com', password: '123456')
 
     visit root_path
     click_on 'Entrar'
@@ -14,7 +14,7 @@ feature 'Client logs in' do
     expect(page).not_to have_link('Entrar')
     expect(page).to have_link('Sair')
   end
-  scenario 'logs out' do 
+  scenario 'logs out' do
     client = create(:client, email: 'teste@teste.com', password: '123456')
 
     login_as client, scope: :client
@@ -27,5 +27,4 @@ feature 'Client logs in' do
     expect(page).not_to have_link('Sair')
     expect(page).to have_link('Entrar')
   end
-
 end

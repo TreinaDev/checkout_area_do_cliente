@@ -13,12 +13,11 @@
     <%= render partial: 'shared/flashes' %>
     <nav>
     <% if client_signed_in?%>
-      <%= link_to 'Sair', destroy_client_session_path, method: :delete %>
+      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
     <% else %>
-      <%= link_to 'Entrar', new_client_session_path %>
-    <%end%>
-      
-    </nav>  
+      <%= link_to t('.sign_in'), new_client_session_path %>
+    <%end%>      
+    </nav>   
     <%= yield %>
   </body>
 </html>
