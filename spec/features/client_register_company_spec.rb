@@ -5,7 +5,6 @@ feature 'Client register company' do
     client_login
 
     visit root_path
-    click_on 'Minha conta'
 
     fill_in 'Nome fantasia',	with: 'Fantastico'
     fill_in 'Razão social',	with: 'Pilar com luz'

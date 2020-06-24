@@ -11,11 +11,11 @@
 
   <body>
     <% if client_signed_in? %>
-      <%= link_to t('.sign_out'), new_client_session_path %>
+      <%= link_to t('.sign_out'), new_client_session_path %>      
     <% else %>
       <%= link_to t('.sign_in'), new_client_session_path %>
     <% end %>
-    <%= render partial: 'shared/flashes' %>    
+    <%= render partial: 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>
