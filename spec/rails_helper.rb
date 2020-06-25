@@ -36,9 +36,15 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
+<<<<<<< HEAD
   config.include Warden::Test::Helpers
   config.include LoginHelper
+=======
+  config.include LoginHelper
+
+>>>>>>> b6d2cca56d72ba72aa5c87072550ddc245b9848b
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

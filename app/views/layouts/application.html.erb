@@ -10,6 +10,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <%= render partial: 'shared/flashes' %>
     <nav>
     <% if client_signed_in?%>
@@ -18,6 +19,14 @@
       <%= link_to t('.sign_in'), new_client_session_path %>
     <% end %>      
     </nav>   
+=======
+    <% if client_signed_in? %>
+      <%= link_to t('.sign_out'), new_client_session_path %>      
+    <% else %>
+      <%= link_to t('.sign_in'), new_client_session_path %>
+    <% end %>
+    <%= render partial: 'shared/flashes' %>
+>>>>>>> b6d2cca56d72ba72aa5c87072550ddc245b9848b
     <%= yield %>
   </body>
 </html>
