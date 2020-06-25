@@ -29,7 +29,7 @@ feature 'Visitor see plans in home page' do
   scenario 'by have not any plan register' do
     allow(Plan).to receive(:all).and_return([])
     visit root_path
-    expect(page).to have_content("Sem planos cadastrados")
+    expect(page).to have_content('Sem planos cadastrados')
   end
 
   scenario 'and cannot visit history unless be logged' do
