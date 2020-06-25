@@ -1,0 +1,23 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      employee:
+        one: Vendedores
+        other: Vendedores
+    attributes:
+      employee:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+  employees:
+    shared:
+      links:
+        sign_up: Registrar-se       
+    registrations:
+      new:
+        sign_up: Registrar-se
+  layouts:
+    application:
+      sign_in: Entrar
+      sign_out: Sair
