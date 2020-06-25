@@ -1,0 +1,10 @@
+<% @plans.each do |p| %>
+<dl>
+  <dd><%= p.platform %></dd>
+  <dd><%= p.price %></dd>
+  <dd><%= p.limit_monthly %></dd>
+  <dd><%= p.limit_daily %></dd>
+  <dd><%= p.cost %> por mensagem</dd>
+  <dd><%= p.promo %></dd>
+</dl>
+<% end %>
