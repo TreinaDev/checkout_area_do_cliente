@@ -26,13 +26,18 @@ feature 'Visitor see plans in home page' do
     expect(page).to have_content(plan2.promo)
   end
 
-  scenario 'Visitor cannot visit history unless be logged' do
+  scenario 'by have not any plan register' do
+    visit root_path
+    expect(page).to have_content("Sem planos cadastrados")
+  end
+
+  scenario 'and cannot visit history unless be logged' do
     visit plans_path
 
     expect(current_path).to eq(new_client_session_path)
   end
 
-  scenario 'Visitor cannot view history unless be logged' do
+  scenario 'and cannot view history unless be logged' do
     visit root_path
 
     expect(page).not_to have_link('Histórico de pedidos')

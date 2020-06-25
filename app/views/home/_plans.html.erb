@@ -1,16 +1,20 @@
-<% @plans.each do |p| %>
+<% if @plans.empty? %>
+  <p class="msg-error"><%= 'Sem planos cadastrados' %></p>
+<% end %>
+
+<% @plans.each do |plan| %>
 <dl>
   <dt>Plataforma: </dt>
-  <dd><%= p.platform %></dd>
+  <dd><%= plan.platform %></dd>
   <dt>Preço: </dt>
-  <dd><%= p.price %></dd>
+  <dd><%= plan.price %></dd>
   <dt>Limite mensal: </dt>
-  <dd><%= p.limit_monthly %></dd>
+  <dd><%= plan.limit_monthly %></dd>
   <dt>Limite diário: </dt>
-  <dd><%= p.limit_daily %></dd>
+  <dd><%= plan.limit_daily %></dd>
   <dt>Custo: </dt>
-  <dd><%= p.cost %> por mensagem</dd>
+  <dd><%= plan.cost %> por mensagem</dd>
   <dt>Promoção: </dt>
-  <dd><%= p.promo %></dd>
+  <dd><%= plan.promo %></dd>
 </dl>
 <% end %>
