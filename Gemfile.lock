@@ -67,8 +67,8 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
-    bcrypt (3.1.12)
-    bcrypt (3.1.12-java)
+    bcrypt (3.1.13)
+    bcrypt (3.1.13-java)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     bootsnap (1.4.6-java)
@@ -296,7 +296,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
-  bcrypt (~> 3.1.12)
+  bcrypt (~> 3.1.13)
   bootsnap (>= 1.4.2)
   capybara
   devise
