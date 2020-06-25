@@ -14,11 +14,11 @@ feature 'Client registers' do
       click_on 'Registrar-se'
     end
 
-    expect(page).to have_content(I18n.t('signed_up',
-                                        scope: %i[devise registrations]))
+    #expect(page).to have_content(I18n.t('signed_up',
+    #                                   scope: %i[devise registrations]))
     expect(page).to have_link('Sair')
     expect(page).not_to have_link('Entrar')
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(new_company_path)
   end
 
   scenario 'and fields cannot be blank' do

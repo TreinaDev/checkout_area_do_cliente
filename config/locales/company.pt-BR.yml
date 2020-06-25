@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      company:
+    attributes:
+      company:
+        fantasy_name: 'Nome fantasia'
+        corporate_name: 'Razão social'
+        email: 'Email da empresa'
+        document_number: 'CNPJ'
+        address: 'Endereço de faturamento'

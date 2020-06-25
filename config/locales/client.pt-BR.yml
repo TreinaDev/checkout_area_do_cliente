@@ -13,7 +13,7 @@ pt-BR:
   clients:
     shared:
       links:
-        sign_up: Registrar-se       
+        sign_up: Registrar-se
     registrations:
       new:
         sign_up: Registrar-se

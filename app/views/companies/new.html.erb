@@ -1,0 +1,25 @@
+<div class="text-center">
+    <h1>Minha conta</h1>
+</div>
+
+<% @company.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger" role="alert">
+        <p><%= message %></p>
+    </div>
+<% end %>
+
+<div class="form-group row">
+    <%= form_for @company, local: true do |f| %>
+        <%= f.label :fantasy_name %>
+        <%= f.text_field :fantasy_name %>
+        <%= f.label :corporate_name %>
+        <%= f.text_field :corporate_name %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.label :document_number %>
+        <%= f.text_field :document_number %>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+        <%= f.submit 'Enviar'%>
+    <% end %>
+</div>    

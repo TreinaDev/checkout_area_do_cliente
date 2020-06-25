@@ -16,7 +16,7 @@
       <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
     <% else %>
       <%= link_to t('.sign_in'), new_client_session_path %>
-    <%end%>      
+    <% end %>      
     </nav>   
     <%= yield %>
   </body>

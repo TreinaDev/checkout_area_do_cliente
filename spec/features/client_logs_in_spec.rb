@@ -10,7 +10,7 @@ feature 'Client logs in' do
     fill_in 'Senha', with: '123456'
     click_button 'Entrar'
 
-    expect(page).to have_content('Login efetuado com sucesso!')
+    expect(page).to have_content('Você ainda não completou a sua conta, para continuar finalize-a.')
     expect(page).not_to have_link('Entrar')
     expect(page).to have_link('Sair')
   end
