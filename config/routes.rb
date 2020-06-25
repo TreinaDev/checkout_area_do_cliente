@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :employees
   devise_for :clients
-
-  root to: 'home#index'  
+  resources :plans, only: [:index]
+  root to: 'home#index'
 end
