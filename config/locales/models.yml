@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      plan: Plano
+    attributes:
+      plan:
+        platform: Plataforma
+        cost: Custo
+        price: Preço
+        limit_monthly: Limite Mensal
+        limit_daily: Limite Diário
+        promo: Promoção

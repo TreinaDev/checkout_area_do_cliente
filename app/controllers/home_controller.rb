@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   before_action :complete_company
 
-  def index; end
+  def index
+    @plans = Plan.all
+  end
 end
