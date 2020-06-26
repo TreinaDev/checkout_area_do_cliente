@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :company do
-    fantasy_name { 'Mc Donalds' }
-    corporate_name { 'Arcos Dourados' }
+    fantasy_name { Faker::Company.name }
+    corporate_name { Faker::Company.name }
     email { Faker::Internet.email }
     document_number { Faker::Company.brazilian_company_number(formatted: true) }
     address { Faker::Address.city }

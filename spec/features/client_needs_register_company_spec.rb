@@ -6,7 +6,7 @@ feature 'Client do login' do
 
     visit root_path
 
-    expect(page).to have_content('Você ainda não completou a sua conta, para continuar finalize-a.')
+    expect(page).to have_content(I18n.t('check_company', scope: %i[company sessions]))
     expect(current_path).to eq new_company_path
   end
 

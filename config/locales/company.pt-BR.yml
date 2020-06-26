@@ -1,3 +1,4 @@
+---
 pt-BR:
   activerecord:
     models:
@@ -9,3 +10,7 @@ pt-BR:
         email: 'Email da empresa'
         document_number: 'CNPJ'
         address: 'Endereço de faturamento'
+
+  company:
+    sessions:
+      check_company: 'Voce ainda nao completou a sua conta, para continuar finalize-a.'
