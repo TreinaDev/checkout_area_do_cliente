@@ -5,5 +5,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     document_number { Faker::Company.brazilian_company_number(formatted: true) }
     address { Faker::Address.city }
+    client
   end
 end

@@ -24,7 +24,6 @@ feature 'Client register company' do
     client_login
 
     visit root_path
-    
     click_on 'Enviar'
 
     expect(page).to have_content('Nome fantasia não pode ficar em branco')
@@ -35,11 +34,10 @@ feature 'Client register company' do
   end
 
   scenario 'and fields must be unique' do
-    company = create(:company)
     client_login
+    company = create(:company)
 
     visit root_path
-    
     fill_in 'Nome fantasia',	with: company.fantasy_name
     fill_in 'Razão social',	with: company.corporate_name
     fill_in 'Email da empresa',	with: company.email

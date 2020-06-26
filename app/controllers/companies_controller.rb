@@ -6,8 +6,12 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @company.client = current_client
-    @company.save
-    redirect_to @company
+    if @company.save
+      flash[:alert] = 'Empresa criada com sucesso'
+      redirect_to @company
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -20,4 +24,3 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:fantasy_name, :corporate_name, :email, :document_number, :address)
   end
 end
-
