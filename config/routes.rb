@@ -4,7 +4,5 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :companies, only: %i[show new create]
-
-  resources :plans, only: [:index]
-  root to: 'home#index'
+  resources :plans, only: [:index]  
 end
