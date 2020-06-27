@@ -1,0 +1,35 @@
+/*Mobile*/
+
+.logo {
+	margin: 1%;
+}
+li {
+	list-style: none;
+}
+
+li a {
+	text-decoration: none;
+	color: black;
+}
+
+.h2-active-plans {
+	text-align: center;
+}
+
+.card-deck {
+	width: 80%; 
+	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.card-group .card .card-body {
+	padding: 5%;
+}
+
+/*Desktop*/
+@media screen and (min-width: 800px) {
+	.card-group {
+		width: 60%; 
+	}
+}

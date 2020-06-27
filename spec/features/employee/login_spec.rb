@@ -9,9 +9,9 @@ feature 'Employee login' do
     fill_in 'Email', with: 'vendedor@empresa.com'
     fill_in 'Senha', with: '123456'
 
-		within 'form' do
-			click_on 'Entrar como Vendedor'
-		end
+    within 'form' do
+      click_on 'Entrar como Vendedor'
+    end
 
     expect(page).to have_content('Login efetuado com sucesso!')
     expect(page).to have_link('Sair')
@@ -24,13 +24,13 @@ feature 'Employee login' do
     fill_in 'Email', with: ''
     fill_in 'Senha', with: ''
 
-		within 'form' do
-			click_on 'Entrar'
-		end
+    within 'form' do
+      click_on 'Entrar'
+    end
 
-		expect(page).to have_content('Email ou senha inválida.')
-		expect(page).not_to have_link('Sair')
-	end
+    expect(page).to have_content('Email ou senha inválida.')
+    expect(page).not_to have_link('Sair')
+  end
 
   scenario 'logs out' do
     employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
