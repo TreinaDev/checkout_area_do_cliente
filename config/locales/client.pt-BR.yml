@@ -11,6 +11,13 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
   clients:
+    sessions:
+      new:
+        sign_in: Entrar
+        email: Email
+        password: Senha
+        remember_me: Lembrar senha
+        password_confirmation: Confirmação de senha
     shared:
       links:
         sign_up: Registrar-se       
@@ -19,6 +26,5 @@ pt-BR:
         sign_up: Registrar-se
   layouts:
     application:
-      client:
-        sign_in: Entrar
-        sign_out: Sair
+      sign_in: Entrar
+      sign_out: Sair
