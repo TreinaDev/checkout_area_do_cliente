@@ -13,11 +13,9 @@ pt-BR:
   employees:
     shared:
       links:
-        sign_up: Registrar-se       
+        sign_up: Registrar-se  
+        sign_in: Sou vendedor
+        sign_out: Sair     
     registrations:
       new:
         sign_up: Registrar-se
-  layouts:
-    application:
-      sign_in: Entrar
-      sign_out: Sair

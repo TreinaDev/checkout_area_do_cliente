@@ -19,5 +19,6 @@ pt-BR:
         sign_up: Registrar-se
   layouts:
     application:
-      sign_in: Entrar
-      sign_out: Sair
+      client:
+        sign_in: Entrar
+        sign_out: Sair
