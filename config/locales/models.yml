@@ -23,3 +23,6 @@ pt-BR:
           checked: Pré-aprovado
           approved: Aprovado
           rejected: Rejeitado
+  layouts:
+    application:
+      orders: Pedidos

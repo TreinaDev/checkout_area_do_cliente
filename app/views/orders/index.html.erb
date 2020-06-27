@@ -1,0 +1,14 @@
+<% if @orders.empty? %>
+  <p class="msg-error"><%= 'Nenhum pedido cadastrado' %></p>
+<% end %>
+
+<% @orders.each do |order| %>
+<dl>
+  <dt>Token da Empresa: </dt>
+  <dd><%= order.token %></dd>
+  <dt>Status: </dt>
+  <dd><%= order.status %></dd>
+  <dt>Plano: </dt>
+  <dd><%= order.plan %></dd>
+</dl>
+<% end %>

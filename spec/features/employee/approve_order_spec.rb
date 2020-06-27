@@ -5,17 +5,17 @@ feature 'Employee approve order' do
     employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
     order = create(:order, status: 0)
     login_as employee, scope: :employee
-    visit root_path
-
+    visit plans_path
+    
     click_on 'Pedidos'
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(orders_path)
 
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
     expect(page).to have_link('Aprovar Pedido', href: approve_order(order))
 
     click_on 'Aprovar Pedido'
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(orders_path)
     expect(page).to have_content(order.plan)
     expect(page).to have_content(employee.email)
     expect(page).to have_content('Status: Pré-aprovado')
@@ -35,7 +35,7 @@ feature 'Employee approve order' do
     visit root_path
 
     click_on 'Pedidos'
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(orders_path)
 
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
@@ -43,7 +43,7 @@ feature 'Employee approve order' do
     expect(page).to have_link('Aprovar Pedido', href: approve_order(order))
 
     click_on 'Aprovar Pedido'
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(orders_path)
     expect(page).to have_content(order.plan)
     expect(page).to have_content(employee.email)
     expect(page).to have_content('Status: Aprovado')
@@ -61,7 +61,7 @@ feature 'Employee approve order' do
     visit root_path
 
     click_on 'Pedidos'
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(orders_path)
 
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
