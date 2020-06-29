@@ -12,7 +12,7 @@ feature 'Employee approve order' do
 
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
-    expect(page).to have_link('Aprovar Pedido', href: approve_order(order))
+    expect(page).to have_link('Aprovar Pedido', href: approve_order_path(order))
 
     click_on 'Aprovar Pedido'
     expect(current_path).to eq(orders_path)
@@ -40,7 +40,7 @@ feature 'Employee approve order' do
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
     expect(page).to have_content('Email do vendedor que pré-aprovou: ')
-    expect(page).to have_link('Aprovar Pedido', href: approve_order(order))
+    expect(page).to have_link('Aprovar Pedido', href: approve_order_path(order))
 
     click_on 'Aprovar Pedido'
     expect(current_path).to eq(orders_path)
@@ -65,7 +65,7 @@ feature 'Employee approve order' do
 
     expect(page).to have_content(order.plan)
     expect(page).to have_content(order.status)
-    expect(page).not_to have_link('Aprovar Pedido', href: approve_order(order))
+    expect(page).not_to have_link('Aprovar Pedido', href: approve_order_path(order))
     expect(page).to have_content('Status: Pré-aprovado')
 
     expect(page).not_to have_content('Status: Em aberto')

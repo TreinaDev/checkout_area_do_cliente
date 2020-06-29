@@ -3,12 +3,11 @@
 <% end %>
 
 <% @orders.each do |order| %>
-<dl>
-  <dt>Token da Empresa: </dt>
-  <dd><%= order.token %></dd>
-  <dt>Status: </dt>
-  <dd><%= order.status %></dd>
-  <dt>Plano: </dt>
-  <dd><%= order.plan %></dd>
-</dl>
+	<dl>
+		<dt>Token da Empresa: </dt>
+		<dd><%= order.token %></dd>
+		<dt>Plano: </dt>
+		<dd><%= order.plan %></dd>
+		<%= link_to 'Aprovar Pedido', new_aproved_path %>
+	</dl>
 <% end %>
