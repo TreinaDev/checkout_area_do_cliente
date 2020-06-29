@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :clients
 
   root to: 'home#index'
-  resources :companies, only: %i[show new create]
+  resources :companies, only: %i[show new create edit update]
   resources :plans, only: [:index]  
 end
