@@ -1,0 +1,21 @@
+<% if @order_clients.empty? %>
+  <p class="msg-error"><%= 'Nenhum pedido cadastrado' %></p>
+<% end %>
+
+<% @aproved.each do |content| %>
+	<dl>
+		<dd><%= content.order_client.token %></dd>
+		<dd><%= content.employee.email %></dd>
+	</dl>
+<% end %>
+
+<% @order_clients.each do |order| %>
+	<dl>
+		<dt>Token da Empresa: </dt>
+		<dd><%= order.token %></dd>
+		<dt>Plano: </dt>
+		<dt>Status: </dt>
+		<dd><%= order.plan %></dd>
+		<%= link_to 'Aprovar Pedido', new_aproved_path, id: "link_to_aproved_#{order.id}" %>
+	</dl>
+<% end %>

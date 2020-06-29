@@ -25,4 +25,4 @@ pt-BR:
           rejected: Rejeitado
   layouts:
     application:
-      orders: Pedidos
+      order_clients: Pedidos

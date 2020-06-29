@@ -14,7 +14,7 @@
     <nav>
 	    <% if employee_signed_in? %>
 	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
-				<%= link_to t('.orders'), orders_path %>
+				<%= link_to t('.order_clients'), order_clients_path %>
 	    <% else %> 
 	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
 	    <% end %>
