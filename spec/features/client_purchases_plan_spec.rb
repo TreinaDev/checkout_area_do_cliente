@@ -7,7 +7,7 @@ feature 'Client purchases a plan' do
     login_as client, scope: :client
     visit root_path
 
-    all('a', text: 'Comprar')[0].click
+    first('a', text: 'Comprar').click
 
     order = Order.last
     expect(order.client).to eq(client)
@@ -18,7 +18,7 @@ feature 'Client purchases a plan' do
   scenario 'must be logged in' do
     visit root_path
 
-    first('a', text:'Comprar').click
+    first('a', text: 'Comprar').click
 
     expect(page).to have_content('Para continuar, efetue login ou registre-se.')
     expect(current_path).to eq(new_client_session_path)
