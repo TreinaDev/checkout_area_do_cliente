@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :companies, only: %i[show new create edit update]
-  resources :plans, only: [:index]  
+  resources :plans, only: [:index]
 end
