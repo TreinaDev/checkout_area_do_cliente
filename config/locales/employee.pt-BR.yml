@@ -2,30 +2,30 @@
 pt-BR:
   activerecord:
     models:
-      client:
-        one: Cliente
-        other: Clientes
+      employee:
+        one: Vendedores
+        other: Vendedores
     attributes:
-      client:
+      employee:
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
-  clients:
+        remember_me: Lembrar senha
+  employees:
     sessions:
       new:
-        sign_in: Entrar
+        sign_in: Entrar como Vendedor
         email: Email
         password: Senha
         remember_me: Lembrar senha
         password_confirmation: Confirmação de senha
     shared:
       links:
-        sign_up: Registrar-se
+        sign_up: Registrar-se       
     registrations:
       new:
         sign_up: Registrar-se
   layouts:
     application:
-      sign_in: Entrar
+      employee_sign_in: Sou vendedor
       sign_out: Sair
-      my_account: Minha conta

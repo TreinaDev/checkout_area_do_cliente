@@ -12,13 +12,18 @@
   <body>
     <%= render partial: 'shared/flashes' %>
     <nav>
-      <% if client_signed_in?%>
-        <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
-      <% else %>
-        <%= link_to t('.sign_in'), new_client_session_path %>
-      <% end %>      
-    </nav>
-  </body>
+	    <% if employee_signed_in? %>
+	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
+	    <% else %> 
+	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
+	    <% end %>
+
+	    <% if client_signed_in? %>
+	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
+	    <% else %>
+	      <%= link_to t('.sign_in'), new_client_session_path %>
+	    <% end %>      
+    </nav>   
     <%= yield %>
   </body>
 </html>
