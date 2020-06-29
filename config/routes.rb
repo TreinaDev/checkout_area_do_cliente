@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :employees
   devise_for :clients
-  resources :plans, only: [:index]
+
   root to: 'home#index'
+  resources :companies, only: %i[show new create]
+  resources :plans, only: [:index]  
 end
