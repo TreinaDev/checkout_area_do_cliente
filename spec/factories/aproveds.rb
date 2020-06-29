@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :aproved do
-    order_client { nil }
-    employee { nil }
+    order_client { order_client.id }
+    employee
   end
 end

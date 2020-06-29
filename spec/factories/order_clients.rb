@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order_client do
-    token { "MyString" }
-    plan { nil }
+    token { Faker::Code.nric }
+    plan { Faker::Name.unique.name }
   end
 end
