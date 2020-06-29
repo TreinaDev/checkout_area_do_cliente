@@ -10,14 +10,14 @@ feature 'Client do login' do
     expect(current_path).to eq new_company_path
   end
 
-  scenario 'and need register your company' do
+  scenario 'and registered your company' do
     client_login
     create(:company, client: client_login)
 
     visit root_path
 
     expect(current_path).to eq root_path
-    expect(page).not_to have_content('Você ainda não completou a sua conta, para continuar finalize-a.')
+    expect(page).not_to have_content(I18n.t('check_company', scope: %i[company sessions]))
     expect(current_path).not_to eq new_company_path
   end
 end

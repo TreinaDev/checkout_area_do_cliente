@@ -6,11 +6,11 @@ feature 'Client register company' do
 
     visit root_path
 
-    fill_in 'Nome fantasia',	with: 'Fantastico'
+    fill_in 'Nome fantasia', with: 'Fantastico'
     fill_in 'Razão social',	with: 'Pilar com luz'
     fill_in 'Email da empresa',	with: 'adm@fantastico.com.br'
     fill_in 'CNPJ',	with: '38.998.846/0001-35'
-    fill_in 'Endereço de faturamento',	with: 'Rua dos carros N24'
+    fill_in 'Endereço de faturamento', with: 'Rua dos carros N24'
     click_on 'Enviar'
 
     expect(page).to have_content('Nome fantasia: Fantastico')
@@ -38,11 +38,11 @@ feature 'Client register company' do
     company = create(:company)
 
     visit root_path
-    fill_in 'Nome fantasia',	with: company.fantasy_name
+    fill_in 'Nome fantasia', with: company.fantasy_name
     fill_in 'Razão social',	with: company.corporate_name
-    fill_in 'Email da empresa',	with: company.email
+    fill_in 'Email da empresa', with: company.email
     fill_in 'CNPJ',	with: company.document_number
-    fill_in 'Endereço de faturamento',	with: company.address
+    fill_in 'Endereço de faturamento', with: company.address
     click_on 'Enviar'
 
     expect(page).to have_content('Nome fantasia já está em uso')

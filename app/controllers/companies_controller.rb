@@ -4,14 +4,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    @company.client = current_client
-    if @company.save
-      flash[:alert] = 'Empresa criada com sucesso'
-      redirect_to @company
-    else
-      render 'new'
-    end
+    @company = current_client.build_company(company_params)
+    return passed if @company.save
+
+    render 'new'
   end
 
   def show
@@ -22,5 +18,10 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:fantasy_name, :corporate_name, :email, :document_number, :address)
+  end
+
+  def passed
+    flash[:alert] = 'Empresa criada com sucesso'
+    redirect_to @company
   end
 end
