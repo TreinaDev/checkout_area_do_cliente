@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 2020_06_29_194927) do
   create_table "plans", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "platform"
+    t.float "price"
+    t.integer "limit_daily"
+    t.integer "limit_monthly"
+    t.float "cost"
+    t.string "promo"
   end
 
   add_foreign_key "aproveds", "employees"
