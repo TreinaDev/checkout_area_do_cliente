@@ -18,3 +18,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+Metrics/ParameterLists:
+  Max: 6

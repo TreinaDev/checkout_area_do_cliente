@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :orders, only: %i[show create]
+  resources :plans, only: [:index]
 end
