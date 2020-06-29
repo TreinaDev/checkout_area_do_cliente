@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_194927) do
+ActiveRecord::Schema.define(version: 2020_06_29_202311) do
 
   create_table "aproveds", force: :cascade do |t|
     t.integer "order_client_id", null: false
@@ -50,15 +50,16 @@ ActiveRecord::Schema.define(version: 2020_06_29_194927) do
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
 
+  create_table "order_clients", force: :cascade do |t|
+    t.string "token"
+    t.string "plan"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "platform"
-    t.float "price"
-    t.integer "limit_daily"
-    t.integer "limit_monthly"
-    t.float "cost"
-    t.string "promo"
   end
 
   add_foreign_key "aproveds", "employees"
