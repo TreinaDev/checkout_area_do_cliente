@@ -12,15 +12,12 @@ pt-BR:
         limit_monthly: Limite Mensal
         limit_daily: Limite Diário
         promo: Promoção
-      order:
+      order_client:
         token: Token
         plan: Plano
         status: Status
-        first_employee: Primeiro Vendedor
-        second_employee: Segundo Vendedor
-        order/status:
-          open: Em aberto
-          checked: Pré-aprovado
+        order_client/status:
+          waiting: Em aberto
           approved: Aprovado
           rejected: Rejeitado
   layouts:

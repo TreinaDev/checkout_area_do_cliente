@@ -1,3 +1,3 @@
 class OrderClient < ApplicationRecord
-	enum status: { waiting: "Em espera", accepted: "Aceito", reject: "Rejeitado" }
+	enum status: { waiting: 0, approved: 1, rejected: 2 }
 end
