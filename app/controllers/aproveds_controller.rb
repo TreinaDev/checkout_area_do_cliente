@@ -1,11 +1,9 @@
 class AprovedsController < ApplicationController
-  def new
-    @aproved = Aproved.new
-    redirect_to plans_path
-  end
-
   def create
-    @aproveds = Aproved.create(require_params)
+    @order_client = OrderClient.find(params[:id])
+    @order_client.create_aproved(require_params)
+
+    redirect_to order_clients_path
   end
 
   private

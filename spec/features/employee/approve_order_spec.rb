@@ -14,7 +14,7 @@ feature 'Employee approve order' do
     expect(page).to have_content(order.plan)
     expect(page).to have_content('Status: Em aberto')
     expect(page).not_to have_content('Status: Aprovado')
-    expect(page).to have_link('Aprovar Pedido', href: new_approved_path)
+    expect(page).to have_link('Aprovar Pedido', href: order_clients_path)
 
     click_on 'Aprovar Pedido'
     expect(current_path).to eq(order_clients_path)
