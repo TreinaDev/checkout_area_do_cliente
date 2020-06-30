@@ -4,11 +4,10 @@ class ApplicationController < ActionController::Base
   private
 
   def complete_company
-    if current_client && current_client.company.nil?
-      redirect_to new_company_path
-      flash[:alert] = I18n.t('check_company', scope: %i[company sessions])
-    else
-      true
-    end
+    return unless current_client
+    return if current_client && current_client.company.present?
+
+    redirect_to new_company_path, alert: t('check_company',
+                                           scope: %i[company sessions])
   end
 end

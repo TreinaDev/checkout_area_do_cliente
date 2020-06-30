@@ -50,4 +50,10 @@ feature 'Client register company' do
     expect(page).to have_content('Email da empresa já está em uso')
     expect(page).to have_content('CNPJ já está em uso')
   end
+
+  scenario 'end must be signed in' do
+    visit new_company_path
+
+    expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+  end
 end

@@ -2,10 +2,9 @@ require 'rails_helper'
 
 feature 'client purchases a plan' do
   scenario 'sucessfully' do
-    client = create(:client)
-    company = create(:company, client: client)
+    client = client_login
+    create(:company, client: client)
 
-    login_as client, scope: :client
     visit root_path
 
     first('a', text: 'Comprar').click
@@ -26,7 +25,7 @@ feature 'client purchases a plan' do
   end
 
   scenario 'client not have company' do
-    login_helper
+    client_login
 
     visit root_path
 
