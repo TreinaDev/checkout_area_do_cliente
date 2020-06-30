@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :orders, only: %i[show create]
   resources :plans, only: [:index]
+  resources :promos, only: %i[index new create]
 end

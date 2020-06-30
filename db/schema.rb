@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_191400) do
+ActiveRecord::Schema.define(version: 2020_06_30_214906) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2020_06_25_191400) do
   end
 
   create_table "plans", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "promos", force: :cascade do |t|
+    t.string "title"
+    t.integer "discount"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "limit_order", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
