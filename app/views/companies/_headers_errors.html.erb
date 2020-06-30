@@ -1,0 +1,9 @@
+<div class="text-center">
+    <h1>Minha conta</h1>
+</div>
+
+<% @company.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger" role="alert">
+        <p><%= message %></p>
+    </div>
+<% end %>

@@ -1,58 +1,62 @@
 require 'rails_helper'
 
 feature 'Company CNPJ validator' do
-  scenario 'in new' do
-    client_login
+  context 'new' do
+    scenario 'numbers invalid' do
+      client_login
 
-    visit root_path
+      visit root_path
 
-    fill_in 'CNPJ', with: '123'
-    click_on 'Enviar'
+      fill_in 'CNPJ', with: '123'
+      click_on 'Enviar'
 
-    expect(page).to have_content('CNPJ não é valido')
+      expect(page).to have_content('CNPJ não é valido')
+    end
+
+    scenario 'put letters' do
+      client_login
+      create(:company, client: client_login)
+
+      visit root_path
+
+      click_on 'Minha conta'
+      click_on 'Editar'
+      fill_in 'CNPJ', with: 'abc'
+      click_on 'Enviar'
+
+      expect(page).to have_content('CNPJ não é valido')
+    end
   end
 
-  scenario 'in new' do
-    client_login
-    create(:company, client: client_login)
+  context 'show' do
+    scenario 'numbers invalid' do
+      client_login
+      create(:company, client: client_login)
 
-    visit root_path
+      visit root_path
 
-    click_on 'Minha conta'
-    click_on 'Editar'
+      click_on 'Minha conta'
+      click_on 'Editar'
 
-    fill_in 'CNPJ', with: '123'
-    click_on 'Enviar'
+      fill_in 'CNPJ', with: '123'
+      click_on 'Enviar'
 
-    expect(page).to have_content('CNPJ não é valido')
-  end
+      expect(page).to have_content('CNPJ não é valido')
+    end
 
-  scenario 'in new' do
-    client_login
-    create(:company, client: client_login)
+    scenario 'put letters' do
+      client_login
+      create(:company, client: client_login)
 
-    visit root_path
+      visit root_path
 
-    click_on 'Minha conta'
-    click_on 'Editar'
-    fill_in 'CNPJ', with: 'abc'
-    click_on 'Enviar'
+      click_on 'Minha conta'
+      click_on 'Editar'
 
-    expect(page).to have_content('CNPJ não é valido')
-  end
+      fill_in 'CNPJ', with: '123'
+      click_on 'Enviar'
 
-  scenario 'in new' do
-    client_login
-    create(:company, client: client_login)
-
-    visit root_path
-
-    click_on 'Minha conta'
-    click_on 'Editar'
-
-    fill_in 'CNPJ', with: '123'
-    click_on 'Enviar'
-
-    expect(page).to have_content('CNPJ não é valido')
+      expect(page).to have_content('CNPJ não é valido')
+    end
   end
 end

@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :complete_company, only: %i[show edit]
+
   def new
     @company = Company.new
   end
@@ -32,7 +34,8 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:fantasy_name, :corporate_name, :email, :document_number, :address)
+    params.require(:company).permit(:fantasy_name, :corporate_name,
+                                    :email, :document_number, :address)
   end
 
   def passed
