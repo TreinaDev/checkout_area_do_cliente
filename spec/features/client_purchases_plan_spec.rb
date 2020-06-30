@@ -11,7 +11,7 @@ feature 'Client purchases a plan' do
 
     order = Order.last
     expect(order.client).to eq(client)
-    expect(order.plan).to eq('1')
+    expect(order.plan_id).to eq(1)
     expect(page).to have_content('Compra efetuada com sucesso')
   end
 
