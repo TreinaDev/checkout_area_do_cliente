@@ -2,11 +2,20 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
-    plan = Plan.new(id: '1', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
-                    limit_monthly: 18_000, cost: 0.80,
-                    promo: 'Promoção Whatsapp')
-    plan2 = Plan.new(id: '2', platform: 'Facebook', price: 3000.00, limit_daily: 400,
-                     limit_monthly: 10_000, cost: 0.50,
+    plan = Plan.new(id: '1',
+                    platform: 'Facebook',
+                    price: 3000.00,
+                    limit_daily: 400,
+                    limit_monthly: 10_000,
+                    cost: 0.50,
+                    promo: 'Promoção Facebook')
+
+    plan2 = Plan.new(id: '2',
+                     platform: 'Facebook',
+                     price: 3000.00,
+                     limit_daily: 400,
+                     limit_monthly: 10_000,
+                     cost: 0.50,
                      promo: 'Promoção Facebook')
 
     visit root_path
@@ -26,21 +35,15 @@ feature 'Visitor see plans in home page' do
     expect(page).to have_content(plan2.promo)
   end
 
-  scenario 'by have not any plan register' do
-    allow(Plan).to receive(:all).and_return([])
-    visit root_path
-    expect(page).to have_content('Sem planos cadastrados')
-  end
-
-  scenario 'and cannot visit history unless be logged' do
+  scenario 'Visitor cannot visit history unless be logged' do
     visit plans_path
 
     expect(current_path).to eq(new_client_session_path)
   end
 
-  scenario 'and cannot view history unless be logged' do
+  scenario 'Visitor cannot view history unless be logged' do
     visit root_path
 
-    expect(page).not_to have_link('Histórico de pedidos')
+    expect(page).not_to have_link('HIstórico de pedidos')
   end
 end
