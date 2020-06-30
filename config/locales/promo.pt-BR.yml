@@ -1,0 +1,17 @@
+---
+pt-BR:
+  controllers: 
+    promos: 
+      create: 
+        flash: 
+          notice: 'Promoção cadastrada com sucesso'
+  activerecord:
+    models:
+      promo: Promoção
+    attributes:
+      promo:
+        title: Título
+        discount: Desconto em (%)
+        start_date: Data de Início
+        end_date: Data de Término
+        limit_order: Limite de pedidos

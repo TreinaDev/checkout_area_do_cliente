@@ -1,0 +1,1 @@
+Employee.create(email:'first@teste.com',password:'123456')
