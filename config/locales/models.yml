@@ -11,18 +11,7 @@ pt-BR:
         price: Preço
         limit_monthly: Limite Mensal
         limit_daily: Limite Diário
-        promo: Promoção
-      order:
-        token: Token
-        plan: Plano
-        status: Status
-        first_employee: Primeiro Vendedor
-        second_employee: Segundo Vendedor
-        order/status:
-          open: Em aberto
-          checked: Pré-aprovado
-          approved: Aprovado
-          rejected: Rejeitado
+        promo: Promoção      
   layouts:
     application:
       order_clients: Pedidos

@@ -10,6 +10,11 @@
 		<dd><%= order.plan %></dd>
 		<dt>Status: </dt>
 		<dd><%= OrderClient.human_attribute_name("status.#{order.status}") %></dd>
+		<% @aproveds.each do |content| %>
+			<% if order.token === content.order_client.token %>
+				<dd>Pedido Aprovado</dd>
+			<% end %>
+		<% end %>
 		<%= link_to 'Aprovar Pedido', new_aproved_path, id: "link_to_aproved_#{order.id}" %>
 	</dl>
 <% end %>
