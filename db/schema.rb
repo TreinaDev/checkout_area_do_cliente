@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_185204) do
+ActiveRecord::Schema.define(version: 2020_06_30_212606) do
 
-  create_table "aproveds", force: :cascade do |t|
+  create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
-    t.integer "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_id"], name: "index_aproveds_on_employee_id"
-    t.index ["order_client_id"], name: "index_aproveds_on_order_client_id"
+    t.index ["order_client_id"], name: "index_approved_orders_on_order_client_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -63,6 +61,5 @@ ActiveRecord::Schema.define(version: 2020_06_30_185204) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "aproveds", "employees"
-  add_foreign_key "aproveds", "order_clients"
+  add_foreign_key "approved_orders", "order_clients"
 end

@@ -6,9 +6,9 @@ pt-BR:
       order_client: Pedido
     attributes:
       order_client/status:
-        waiting: Em aberto
-        accepted: Pedido aceito
-        rejected: Pedido rejeitado
+        waiting: Aguardando aprovação
+        accepted: Aprovado
+        rejected: Rejeitado
       order_client:
         token: Token
         plan: Plano
