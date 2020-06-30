@@ -14,3 +14,4 @@ pt-BR:
   company:
     sessions:
       check_company: 'Você ainda não completou a sua conta, para continuar finalize-a.'
+      company_created: 'Empresa criada com sucesso.'
