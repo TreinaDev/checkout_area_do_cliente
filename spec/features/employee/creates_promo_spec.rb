@@ -10,7 +10,7 @@ feature 'Employee creates a promo' do
 
     fill_in 'Título', with: 'Promoção da Quarentena'
     fill_in 'Desconto em (%)', with: 30
-    fill_in 'Data de Início', with: Date.today
+    fill_in 'Data de Início', with: Time.zone.today
     fill_in 'Data de Término', with: 7.days.from_now
     fill_in 'Limite de pedidos', with: 100
     click_on 'Enviar'
@@ -26,7 +26,7 @@ feature 'Employee creates a promo' do
     click_on 'Cadastrar promoção'
     fill_in 'Título', with: ''
     fill_in 'Desconto em (%)', with: 30
-    fill_in 'Data de Início', with: Date.today
+    fill_in 'Data de Início', with: Time.zone.today
     fill_in 'Data de Término', with: 7.days.from_now
     fill_in 'Limite de pedidos', with: 100
     click_on 'Enviar'
@@ -34,7 +34,7 @@ feature 'Employee creates a promo' do
     expect(page).to have_content('Título não pode ficar em branco')
     expect(current_path).to eq(promos_path)
   end
-  
+
   scenario 'Discount cannot be more or equal to 100' do
     employee = create(:employee)
     login_as employee, scope: :employee
@@ -43,7 +43,7 @@ feature 'Employee creates a promo' do
     click_on 'Cadastrar promoção'
     fill_in 'Título', with: 'Promoção da Quarentena'
     fill_in 'Desconto em (%)', with: 101
-    fill_in 'Data de Início', with: Date.today
+    fill_in 'Data de Início', with: Time.zone.today
     fill_in 'Data de Término', with: 7.days.from_now
     fill_in 'Limite de pedidos', with: 100
     click_on 'Enviar'
@@ -53,7 +53,7 @@ feature 'Employee creates a promo' do
   end
 
   scenario 'Start date cannot be in the past' do
-  employee = create(:employee)
+    employee = create(:employee)
     login_as employee, scope: :employee
 
     visit root_path
