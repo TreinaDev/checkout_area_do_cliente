@@ -16,6 +16,7 @@
 	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
 	    <% else %> 
 	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
+        <%= link_to 'Cadastrar promoção', new_promo_path %>
 	    <% end %>
 
 	    <% if client_signed_in? %>
