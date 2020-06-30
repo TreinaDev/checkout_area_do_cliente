@@ -2,14 +2,16 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
-    plan = Plan.new(platform: 'Facebook',
+    plan = Plan.new(id: '1',
+                    platform: 'Facebook',
                     price: 3000.00,
                     limit_daily: 400,
                     limit_monthly: 10_000,
                     cost: 0.50,
                     promo: 'Promoção Facebook')
 
-    plan2 = Plan.new(platform: 'Facebook',
+    plan2 = Plan.new(id: '2',
+                     platform: 'Facebook',
                      price: 3000.00,
                      limit_daily: 400,
                      limit_monthly: 10_000,
