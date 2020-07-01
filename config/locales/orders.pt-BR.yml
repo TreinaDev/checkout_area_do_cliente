@@ -9,4 +9,8 @@ pt-BR:
     attributes:
       order:
         plan: plano
-    flash:
+        promo/status:
+          open: Em aberto
+          rejected: Negado
+          accepted: Aceito
+          canceled: Cancelado

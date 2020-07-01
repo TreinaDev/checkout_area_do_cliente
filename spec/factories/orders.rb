@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :order do
     plan { 'MyString' }
-    client { nil }
+    client
+    status { 0 }
   end
 end
