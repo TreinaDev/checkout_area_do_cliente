@@ -15,6 +15,7 @@ feature 'Employee login' do
 
     expect(page).to have_content('Login efetuado com sucesso!')
     expect(page).to have_link('Sair')
+    expect(page).not_to have_link('Sou vendedor')
   end
 
   scenario 'and must fill in all fields' do
@@ -42,6 +43,40 @@ feature 'Employee login' do
     click_on 'Sair'
 
     expect(page).to have_content('Saiu com sucesso.')
+    expect(page).not_to have_link('Sair')
+    expect(page).to have_link('Entrar')
+  end
+
+  scenario 'with email wrong' do
+    create(:employee, email: 'vendedor@empresa.com', password: '123456')
+
+    visit root_path
+    click_on 'Sou vendedor'
+    fill_in 'Email', with: 'email@empresa.com'
+    fill_in 'Senha', with: '123456'
+
+    within 'form' do
+      click_on 'Entrar como Vendedor'
+    end
+
+    expect(page).to have_content('Email ou senha inválida.')
+    expect(page).not_to have_link('Sair')
+    expect(page).to have_link('Entrar')
+  end
+
+  scenario 'with password wrong' do
+    create(:employee, email: 'vendedor@empresa.com', password: '123456')
+
+    visit root_path
+    click_on 'Sou vendedor'
+    fill_in 'Email', with: 'vendedor@empresa.com'
+    fill_in 'Senha', with: '123457'
+
+    within 'form' do
+      click_on 'Entrar como Vendedor'
+    end
+
+    expect(page).to have_content('Email ou senha inválida.')
     expect(page).not_to have_link('Sair')
     expect(page).to have_link('Entrar')
   end

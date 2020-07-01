@@ -1,4 +1,4 @@
-<h2>Entrar</h2>
+<%= t('.sign_in') %>
 
 <div class="form">
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,7 +20,7 @@
 	  <% end %>
 
 	  <div class="actions">
-	    <%= f.submit "Entrar como Vendedor" %>
+	    <%= f.submit t('.sign_in') %>
 	  </div>
 	<% end %>
 

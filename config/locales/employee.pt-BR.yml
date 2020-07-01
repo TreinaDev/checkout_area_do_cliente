@@ -10,7 +10,15 @@ pt-BR:
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
+        remember_me: Lembrar senha
   employees:
+    sessions:
+      new:
+        sign_in: Entrar como Vendedor
+        email: Email
+        password: Senha
+        remember_me: Lembrar senha
+        password_confirmation: Confirmação de senha
     shared:
       links:
         sign_up: Registrar-se       
@@ -19,5 +27,5 @@ pt-BR:
         sign_up: Registrar-se
   layouts:
     application:
-      sign_in: Entrar
+      employee_sign_in: Sou vendedor
       sign_out: Sair
