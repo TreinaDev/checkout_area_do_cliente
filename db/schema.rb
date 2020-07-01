@@ -56,10 +56,19 @@ ActiveRecord::Schema.define(version: 2020_06_30_212606) do
     t.integer "status", default: 0
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "plan_id"
+    t.integer "client_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+  end
+
   create_table "plans", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "approved_orders", "order_clients"
+  add_foreign_key "orders", "clients"
 end
