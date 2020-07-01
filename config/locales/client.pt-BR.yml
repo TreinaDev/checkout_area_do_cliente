@@ -20,7 +20,7 @@ pt-BR:
         password_confirmation: Confirmação de senha
     shared:
       links:
-        sign_up: Registrar-se       
+        sign_up: Registrar-se
     registrations:
       new:
         sign_up: Registrar-se
@@ -28,3 +28,4 @@ pt-BR:
     application:
       sign_in: Entrar
       sign_out: Sair
+      my_account: Minha conta
