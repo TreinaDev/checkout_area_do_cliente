@@ -30,6 +30,7 @@ feature 'Employee view orders' do
     expect(page).not_to have_content('Status: Aprovado')
     expect(page).to have_link('Aprovar Pedido', href: order_client_approved_orders_path(order.id))
   end
+  
   scenario 'and not view details of other order' do
     employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
     login_as employee, scope: :employee
