@@ -14,19 +14,19 @@
 
   <body>
     <%= render partial: 'shared/flashes' %>
-    <nav>
+    <nav class="menu">
 	    <% if employee_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
+	      <li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
 	    <% else %> 
-	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
-        <%= link_to 'Cadastrar promoção', new_promo_path %>
+	      <li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>
+        <li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
 	    <% end %>
 
 	    <% if client_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
-        <%= link_to 'Minha conta', current_client.company %>
+	      <li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
+        <li><%= link_to 'Minha conta', current_client.company %></li>
 	    <% else %>
-	      <%= link_to t('.sign_in'), new_client_session_path %>
+	      <li><%= link_to t('.sign_in'), new_client_session_path %></li>
 	    <% end %>      
     </nav>   
     <%= yield %>
