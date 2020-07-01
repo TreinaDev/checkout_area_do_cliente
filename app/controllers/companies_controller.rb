@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_client!
+  before_action :complete_company, only: %i[show edit]
 
   def new
     @company = Company.new
@@ -15,6 +16,21 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+  end
+
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    @company.update(company_params)
+    if @company.save
+      flash[:alert] = 'Empresa editada com sucesso'
+      redirect_to @company
+    else
+      render 'edit'
+    end
   end
 
   private
