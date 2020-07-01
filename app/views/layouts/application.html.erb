@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'home_page', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!--Icon-->
@@ -15,22 +14,20 @@
 
   <body>
     <%= render partial: 'shared/flashes' %>
-		<nav>
-			<img class="logo" src="https://cdn.pixabay.com/photo/2017/10/24/00/39/bot-icon-2883144_1280.png" 
-								 width="50" height="50"/>
+		<nav class="menu">
 			<ul>
 				<li><%= link_to 'Home', root_path %></li>
 				<% if employee_signed_in? %>
-					<li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
+					<li class="li-sair"><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
 				<% end %> 
 
 				<% if client_signed_in? %>
-					<li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
+					<li class="li-sair"><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
 				<% else %>
 					<li><%= link_to t('.sign_in'), new_client_session_path %></li>
 					<li><%= link_to 'Sou vendedor', new_employee_session_path %></li>
 				<% end %> 
-				</ul>    
+			</ul>    
 		</nav>
     <%= yield %>
   </body>
