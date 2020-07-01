@@ -3,10 +3,11 @@ require 'rails_helper'
 feature 'Client purchases a plan' do
   scenario 'sucessfully' do
     client = create(:client)
-
     login_as client, scope: :client
-    visit root_path
+    create(:company, client: client)
 
+    visit root_path
+    expect(current_path).to eq(root_path)
     first('a', text: 'Comprar').click
 
     order = Order.last
