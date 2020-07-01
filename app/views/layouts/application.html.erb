@@ -5,35 +5,28 @@
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= stylesheet_link_tag 'home_page', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
       <!--Icon-->
       <link rel="icon" href="https://valepublicitando.com/wp-content/uploads/2018/01/bot-icon-2883144_640.png">
    </head>
    <body>      
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
-            <div class="navbar-header">
-               <%= link_to 'Home', root_path, {:class => "active"} %>
-            </div>
-            <ul class="nav navbar-nav">
-               	<% if employee_signed_in? || client_signed_in >                                                                  
-					<% if employee_signed_in? %>                  
+      <nav class="menu">
+        <li><%= link_to 'Home', root_path, {:class => "active"} %></li>
+        <% if employee_signed_in? || client_signed_in? %>                                                                  
+				  <% if employee_signed_in? %>                  
 						<li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
 						<li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
 					<% end %>
-					<% if client_signed_in? && current_client.company  %>                  
+					<% if client_signed_in? %>                  
 						<li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
 						<li><%= link_to 'Minha conta', current_client.company %></li>						
 					<% end %>
-               	<% else %>
+        <% else %>
 					<li><%= link_to t('.sign_in'), new_client_session_path %></li>
 					<li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>
-               	<% end %>
-            </ul>
-         </div>
+        <% end %>
       </nav>
-	  <div class="container">
+	    <div class="container">
          <% if notice %>
             <p class="alert alert-success"><%= notice %></p>
          <% end %>
