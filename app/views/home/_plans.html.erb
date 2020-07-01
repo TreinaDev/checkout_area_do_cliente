@@ -6,24 +6,24 @@
 	</div>
 <% end %>
 
-<div class="card-deck">
-	<% @plans.each do |plan| %>
-		<div class="card text-center">
-			<div class="card-body">
-				<dt>Plataformas Disponíveis</dt>
+<% @plans.each do |plan| %>
+	<div class="card text-center">
+		<div class="card-body">
+			<dl>
+				<dt>Plataforma: </dt>
 				<dd><%= plan.platform %></dd>
-				<dt>Preço</dt>
-				<dd>R$ <%= plan.price %></dd>
-				<dt>Limite mensal</dt>
-				<dd><%= plan.limit_monthly %> mensagens</dd>
-				<dt>Limite diário</dt>	
-				<dd><%= plan.limit_daily %> mensagens</dd>
-				<dt>Custo</dt>
-				<h2>R$ <%= plan.cost %> por mensagem</h2>
-				<dt>Promoção</dt>
+				<dt>Preço: </dt>
+				<dd><%= plan.price %></dd>
+				<dt>Limite mensal: </dt>
+				<dd><%= plan.limit_monthly %></dd>
+				<dt>Limite diário: </dt>
+				<dd><%= plan.limit_daily %></dd>
+				<dt>Custo: </dt>
+				<dd><%= plan.cost %> por mensagem</dd>
+				<dt>Promoção: </dt>
 				<dd><%= plan.promo %></dd>
-				<a href="#" class="btn btn-success">Quero Comprar</a>
-			</div>
+				<%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post, class: "btn btn-success" %>
+			</dl>
 		</div>
-	<% end %>
-</div>
+	</div>
+<% end %>
