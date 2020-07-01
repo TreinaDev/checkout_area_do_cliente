@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_212606) do
+ActiveRecord::Schema.define(version: 2020_06_30_202603) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
