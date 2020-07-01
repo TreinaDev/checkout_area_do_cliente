@@ -10,7 +10,7 @@ feature 'Client logs in' do
     fill_in 'Senha', with: '123456'
     click_button 'Entrar'
 
-    expect(page).to have_content('Login efetuado com sucesso!')
+    expect(page).to have_content(I18n.t('check_company', scope: %i[company sessions]))
     expect(page).not_to have_link('Entrar')
     expect(page).to have_link('Sair')
   end

@@ -6,11 +6,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(plan: params[:plan_id])
-    @order.plan = params[:plan_id]
-    @order.client = current_client
+    @order = current_client.orders.new(plan_id: params[:plan_id])
     @order.save
-    flash[:notice] = 'Compra efetuada com sucesso'
-    redirect_to @order
+    redirect_to @order, notice: t('.notice')
   end
 end
