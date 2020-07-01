@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 409d9f6a9de2db6d5af2d261bdc2b2c295c7347c
 require 'faker'
 
 #Vendedores
@@ -23,4 +27,8 @@ Company.create!(fantasy_name: 'Mc Donalds', corporate_name: 'Arcos Dourados',
                 email: 'empresa01@email.com',
                 document_number: '11.903578/0001-74',
                 address: 'Rua das flores', client: client_two)
+<<<<<<< HEAD
+>>>>>>> 3b15c303e684a852d6e4f744623d16d561316bb4
+=======
 
+>>>>>>> 409d9f6a9de2db6d5af2d261bdc2b2c295c7347c
