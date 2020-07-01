@@ -17,19 +17,19 @@
                <%= link_to 'Home', root_path, {:class => "active"} %>
             </div>
             <ul class="nav navbar-nav">
-               	<% if employee_signed_in? || client_signed_in? %>                                                                  
-					<% if employee_signed_in? %>                  
-						<li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
-						<li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
-					<% end %>
-					<% if client_signed_in? && current_client.company  %>                  
-						<li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
-						<li><%= link_to 'Minha conta', current_client.company %></li>						
-					<% end %>
+              	<% if employee_signed_in? || client_signed_in? %>                                                                  
+				   	<% if employee_signed_in? %>                  
+					   	<li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
+						   <li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
+					   <% end %>
+					   <% if client_signed_in? %>
+						   <li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
+						   <li><%= link_to 'Minha conta', current_client.company %></li>						
+					   <% end %>
                	<% else %>
-					<li><%= link_to t('.sign_in'), new_client_session_path %></li>
-					<li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>
-               	<% end %>
+                     <li><%= link_to t('.sign_in'), new_client_session_path %></li>
+                     <li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>
+              	<% end %>
             </ul>
          </div>
       </nav>
