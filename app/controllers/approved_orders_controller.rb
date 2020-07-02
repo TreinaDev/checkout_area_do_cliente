@@ -8,10 +8,4 @@ class ApprovedOrdersController < ApplicationController
 
     redirect_to @order_client
   end
-
-  private
-
-  def require_params
-    params.require(:approved_order).permit(:order_client)
-  end
 end

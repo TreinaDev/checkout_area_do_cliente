@@ -42,6 +42,7 @@ feature 'Visitor see plans in home page' do
     visit order_clients_path
 
     expect(current_path).to eq(root_path)
+    expect(page).to have_content('Faça login para continuar.')
   end
 
   scenario 'and cannot view history unless be logged' do
