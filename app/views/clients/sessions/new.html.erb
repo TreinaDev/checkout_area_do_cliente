@@ -1,26 +1,36 @@
-<h2>Log in</h2>
+<div class="container">
+	<div>
+		<img class="wave"><%= image_tag("wave.png", size: "600x600", alt: "Logo")%></img>
+		<img class="bg"><%= image_tag("bg.svg", size: "125x35", alt: "Logo")%></img>
+	</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+	<div>
+		<h2 class="h2-login"><%= t('.sign_in') %></h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			<img class="avatar"><%= image_tag("avatar.svg", size: "125x35", alt: "Logo")%></img>
+			<div class="field">
+				<%= f.label :email %><br />
+				<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+			</div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+			<div class="field">
+				<%= f.label :password %><br />
+				<%= f.password_field :password, autocomplete: "current-password" %>
+			</div>
 
-  <div class="actions">
-    <%= f.submit "Entrar" %>
-  </div>
-<% end %>
+			<% if devise_mapping.rememberable? %>
+				<div class="field">
+				  <%= f.check_box :remember_me %>
+				  <%= f.label :remember_me %>
+				</div>
+			<% end %>
 
-<%= render "clients/shared/links" %>
+			<div class="actions">
+				<%= f.submit "Entrar" %>
+			</div>
+		<% end %>
+
+		<%= render "clients/shared/links" %>
+	</div>
+</div>
