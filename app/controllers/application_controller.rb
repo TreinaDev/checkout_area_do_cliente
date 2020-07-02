@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_company_path, alert: t('check_company',
                                            scope: %i[company sessions])
   end
+  
+  def authenticate_visitor
+    if !current_client and !current_employee
+      redirect_to root_path
+    end
+  end
 end

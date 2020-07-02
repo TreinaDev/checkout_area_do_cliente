@@ -7,12 +7,4 @@ class OrderClientsController < ApplicationController
   def show
     @order_client = OrderClient.find(params[:id])
   end
-
-  private
-  
-  def authenticate_visitor
-    if not current_client and not current_employee
-      redirect_to root_path
-    end
-  end
 end
