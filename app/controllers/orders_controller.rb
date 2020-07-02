@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def cancel
-    @order = Order.find(params[:id]) 
+    @order = Order.find(params[:id])
     @order.canceled!
     redirect_to orders_path
   end
@@ -25,8 +25,8 @@ class OrdersController < ApplicationController
   private
 
   def filter_client_order
-    if client_signed_in?
-      @orders = Order.where(:client_id == current_client.id) 
-    end
+    return if client_signed_in?
+
+    @orders = Order.where(current_client.id == :client_id)
   end
 end
