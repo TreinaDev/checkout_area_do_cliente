@@ -38,6 +38,12 @@ feature 'Visitor see plans in home page' do
     expect(current_path).to eq(new_client_session_path)
   end
 
+  scenario 'and cannot view order clients path unless be logged' do
+    visit order_clients_path
+
+    expect(current_path).to eq(root_path)
+  end
+
   scenario 'and cannot view history unless be logged' do
     visit root_path
 
