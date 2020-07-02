@@ -9,8 +9,10 @@ pt-BR:
     attributes:
       order:
         plan: plano
-        promo/status:
-          open: Em aberto
-          rejected: Negado
-          accepted: Aceito
-          canceled: Cancelado
+        status: Situação do pedido
+      order/status:
+        open: Em aberto
+        accepted: Aprovado
+        rejected: Reprovado
+        canceled: Cancelado
+          

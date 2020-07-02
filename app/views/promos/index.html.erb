@@ -1,4 +1,7 @@
 <h1>Listas de Promoções</h1>
+<% if @promos.empty?%>
+  <p><%= 'Nenhuma promoção cadastrada'%><p>
+<%else%>
 <ul>
     <% @promos.each do |promo|%>        
         <ul>
@@ -17,3 +20,4 @@
         <br>
     <%end%> 
 </ul>
+<%end%> 

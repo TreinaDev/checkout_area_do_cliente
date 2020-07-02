@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_190510) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "plan"
+    t.integer "plan_id"
     t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
