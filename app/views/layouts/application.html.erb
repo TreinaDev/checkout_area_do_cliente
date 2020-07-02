@@ -10,7 +10,11 @@
       <link rel="icon" href="https://valepublicitando.com/wp-content/uploads/2018/01/bot-icon-2883144_640.png">
    </head>
    <body>
-			<div class="background-menu">      
+			<div class="background-menu">  
+				<div class="div-logo">
+					<li class="logo"><%= image_tag("bot-icon.png", size: "50x50", alt: "")%></li> 
+					<li class="title">Commits</li> 
+				</div>  
 		    <nav class="menu">
 		      <li><%= link_to 'Home', root_path, {:class => "active"} %></li>
 		      <% if employee_signed_in? || client_signed_in? %>                                                                  
