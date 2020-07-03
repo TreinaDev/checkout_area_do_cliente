@@ -7,12 +7,13 @@
 	display: grid;
 	grid-template-columns: repeat(2,1fr); 
 	grid-gap: 7rem;
+	margin-top: 3%;
 }
 
 /*Imagem lateral*/
 .image-mobile {
 	position: absolute;
-	top: 40px;
+	top: 100px;
 	left: 60px;
 }
 
@@ -80,8 +81,8 @@ li.input-client-session input {
 	color: #d9d9d9;
 }
 
-/*Botão para login*/
-.btn {
+/*Botão para login - Cliente e Vendedor*/
+.btn, .btn_employee {
 	display: block;
 	width: 360px;
 	height: 50px;
@@ -99,8 +100,13 @@ li.input-client-session input {
 	transition: .5s;
 }
 
+/*Botão para login - Vendedor*/
+.btn_employee {
+	background-image: linear-gradient(to right, var(--dark-blue), var(--skay-blue), var(--darkness-blue));
+}
+
 /*Faz com que o fundo com gradiente se inverta*/
-.btn:hover {
+.btn:hover, .btn_employee:hover {
 	background-position: right;
 	color: #fff;
 }
