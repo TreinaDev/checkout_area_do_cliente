@@ -1,33 +1,40 @@
 <div class="container">
 	<div>
-		<img class="wave"><%= image_tag("wave.png", size: "600x600", alt: "Logo")%></img>
-		<img class="bg"><%= image_tag("bg.svg", size: "125x35", alt: "Logo")%></img>
+		<div class="image-mobile"><%= image_tag("mobile_login.svg", size: "500x500", alt: "")%></div>
 	</div>
 
-	<div>
-		<h2 class="h2-login"><%= t('.sign_in') %></h2>
-
+	<div class="login-content">
+		<%= image_tag("profile.svg", size: "100x100", alt: "Logo")%>
+		<h2><%= t('.sign_in') %></h2>
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			<img class="avatar"><%= image_tag("avatar.svg", size: "125x35", alt: "Logo")%></img>
-			<div class="field">
-				<%= f.label :email %><br />
-				<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-			</div>
-
-			<div class="field">
-				<%= f.label :password %><br />
-				<%= f.password_field :password, autocomplete: "current-password" %>
-			</div>
+			<div class="input-div">
+      	<div class="i">
+      		<i class="fas fa-user"></i>
+        </div>
+		    <div class="div">
+		    	<h5><%= f.label :email %><br/></h5>
+		      <li class="input-client-session"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
+		    </div>
+      </div>
+			<div class="input-div">
+      	<div class="i"> 
+      		<i class="fas fa-lock"></i>
+        </div>
+      	<div class="div">
+       		<h5><%= f.label :password %><br/></h5>
+          <li class="input-client-session"><%= f.password_field :password, autocomplete: "current-password" %></li>
+      	</div>
+      </div>
 
 			<% if devise_mapping.rememberable? %>
-				<div class="field">
-				  <%= f.check_box :remember_me %>
-				  <%= f.label :remember_me %>
+				<div class="remember_me">
+				  <h5><%= f.check_box :remember_me %>
+				  <%= f.label :remember_me %></h5>
 				</div>
 			<% end %>
 
 			<div class="actions">
-				<%= f.submit "Entrar" %>
+				<button type="submit" class="btn"><%= t('.sign_in') %></button>
 			</div>
 		<% end %>
 
