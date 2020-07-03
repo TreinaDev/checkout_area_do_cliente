@@ -1,0 +1,134 @@
+/*Desktop*/
+
+.container {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2,1fr); 
+	grid-gap: 7rem;
+}
+
+/*Imagem lateral*/
+.image-mobile {
+	position: absolute;
+	top: 40px;
+	left: 60px;
+}
+
+/*Região do formulário*/
+.login-content {
+	width: 360px;
+	margin: auto;
+	margin-bottom: 10%;
+	text-align: center;
+}
+
+/*Entrar*/
+.login-content h2 {
+	font-size: 2.9rem;
+	text-transform: uppercase;
+	margin: 15px 0;
+	color: #333;
+	font-weight: bold;
+}
+
+/*Div em volta do input*/
+.input-div {
+	display: grid;
+	grid-template-columns: 7% 93%;
+	margin: 30px 0;
+	padding: 5px 0;
+	border-bottom: 2px solid #d9d9d9;
+	width: 360px;
+}
+
+/*Div em volta do titulo do campo*/
+.input-div > div {
+	position: relative;
+	height: 45px;
+}
+
+/*Titulo do campo*/
+.input-div > div h5 {
+	position: absolute;
+	left: 0px;
+	top: -20%;
+	color: #999; /*Cinza*/
+	font-size: 18px;
+}
+
+/*Input*/
+li.input-client-session input {
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	font-family: 'Poppings', sans-serif;
+	color: #555;
+}
+
+/*Icons*/
+.i {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i {
+	color: #d9d9d9;
+}
+
+/*Botão para login*/
+.btn {
+	display: block;
+	width: 360px;
+	height: 50px;
+	border-radius: 25px;
+	margin: 1rem 0;
+	font-size: 1.2rem;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, orange, var(--dark-orange), var(--light-orange));
+	cursor: pointer;
+	color: #fff;
+	font-family: 'Poppings', sans-serif;
+	background-size: 200%;
+	text-transform: uppercase;
+	transition: .5s;
+}
+
+/*Faz com que o fundo com gradiente se inverta*/
+.btn:hover {
+	background-position: right;
+	color: #fff;
+}
+
+/*Lembrar senha*/
+.remember_me h5 {
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	width: 360px;
+}
+
+/*Mobile*/
+@media screen and (max-width: 1000px) {
+	.container {
+		grid-template-columns: 1fr;
+		grid-gap: 0rem;
+	}
+
+	.image-mobile {
+		display: none;
+	}
+
+	.login-content {
+		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

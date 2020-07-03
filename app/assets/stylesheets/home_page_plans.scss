@@ -1,0 +1,67 @@
+/*Mobile First*/
+/* Bot*/
+.img-menu {
+	margin-left: 5%;
+}
+
+/*Texto*/
+.down-menu-text {
+	padding-top: 5%;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.down-menu-text h1 {
+	font-size: 1.5em;
+}
+
+/*Texto: Chatbot*/
+.down-menu-text strong {
+	color: var(--skay-blue);
+}
+
+/*Link Ver Planos*/
+.go_to_plans {
+	background-color: var(--skay-blue);
+	padding: 2%;
+}
+
+.go_to_plans:hover,
+.go_to_plans:focus {
+	background-color: var(--dark-blue);
+	transition: 0.5s;
+}
+
+a.go_to_plans {
+	color: white;
+	text-decoration: none;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1000px){
+	/*Walpaper Menu*/
+	.background-menu {
+		width: 100%;
+	}
+
+	/*Bot e Texto*/
+	.down-menu {
+		display: inline-flex;
+	}
+
+	/*Texto*/
+	.down-menu-text {
+		padding-top: 10%;
+	}
+
+	.down-menu-text h1 {
+		font-size: 2.5em;
+	}
+
+	/* Bot*/
+	.img-menu {
+		display: flex;
+		margin-left: 5%;
+	}
+}
+
