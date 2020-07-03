@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>CheckoutAreaDoCliente</title>
-		<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,19 +13,18 @@
   <body>
     <%= render partial: 'shared/flashes' %>
     <nav>
-	    <% if employee_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
-	    <% else %> 
-	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
+      <% if employee_signed_in? %>
+        <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
+      <% else %>
+        <%= link_to t('.employee_sign_in'), new_employee_session_path %>
         <%= link_to 'Cadastrar promoção', new_promo_path %>
-	    <% end %>
-
-	    <% if client_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
+      <% end %>
+      <% if client_signed_in? %>
+        <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
         <%= link_to 'Minha conta', current_client.company %>
-	    <% else %>
-	      <%= link_to t('.sign_in'), new_client_session_path %>
-	    <% end %>      
+      <% else %>
+        <%= link_to t('.sign_in'), new_client_session_path %>
+      <% end %>      
     </nav>   
     <%= yield %>
   </body>
