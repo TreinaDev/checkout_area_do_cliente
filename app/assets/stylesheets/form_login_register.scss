@@ -37,11 +37,16 @@
 /*Div em volta do input*/
 .input-div {
   display: grid;
-  grid-template-columns: 7% 93%;
+  grid-template-columns: 10% 90%;
   margin: 30px 0;
   padding: 5px 0;
+  padding-top: 30px;
   border-bottom: 2px solid #d9d9d9;
   width: 360px;
+}
+
+.input-div.password_confirmation {
+  padding-bottom: 20px;
 }
 
 /*Div em volta do titulo do campo*/
@@ -54,9 +59,11 @@
 .input-div > div h5 {
   position: absolute;
   left: 0px;
-  top: -20%;
+  top: -50%;
   color: #999; /*Cinza*/
   font-size: 18px;
+  width: 360px;
+  text-align: left;
 }
 
 /*Input*/
