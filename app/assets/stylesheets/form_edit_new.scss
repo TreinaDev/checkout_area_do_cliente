@@ -1,0 +1,39 @@
+/*Edit/New Company*/
+.form-group.company {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+/*Mensagens de erro*/
+.alert.alert-danger.company {
+  width: 500px;
+  margin: auto;
+  margin-top: .5%;
+  margin-bottom: 1%;
+}
+
+/*Minha conta*/
+.text-center.company {
+  margin: 4%;
+}
+
+.form-control input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/*Submit*/
+.btn.btn-dark.company {
+  width: 100%;
+}
+
+/*Mobile*/
+@media screen and (max-width: 600px) {
+  /*Mensagens de erro*/
+  .alert.alert-danger.company {
+    width: 350px;
+    text-align: center;
+  }
+}

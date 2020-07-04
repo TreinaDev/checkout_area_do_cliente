@@ -81,7 +81,7 @@ li.input-client-session input {
 }
 
 /*Botão para login*/
-.btn {
+.btn-login-register {
 	display: block;
 	width: 360px;
 	height: 50px;
@@ -100,7 +100,7 @@ li.input-client-session input {
 }
 
 /*Faz com que o fundo com gradiente se inverta*/
-.btn:hover {
+.btn-login-register:hover {
 	background-position: right;
 	color: #fff;
 }
