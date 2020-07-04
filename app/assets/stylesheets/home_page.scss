@@ -79,6 +79,21 @@ li.sign-client a {
   color: white;
 }
 
+/*Link para voltar*/
+.link-back a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/*Icon para voltar*/
+.fa.fa-arrow-left {
+  font-size: 1.5em;
+  margin-right: 2%;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
 /*Tablet*/
 @media screen and (min-width: 600px) and (max-width: 900px){
   .menu {
