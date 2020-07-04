@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>CheckoutAreaDoCliente</title>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,9 +23,9 @@
 	    <% if client_signed_in? %>
 	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
         <%= link_to 'Minha conta', current_client.company %>
-	    <% else %>
-	      <%= link_to t('.sign_in'), new_client_session_path %>
-	    <% end %>      
+      <% else %>
+        <%= link_to t('.sign_in'), new_client_session_path %>
+      <% end %>      
     </nav>   
     <%= yield %>
   </body>
