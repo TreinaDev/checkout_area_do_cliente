@@ -1,0 +1,14 @@
+<% if @order_clients.empty? %>
+  <p class="msg-error"><%= 'Nenhum pedido cadastrado' %></p>
+<% end %>
+
+<% @order_clients.each do |order| %>
+  <dl>
+    <dt>Token da Empresa: </dt>
+    <dd><%= link_to order.token, order %></dd>
+    <dt>Plano: </dt>
+    <dd><%= order.plan %></dd>
+    <dt>Status: </dt>
+    <dd><%= OrderClient.human_attribute_name("status.#{order.status}") %></dd>		
+  </dl>
+<% end %>
