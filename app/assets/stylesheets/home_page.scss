@@ -119,6 +119,10 @@ li.sign-client a {
 
 /*Desktop*/
 @media screen and (min-width: 900px){
+  /*Icon para voltar*/
+  .fa.fa-arrow-left {
+    margin-right: 1%;
+  }
   /*Logo*/
   .div-logo {
     display: flex;
@@ -127,8 +131,7 @@ li.sign-client a {
     top: 15px;
     left: 150px;
   }
-
-  .menu {
+  .menu { 
     display: flex;
     justify-content: flex-end;
     padding: 0%;
