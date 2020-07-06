@@ -3,9 +3,27 @@ require 'rails_helper'
 feature 'Visitor see plans in home page' do
   describe Plan do
     it 'should get all states information' do
-      response = Faraday.get('spec/fixtures/plans.json')
-      json = JSON.parse(response)[:data]
-      allow(Plan).to receive(:all).and_return(json)
+      plans = [
+        Plan.new(platform: 'Facebook',
+                 price: 3000.00,
+                 limit_daily: 400,
+                 limit_monthly: 10_000,
+                 cost: 0.50,
+                 promo: 'Promoção Facebook'),
+        Plan.new(platform: 'Whatsapp',
+                 price: 4000.00,
+                 limit_daily: 500,
+                 limit_monthly: 20_000,
+                 cost: 0.40,
+                 promo: 'Promoção Whatsapp'),
+        Plan.new(platform: 'Magazine Luiza',
+                 price: 5000.00,
+                 limit_daily: 600,
+                 limit_monthly: 30_000,
+                 cost: 0.30,
+                 promo: 'Promoção Magazine Luiza')
+      ]
+      allow(Plan).to receive(:all).and_return(plans)
       result = Plan.all
 
       # expect(result.length).to eq 3
