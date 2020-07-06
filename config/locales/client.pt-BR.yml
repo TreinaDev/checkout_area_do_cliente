@@ -21,6 +21,7 @@ pt-BR:
         password_confirmation: Confirmação de senha
     shared:
       links:
+        sign_in: Já tenho uma conta
         sign_up: Registrar-se
         forget_password: Esqueceu sua senha?
     registrations:
