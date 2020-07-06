@@ -80,6 +80,15 @@ li.sign-client a {
   color: white;
 }
 
+
+/*Mensagens de erro e alera*/
+.container-messages p {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 /*Link para voltar*/
 .link-back a {
   color: black;
@@ -97,7 +106,7 @@ li.sign-client a {
 
 /*Tablet*/
 @media screen and (min-width: 600px) and (max-width: 900px){
-  .menu {
+  .menu { 
     display: flex;
     justify-content: center;
     padding: 0%;
@@ -131,7 +140,7 @@ li.sign-client a {
     top: 15px;
     left: 150px;
   }
-  .menu { 
+  .menu {
     display: flex;
     justify-content: flex-end;
     padding: 0%;
