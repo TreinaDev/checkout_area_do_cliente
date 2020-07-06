@@ -10,4 +10,7 @@ pt-BR:
         price: Preço
         limit_monthly: Limite Mensal
         limit_daily: Limite Diário
-        promo: Promoção
+        promo: Promoção      
+  layouts:
+    application:
+      order_clients: Pedidos

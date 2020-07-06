@@ -1,0 +1,22 @@
+---
+pt-BR:
+  client:
+    order_clients:
+      create:
+        notice: 'Compra efetuada com sucesso'
+  activerecord:
+    enums:
+    models:
+      order_client: Pedido
+    attributes:
+      status: Situação do pedido
+      order_client/status:
+        waiting: Em aberto
+        accepted: Aprovado
+        rejected: Rejeitado
+        canceled: Cancelado
+      order_client:
+        plan_id: Plano
+        token: Token
+        plan: Plano
+        status: Status

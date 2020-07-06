@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "clients/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div>
+    <div class="image-mobile"><%= image_tag("mobile_login.svg", size: "500x500", alt: "")%></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <div class="login-content">
+    <%= image_tag("profile.svg", size: "100x100", alt: "Logo")%>
+    <h2><%= t('.sign_up') %></h2>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "clients/shared/error_messages", resource: resource %>
+      <div class="input-div">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <h5><%= f.label :email %><br /></h5>
+          <li class="input-client-session"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit t(".sign_up") %>
-  </div>
-<% end %>
+      <div class="input-div">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <h5><%= f.label :password %>
+          <% if @minimum_password_length %>
+            <strong>(<%= @minimum_password_length %> caracteres minimos)</strong>
+          <% end %></h5>
+          <li class="input-client-session"><%= f.password_field :password, autocomplete: "new-password" %></li>
+        </div>
+      </div>
 
-<%= render "clients/shared/links" %>
+      <div class="input-div password_confirmation">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <h5><%= f.label :password_confirmation %></h5><br />
+          <li class="input-client-session"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></li>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn"><%= t('.sign_up') %></button>
+      </div>
+    <% end %>
+
+    <%= render "clients/shared/links" %>
+  </div>
+</div>

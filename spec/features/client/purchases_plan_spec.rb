@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-feature 'client purchases a plan' do
+feature 'Client purchases a plan' do
   scenario 'sucessfully' do
-    client = client_login
+    client = create(:client)
+    login_as client, scope: :client
     create(:company, client: client)
 
     visit root_path
-
+    expect(current_path).to eq(root_path)
     first('a', text: 'Comprar').click
 
     order = OrderClient.last
@@ -22,13 +23,5 @@ feature 'client purchases a plan' do
 
     expect(page).to have_content('Para continuar, efetue login ou registre-se.')
     expect(current_path).to eq(new_client_session_path)
-  end
-
-  scenario 'client not have company' do
-    client_login
-
-    visit root_path
-
-    expect(page).to have_content('Você ainda não completou a sua conta, para continuar finalize-a.')
   end
 end

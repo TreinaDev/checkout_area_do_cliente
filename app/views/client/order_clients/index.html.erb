@@ -1,0 +1,5 @@
+<h1>Meus Pedidos</h1>
+<% if @order_clients.empty?%>
+  <p><%= 'Você não possui pedidos'%><p>
+<% end %>
+<%= render 'shared/orders' %>
