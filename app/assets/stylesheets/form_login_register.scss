@@ -13,7 +13,7 @@
 /*Imagem lateral*/
 .image-mobile {
   position: absolute;
-  top: 40px;
+  top: 100px;
   left: 60px;
 }
 
@@ -46,90 +46,95 @@
 
 /*Div em volta do titulo do campo*/
 .input-div > div {
-	position: relative;
-	height: 45px;
+  position: relative;
+  height: 45px;
 }
 
 /*Titulo do campo*/
 .input-div > div h5 {
-	position: absolute;
-	left: 0px;
-	top: -20%;
-	color: #999; /*Cinza*/
-	font-size: 18px;
+  position: absolute;
+  left: 0px;
+  top: -20%;
+  color: #999; /*Cinza*/
+  font-size: 18px;
 }
 
 /*Input*/
 li.input-client-session input {
-	border: none;
-	outline: none;
-	background: none;
-	padding: 0.5rem 0.7rem;
-	font-size: 1.2rem;
-	font-family: 'Poppings', sans-serif;
-	color: #555;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  font-family: 'Poppings', sans-serif;
+  color: #555;
 }
 
 /*Icons*/
 .i {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .i i {
-	color: #d9d9d9;
+  color: #d9d9d9;
 }
 
-/*Botão para login*/
-.btn {
-	display: block;
-	width: 360px;
-	height: 50px;
-	border-radius: 25px;
-	margin: 1rem 0;
-	font-size: 1.2rem;
-	outline: none;
-	border: none;
-	background-image: linear-gradient(to right, orange, var(--dark-orange), var(--light-orange));
-	cursor: pointer;
-	color: #fff;
-	font-family: 'Poppings', sans-serif;
-	background-size: 200%;
-	text-transform: uppercase;
-	transition: .5s;
+/*Botão para login - Cliente e Vendedor*/
+.btn-login-register, .btn_employee {
+  display: block;
+  width: 360px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, orange, var(--dark-orange), var(--light-orange));
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Poppings', sans-serif;
+  background-size: 200%;
+  text-transform: uppercase;
+  transition: .5s;
+}
+
+/*Botão para login - Vendedor*/
+.btn_employee {
+  background-image: linear-gradient(to right, var(--dark-blue), var(--skay-blue), var(--darkness-blue));
 }
 
 /*Faz com que o fundo com gradiente se inverta*/
-.btn:hover {
-	background-position: right;
-	color: #fff;
+.btn-login-register:hover, .btn_employee:hover {
+  background-position: right;
+  color: #fff;
 }
 
 /*Lembrar senha*/
 .remember_me h5 {
-	display: block;
-	text-align: right;
-	text-decoration: none;
-	color: #999;
-	font-size: 0.9rem;
-	width: 360px;
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.9rem;
+  width: 360px;
 }
 
 /*Mobile*/
 @media screen and (max-width: 1000px) {
-	.container {
-		grid-template-columns: 1fr;
-		grid-gap: 0rem;
-	}
+  .container {
+    grid-template-columns: 1fr;
+    grid-gap: 0rem;
+  }
 
-	.image-mobile {
-		display: none;
-	}
+  .image-mobile {
+    display: none;
+  }
 
-	.login-content {
-		justify-content: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .login-content {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

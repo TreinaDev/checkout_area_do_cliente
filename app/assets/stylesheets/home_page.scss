@@ -12,6 +12,7 @@
   --light-orange: #f09f5c; /*Laranja claro*/
   --skay-blue: #41c7f0; /*Azul Claro*/
   --dark-blue: #3cb0d3; /*Azul Escuro*/
+  --darkness-blue: #2b9dbf; /*Azul Escuro*/
 }
 
 /*Smooth Scrool Effect*/
@@ -79,6 +80,7 @@ li.sign-client a {
   color: white;
 }
 
+
 /*Mensagens de erro e alera*/
 .container-messages p {
   width: 400px;
@@ -86,6 +88,20 @@ li.sign-client a {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
+
+/*Link para voltar*/
+.link-back a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/*Icon para voltar*/
+.fa.fa-arrow-left {
+  font-size: 1.5em;
+  margin-right: 2%;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
 /*Tablet*/
@@ -104,7 +120,6 @@ li.sign-client a {
     height: 40px;
     width: 15%;
   }
-
   /*Logo*/
   .div-logo {
     display: none;
@@ -113,6 +128,10 @@ li.sign-client a {
 
 /*Desktop*/
 @media screen and (min-width: 900px){
+  /*Icon para voltar*/
+  .fa.fa-arrow-left {
+    margin-right: 1%;
+  }
   /*Logo*/
   .div-logo {
     display: flex;
@@ -121,7 +140,6 @@ li.sign-client a {
     top: 15px;
     left: 150px;
   }
-
   .menu {
     display: flex;
     justify-content: flex-end;
