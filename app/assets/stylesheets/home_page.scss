@@ -12,6 +12,7 @@
   --light-orange: #f09f5c; /*Laranja claro*/
   --skay-blue: #41c7f0; /*Azul Claro*/
   --dark-blue: #3cb0d3; /*Azul Escuro*/
+  --darkness-blue: #2b9dbf; /*Azul Escuro*/
 }
 
 /*Smooth Scrool Effect*/
@@ -87,45 +88,43 @@ li.sign-client a {
     padding: 0%;
     padding-top: 2%;
     background-color: transparent;
-   }
+  }
    /*Link SignIn Client*/
-   li.sign-client {
-     margin-top: 1.2%;
-     padding: 1%;
-     height: 40px;
-     width: 15%;
-   }
-
-   /*Logo*/
-   .div-logo {
-     display: none;
-   }
+  li.sign-client {
+    margin-top: 1.2%;
+    padding: 1%;
+    height: 40px;
+    width: 15%;
+  }
+  /*Logo*/
+  .div-logo {
+    display: none;
+  }
 }
 
 /*Desktop*/
 @media screen and (min-width: 900px){
-
   /*Logo*/
   .div-logo {
-     display: flex;
-     position: absolute;
-     width: 20%;
-     top: 15px;
-     left: 150px;
+    display: flex;
+    position: absolute;
+    width: 20%;
+    top: 15px;
+    left: 150px;
    }
 
   .menu {
-     display: flex;
-     justify-content: flex-end;
-     padding: 0%;
-     background-color: transparent;
-   }
+    display: flex;
+    justify-content: flex-end;
+    padding: 0%;
+    background-color: transparent;
+  }
 
-   /*Link SignIn Client*/
-   li.sign-client {
-     margin-top: 1.2%;
-     padding: 1%;
-     height: 50px;
-     width: 10%;
-   }
+  /*Link SignIn Client*/
+  li.sign-client {
+    margin-top: 1.2%;
+    padding: 1%;
+    height: 50px;
+    width: 10%;
+  }
 }
