@@ -1,0 +1,149 @@
+/*Mobile First*/
+/* Bot*/
+.img-menu {
+  margin-left: 5%;
+}
+
+/*Texto*/
+.down-menu-text {
+  padding-top: 5%;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.down-menu-text h1 {
+  font-size: 1.5em;
+}
+
+/*Texto: Chatbot*/
+.down-menu-text strong {
+  color: var(--skay-blue);
+}
+
+/*Link Ver Planos*/
+.go_to_plans {
+  background-color: var(--skay-blue);
+  padding: 2%;
+}
+
+.go_to_plans:hover,
+.go_to_plans:focus {
+  background-color: var(--dark-blue);
+  transition: 0.5s;
+}
+
+a.go_to_plans {
+  color: white;
+  text-decoration: none;
+}
+
+a.go_to_plans:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.div-plans {
+  text-align: center;
+  background-color: var(--light-violet);
+}
+
+/*Sem planos cadastrados*/
+.without-plans {
+  color: white;
+  font-size: 1.4em;
+}
+
+/*Div com todos os planos*/
+.all-plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 5%;
+}
+
+.h2-active-plans {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+  padding-top: 10%;
+  margin-bottom: 5%;
+}
+
+/*Cada card*/
+.each-card {
+  background-color: var(--dark-violet);
+  margin: auto; 
+  margin-bottom: 10%;
+  border-radius: 25px;
+  padding: 5%;
+  width: 300px;
+  color: white;
+}
+
+/*Cada card*/
+.each-card:hover {
+  transform: translateY(-5%);
+  transition: 1s;
+  box-shadow: 3px 3px #5e239a, -1em 0 0.4em var(--light-violet); 
+}
+
+/*Comprar Plano*/
+.link-buy {
+  margin: auto;
+  margin-top: 10%;
+  padding: 3%;
+  background-color: black;
+  width: 200px;
+  border-color: black;
+  border-radius: 25px;
+  cursor: pointer; 
+}
+
+.link-buy:hover, .link-buy:focus {
+  background-color: orange;
+  transform: translateY(-5%);
+  transition: 1s;
+}
+
+.link-buy a, .link-buy a:hover {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1000px){
+  .h2-active-plans {
+    font-size: 1.8em;
+    padding-top: 5%;
+    margin-bottom: 1%;
+  }
+  .all-plans {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /*Walpaper Menu*/
+  .background-menu {
+    width: 100%;
+  }
+
+  /*Bot e Texto*/
+  .down-menu {
+    display: inline-flex;
+  }
+
+  /*Texto*/
+  .down-menu-text {
+    padding-top: 10%;
+  }
+
+  .down-menu-text h1 {
+    font-size: 2.5em;
+  }
+
+  /* Bot*/
+  .img-menu {
+    display: flex;
+    margin-left: 5%;
+  }
+}
+
