@@ -3,6 +3,7 @@
 .container {
   padding: 0;
   margin: 0;
+  margin-top: 5%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2,1fr); 
@@ -12,7 +13,7 @@
 /*Imagem lateral*/
 .image-mobile {
   position: absolute;
-  top: 40px;
+  top: 100px;
   left: 60px;
 }
 
@@ -36,11 +37,16 @@
 /*Div em volta do input*/
 .input-div {
   display: grid;
-  grid-template-columns: 7% 93%;
+  grid-template-columns: 10% 90%;
   margin: 30px 0;
   padding: 5px 0;
+  padding-top: 30px;
   border-bottom: 2px solid #d9d9d9;
   width: 360px;
+}
+
+.input-div.password_confirmation {
+  padding-bottom: 20px;
 }
 
 /*Div em volta do titulo do campo*/
@@ -53,9 +59,11 @@
 .input-div > div h5 {
   position: absolute;
   left: 0px;
-  top: -20%;
+  top: -50%;
   color: #999; /*Cinza*/
   font-size: 18px;
+  width: 360px;
+  text-align: left;
 }
 
 /*Input*/
@@ -80,8 +88,8 @@ li.input-client-session input {
   color: #d9d9d9;
 }
 
-/*Botão para login*/
-.btn {
+/*Botão para login - Cliente e Vendedor*/
+.btn-login-register, .btn_employee {
   display: block;
   width: 360px;
   height: 50px;
@@ -99,8 +107,13 @@ li.input-client-session input {
   transition: .5s;
 }
 
+/*Botão para login - Vendedor*/
+.btn_employee {
+  background-image: linear-gradient(to right, var(--dark-blue), var(--skay-blue), var(--darkness-blue));
+}
+
 /*Faz com que o fundo com gradiente se inverta*/
-.btn:hover {
+.btn-login-register:hover, .btn_employee:hover {
   background-position: right;
   color: #fff;
 }

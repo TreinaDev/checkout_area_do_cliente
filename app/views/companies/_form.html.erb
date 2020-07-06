@@ -1,0 +1,15 @@
+<div class="form-group company">
+  <%= form_for @company, local: true do |f| %>
+    <%= f.label :fantasy_name %></label>
+    <li class="form-control"><%= f.text_field :fantasy_name %></li><br>
+    <%= f.label :corporate_name %>
+    <li class="form-control"><%= f.text_field :corporate_name %></li><br>
+    <%= f.label :email %>
+    <li class="form-control"><%= f.text_field :email %></li><br>
+    <%= f.label :document_number %>
+    <li class="form-control"><%= f.text_field :document_number %></li><br>
+    <%= f.label :address %>
+    <li class="form-control"><%= f.text_field :address %></li><br>
+    <button type="submit" class="btn btn-dark company">Enviar</button>
+  <% end %>
+</div>
