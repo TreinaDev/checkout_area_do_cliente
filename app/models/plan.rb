@@ -14,14 +14,11 @@ class Plan
   end
 
   def self.all
-    response = Faraday.get('spec/fixtures/plans.json')
-
-    return {} unless response.status == 200
-
-    json = JSON.parse(response.body, symbolize_names: true)[:data]
-    result = json.map do |hash|
-      new(hash)
-    end
-    result
+    [
+      new(id: '1', platform: 'Facebook', price: 3000.00, limit_daily: 400,
+          limit_monthly: 10_000, cost: 0.50, promo: 'Promoção Facebook'),
+      new(id: '2', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
+          limit_monthly: 18_000, cost: 0.80, promo: 'Promoção Whatsapp')
+    ]
   end
 end
