@@ -10,7 +10,7 @@ feature 'client cancel an open order' do
     visit root_path
 
     click_on 'Meus Pedidos'
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq(client_orders_path)
 
     expect(page).to have_content(order.plan_id)
     expect(page).to have_content('Em aberto')
@@ -38,7 +38,7 @@ feature 'client cannot cancel order approved/canceled/rejected' do
     visit root_path
 
     click_on 'Meus Pedidos'
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq(client_orders_path)
 
     expect(page).to have_content(order.plan_id)
     expect(page).to have_content('Aprovado')
@@ -48,19 +48,5 @@ feature 'client cannot cancel order approved/canceled/rejected' do
     expect(page).to have_content('Cancelado')
 
     expect(page).not_to have_link('Cancelar Pedido')
-  end
-end
-
-feature 'client see orders' do
-  scenario 'sucessfully' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
-
-    login_as client, scope: :client
-    visit root_path
-
-    click_on 'Meus Pedidos'
-    expect(current_path).to eq(orders_path)
-
-    expect(page).to have_content('Você não possui pedidos')
   end
 end

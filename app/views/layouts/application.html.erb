@@ -16,6 +16,7 @@
 	    <% if employee_signed_in? %>
 	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
         <%= link_to 'Cadastrar promoção', new_promo_path %>
+        <%= link_to 'Pedidos', orders_path %>
 	    <% else %> 
 	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
 	    <% end %>
@@ -23,7 +24,7 @@
 	    <% if client_signed_in? %>
 	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
         <%= link_to 'Minha conta', current_client.company %>
-        <%= link_to 'Meus Pedidos', orders_path %>
+        <%= link_to 'Meus Pedidos', client_orders_path %>
 	    <% else %>
 	      <%= link_to t('.sign_in'), new_client_session_path %>
 	    <% end %>      

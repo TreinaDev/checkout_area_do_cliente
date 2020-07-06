@@ -16,6 +16,6 @@
   <dd><%= plan.cost %> por mensagem</dd>
   <dt>Promoção: </dt>
   <dd><%= plan.promo %></dd>
-  <%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %>
+  <%= link_to 'Comprar', client_orders_path(plan_id: plan.id), method: :post %>
 </dl>
 <% end %>

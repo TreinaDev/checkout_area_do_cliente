@@ -4,9 +4,15 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :companies, only: %i[show new create edit update]
-  resources :orders, only: %i[index show create] do
-    get 'cancel', on: :member
+
+  namespace :client do
+    resources :orders, only: %i[index show create] do
+      post 'cancel', on: :member
+    end
   end
+
+  resources :orders, only: %i[index show]
+
   resources :plans, only: [:index]
   resources :promos, only: %i[index new create]
 end

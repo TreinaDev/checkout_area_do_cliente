@@ -1,0 +1,22 @@
+<% if @orders.empty?%>
+  <p><%= 'Você não possui pedidos'%><p>
+<%else%>
+  <% @orders.each do |order|%> 
+<dl>
+  <dt><%= Order.human_attribute_name(:plan_id) %>: </dt>
+    <dd><%= order.plan_id %></dd>
+  <dt><%= Client.human_attribute_name(:email) %>: </dt>
+    <dd><%= current_client.email %></dd>
+  <dt><%= Order.human_attribute_name(:status) %>: </dt>
+  <dd><%= Order.human_attribute_name("status.#{order.status}") %></dd>
+  <% if client_signed_in? %>
+    <% if order.open? %>
+    <%= link_to 'Cancelar Pedido', cancel_client_order_path(order),
+                                 id:"cancel-#{order.id}",
+                                 method: :post  %>
+    <% end %>
+  <% end %>
+</dl>
+<br>
+<%end%>
+<%end%> 

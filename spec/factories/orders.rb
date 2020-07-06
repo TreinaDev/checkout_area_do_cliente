@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order do
-    plan { 'MyString' }
+    plan { Faker::Company.name }
     client
     status { 0 }
   end
