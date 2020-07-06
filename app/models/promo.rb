@@ -1,7 +1,8 @@
 class Promo < ApplicationRecord
   validates :title, :discount, :start_date, :end_date, presence: true
 
-  validates :discount, numericality: { less_than_or_equal_to: 100 }
+  validates :discount, numericality: { less_than_or_equal_to: 100,
+                                       greater_than_or_equal_to: 0 }
 
   validate :start_date_cannot_be_in_the_past
   validate :end_date_cannot_be_in_the_past

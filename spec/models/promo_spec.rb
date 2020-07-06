@@ -43,6 +43,14 @@ describe Promo, type: :model do
 
       expect(promo.errors[:discount]).to include('deve ser menor ou igual a 100')
     end
+
+    it 'must be greater than -1' do
+      promo = Promo.create(discount: -1)
+
+      promo.valid?
+
+      expect(promo.errors[:discount]).to include('deve ser maior ou igual a 0')
+    end
   end
 
   context '#dates valid' do
