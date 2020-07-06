@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_204918) do
+ActiveRecord::Schema.define(version: 2020_06_30_202603) do
+
+  create_table "approved_orders", force: :cascade do |t|
+    t.integer "order_client_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_client_id"], name: "index_approved_orders_on_order_client_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +59,14 @@ ActiveRecord::Schema.define(version: 2020_06_26_204918) do
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
 
+  create_table "order_clients", force: :cascade do |t|
+    t.string "token"
+    t.string "plan"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "plan_id"
     t.integer "client_id", null: false
@@ -65,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_204918) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "approved_orders", "order_clients"
   add_foreign_key "companies", "clients"
   add_foreign_key "orders", "clients"
 end
