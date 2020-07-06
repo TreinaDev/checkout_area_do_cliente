@@ -1,17 +1,5 @@
+<p class="link-back"><i class="fa fa-arrow-left" aria-hidden="true"></i><%= link_to 'Voltar', company_path(@company) %></p>
+
 <%= render partial: 'headers_errors' %>
 
-<div class="form-group row">
-    <%= form_for @company, local: true do |f| %>
-        <%= f.label :fantasy_name %><br>
-        <%= f.text_field :fantasy_name %><br>
-        <%= f.label :corporate_name %><br>
-        <%= f.text_field :corporate_name %><br>
-        <%= f.label :email %><br>
-        <%= f.text_field :email %><br>
-        <%= f.label :document_number %><br>
-        <%= f.text_field :document_number %><br>
-        <%= f.label :address %><br>
-        <%= f.text_field :address %><br>
-        <%= f.submit 'Enviar'%><br>
-    <% end %>
-</div>
+<%= render 'form' %>   
