@@ -1,23 +1,2 @@
 <h1>Listas de Promoções</h1>
-<% if @promos.empty?%>
-  <p><%= 'Nenhuma promoção cadastrada'%><p>
-<%else%>
-<ul>
-    <% @promos.each do |promo|%>        
-        <ul>
-          <li><%= Promo.human_attribute_name(:title) %>: 
-              <%= promo.title %>
-          </li>
-          <li><%= Promo.human_attribute_name(:discount) %>:
-              <%= promo.discount %></li>
-          <li><%= Promo.human_attribute_name('start_date') %>:
-              <%= promo.start_date %></li>
-          <li><%= Promo.human_attribute_name('end_date') %>:
-              <%= promo.end_date %></li>
-          <li><%= Promo.human_attribute_name('limit_order') %>:
-              <%= promo.limit_order %></li>
-        </ul>
-        <br>
-    <%end%> 
-</ul>
-<%end%> 
+<%= render 'shared/promos' %>

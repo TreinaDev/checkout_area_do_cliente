@@ -28,6 +28,7 @@ feature 'client see your orders' do
 
     click_on 'Meus Pedidos'
     expect(current_path).to eq(client_orders_path)
+    expect(page).not_to have_content(orders_client2[0].plan_id)
 
     expect(page).to have_content('Você não possui pedidos')
   end
