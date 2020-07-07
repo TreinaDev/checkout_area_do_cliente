@@ -23,11 +23,9 @@ feature 'Client view historic purchases' do
     click_on 'Minha conta'
     click_on 'Compras'
 
-    orders = Order.all
     expect(current_path).to eq orders_companies_path
-    expect(page).not_to have_content(orders.first.plan_id)
-    expect(page).to have_content(orders.last.plan_id)
-    expect(orders.last.client).to eq(client)
+    expect(page).not_to have_content(other_client.orders.first.id)
+    expect(page).to have_content(client.orders.first.id)
   end
 
   scenario 'end client cannot see link' do
