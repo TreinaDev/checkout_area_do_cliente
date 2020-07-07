@@ -1,0 +1,22 @@
+<h1>Nova Promoção</h1>
+<% if @promo.errors.any? %>
+  <ul>
+    <% @promo.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @promo, local: true do |promo|%>
+  <%= promo.label :title %>
+  <%= promo.text_field :title %>
+  <%= promo.label :discount %>
+  <%= promo.number_field :discount %>
+  <%= promo.label :start_date %>
+  <%= promo.date_field :start_date %>
+  <%= promo.label :end_date %>
+  <%= promo.date_field :end_date %>
+  <%= promo.label :limit_order %>
+  <%= promo.number_field :limit_order %>
+  <%= promo.submit 'Enviar' %>
+<%end%>
+
