@@ -2,7 +2,7 @@
 pt-BR:
   activerecord:
     models:
-      company: 'Compania'
+      company: 'Empresa'
     attributes:
       company:
         fantasy_name: 'Nome fantasia'
