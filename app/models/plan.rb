@@ -1,16 +1,21 @@
 class Plan
-  attr_reader :id, :platform, :price, :limit_daily,
-              :limit_monthly, :cost, :promo
+  attr_reader :id, :name, :platforms, :limit_daily_chat,
+              :limit_monthly_chat, :limit_daily_messages, :limit_monthly_messages,
+              :extra_message_price, :extra_chat_price, :current_price
 
-  def initialize(id:, platform:, price:, limit_daily:,
-                 limit_monthly:, cost:, promo:)
+  def initialize(id:, name:, platforms:, limit_daily_chat:,
+                 limit_monthly_chat:, limit_daily_messages:, limit_monthly_messages:,
+                 extra_message_price:, extra_chat_price:, current_price:)
     @id = id
-    @platform = platform
-    @price = price
-    @limit_daily = limit_daily
-    @limit_monthly = limit_monthly
-    @cost = cost
-    @promo = promo
+    @name = name
+    @platforms = platforms
+    @limit_daily_chat = limit_daily_chat
+    @limit_monthly_chat = limit_monthly_chat
+    @limit_daily_messages = limit_daily_messages
+    @limit_monthly_messages = limit_monthly_messages
+    @extra_message_price = extra_message_price
+    @extra_chat_price = extra_chat_price
+    @current_price = current_price
   end
   
   def self.all
@@ -19,9 +24,11 @@ class Plan
     json = JSON.parse(response, symbolize_names: true)
 
     result = json.map do |hash|
-      new(id: hash[:id], platform: hash[:platform], price: hash[:price],
-          limit_daily: hash[:limit_daily], limit_monthly: hash[:limit_monthly],
-          cost: hash[:cost], promo: hash[:promo])
+      new(id: hash[:id], name: hash[:name], platforms: hash[:platforms],
+          limit_daily_chat: hash[:limit_daily_chat], limit_monthly_chat: hash[:limit_monthly_chat],
+          limit_daily_messages: hash[:limit_daily_messages], limit_monthly_messages: hash[:limit_monthly_messages],
+          extra_message_price: hash[:extra_message_price], extra_chat_price: hash[:extra_chat_price],
+          current_price: hash[:current_price])
     end
     result
   end
