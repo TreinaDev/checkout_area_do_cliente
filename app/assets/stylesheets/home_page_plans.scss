@@ -45,6 +45,9 @@ a.go_to_plans:hover {
 .div-plans {
   text-align: center;
   background-color: var(--light-violet);
+  width: 100%;
+  border-radius: 25px;
+  margin-bottom: 3%;
 }
 
 /*Sem planos cadastrados*/
@@ -87,7 +90,7 @@ a.go_to_plans:hover {
 }
 
 /*Comprar Plano*/
-.link-buy {
+p.link-buy {
   margin: auto;
   margin-top: 10%;
   padding: 3%;
