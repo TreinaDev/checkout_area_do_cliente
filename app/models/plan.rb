@@ -12,11 +12,11 @@ class Plan
     @cost = cost
     @promo = promo
   end
-
+  
   def self.all
     response = File.read(Rails.root.join('spec/fixtures/plans.json'))
 
-    json = JSON.parse(response, symbolize_names: true)[:data]
+    json = JSON.parse(response, symbolize_names: true)
 
     result = json.map do |hash|
       new(id: hash[:id], platform: hash[:platform], price: hash[:price],

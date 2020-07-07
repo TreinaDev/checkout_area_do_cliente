@@ -1,31 +1,72 @@
-{
-  "data": [
-    {
-    "id": 1,
-    "platform": "Facebook",
-    "price": 3000.00,
-    "limit_daily": 400,
-    "limit_monthly": 10000,
-    "cost": 0.50,
-    "promo": "Promoção Facebook"
-    },
-    {
-    "id": 2,
-    "platform": "Whatsapp",
-    "price": 4000.00,
-    "limit_daily": 500,
-    "limit_monthly": 20000,
-    "cost": 0.40,
-    "promo": "Promoção Whatsapp"
-    },
-    {
-    "id": 3,
-    "platform": "Magazine Luiza",
-    "price": 5000.00,
-    "limit_daily": 600,
-    "limit_monthly": 30000,
-    "cost": 0.30,
-    "promo": "Promoção Magazine Luiza"
-    }
-   ]
-}
+[
+  {
+    "id":1,
+    "name":"totam",
+    "created_at":"2020-07-07T09:36:39.688-03:00",
+    "updated_at":"2020-07-07T09:36:39.688-03:00",
+    "platforms":"MyString",
+    "limit_daily_chat":1,
+    "limit_monthly_chat":1,
+    "limit_daily_messages":1,
+    "limit_monthly_messages":1,
+    "extra_message_price":1.5,
+    "extra_chat_price":1.5,
+    "current_price":67.27
+  },
+  { 
+    "id":2,
+    "name":"non",
+    "created_at":"2020-07-07T09:36:39.874-03:00",
+    "updated_at":"2020-07-07T09:36:39.874-03:00",
+    "platforms":"MyString",
+    "limit_daily_chat":1,
+    "limit_monthly_chat":1,
+    "limit_daily_messages":1,
+    "limit_monthly_messages":1,
+    "extra_message_price":1.5,
+    "extra_chat_price":1.5,
+    "current_price":57.89
+  },
+  {
+    "id":3,
+    "name":"quo",
+    "created_at":"2020-07-07T09:36:39.969-03:00",
+    "updated_at":"2020-07-07T09:36:39.969-03:00",
+    "platforms":"MyString",
+    "limit_daily_chat":1,
+    "limit_monthly_chat":1,
+    "limit_daily_messages":1,
+    "limit_monthly_messages":1,
+    "extra_message_price":1.5,
+    "extra_chat_price":1.5,
+    "current_price":52.07
+  },
+  {
+    "id":4,
+    "name":"sapiente",
+    "created_at":"2020-07-07T09:36:40.065-03:00",
+    "updated_at":"2020-07-07T09:36:40.065-03:00",
+    "platforms":"MyString",
+    "limit_daily_chat":1,
+    "limit_monthly_chat":1,
+    "limit_daily_messages":1,
+    "limit_monthly_messages":1,
+    "extra_message_price":1.5,
+    "extra_chat_price":1.5,
+    "current_price":48.53
+  },
+  {
+    "id":5,
+    "name":"nulla",
+    "created_at":"2020-07-07T09:36:40.162-03:00",
+    "updated_at":"2020-07-07T09:36:40.162-03:00",
+    "platforms":"MyString",
+    "limit_daily_chat":1,
+    "limit_monthly_chat":1,
+    "limit_daily_messages":1,
+    "limit_monthly_messages":1,
+    "extra_message_price":1.5,
+    "extra_chat_price":1.5,
+    "current_price":91.21
+  }
+]
