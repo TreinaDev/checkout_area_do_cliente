@@ -2,7 +2,7 @@ class Plan
   attr_reader :id, :name, :platforms, :limit_daily_chat,
               :limit_monthly_chat, :limit_daily_messages, :limit_monthly_messages,
               :extra_message_price, :extra_chat_price, :current_price
-  
+
   def initialize(id:, name:, platforms:, limit_daily_chat:,
                  limit_monthly_chat:, limit_daily_messages:, limit_monthly_messages:,
                  extra_message_price:, extra_chat_price:, current_price:)
@@ -17,7 +17,7 @@ class Plan
     @extra_chat_price = extra_chat_price
     @current_price = current_price
   end
-  
+
   def self.all
     response = File.read(Rails.root.join('spec/fixtures/plans.json'))
 
