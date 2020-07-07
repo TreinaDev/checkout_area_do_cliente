@@ -10,7 +10,7 @@ class PromosController < ApplicationController
   def create
     @promo = Promo.new(promo_model_params)
     if @promo.save
-      redirect_to promos_path, notice: t('controllers.promos.create.flash.notice')
+      redirect_to promos_path, notice: t('.notice')
     else
       render :new
     end

@@ -41,17 +41,35 @@ describe Promo, type: :model do
 
       promo.valid?
 
-      expect(promo.errors[:discount]).to include('deve ser menor que 101')
+      expect(promo.errors[:discount]).to include('deve ser menor ou igual a 100')
+    end
+
+    it 'must be greater than -1' do
+      promo = Promo.create(discount: -1)
+
+      promo.valid?
+
+      expect(promo.errors[:discount]).to include('deve ser maior ou igual a 0')
     end
   end
 
   context '#dates valid' do
     it 'start_date valid' do
-      promo = Promo.create(start_date: Date.yesterday)
+      promo = Promo.create(start_date: Date.yesterday, end_date: 7.days.from_now)
 
       promo.valid?
 
-      expect(promo.errors[:start_date]).to include('Não é uma data válida')
+      expect(promo.errors[:start_date]).to include('não pode estar no passado')
+    end
+
+    it 'dates in the past valid' do
+      promo = Promo.create(start_date: Date.yesterday, end_date: 2.days.ago)
+
+      promo.valid?
+
+      expect(promo.errors[:start_date]).to include('não pode estar no passado')
+      expect(promo.errors[:end_date]).to include('não pode estar no passado')
+      expect(promo.errors[:end_date]).to include('não pode ser menor que Data de Início')
     end
 
     it 'end_date valid' do
@@ -59,7 +77,25 @@ describe Promo, type: :model do
 
       promo.valid?
 
-      expect(promo.errors[:end_date]).to include('Não é uma data válida')
+      expect(promo.errors[:end_date]).to include('não pode estar no passado')
+    end
+
+    it 'end_date greater than start_date' do
+      promo = Promo.create(end_date: Time.zone.today,
+                           start_date: 7.days.from_now)
+
+      promo.valid?
+
+      expect(promo.errors[:end_date]).to include('não pode ser menor que Data de Início')
+    end
+
+    it 'end_date greater than start_date' do
+      promo = Promo.create(end_date: 100.days.from_now,
+                           start_date: 200.days.from_now)
+
+      promo.valid?
+
+      expect(promo.errors[:end_date]).to include('não pode ser menor que Data de Início')
     end
   end
 end
