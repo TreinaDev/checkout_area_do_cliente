@@ -15,8 +15,8 @@ Rails.application.routes.draw do
       post 'cancel', on: :member
     end
   end
-
-
   resources :plans, only: [:index]
-  resources :promos, only: %i[index new create]
+  resources :promos, only: %i[index new create] do
+    post 'approve', on: :member
+  end
 end

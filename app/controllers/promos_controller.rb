@@ -17,6 +17,12 @@ class PromosController < ApplicationController
     end
   end
 
+  def approve
+    @promo = Promo.find(params[:id])
+    @promo.accepted!
+    redirect_to promos_path, notice: t('.success')
+  end
+
   def promo_model_params
     params.require(:promo).permit(:title, :discount, :start_date, :end_date,
                                   :limit_order, :employee_id)

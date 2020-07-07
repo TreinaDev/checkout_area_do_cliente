@@ -2,6 +2,8 @@ pt-BR:
   promos: 
     create: 
       notice: 'Promoção cadastrada com sucesso'
+    approve:
+      success: 'Promoção aprovada com sucesso'
   activerecord:
     errors:
       models:
