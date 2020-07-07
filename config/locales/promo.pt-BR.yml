@@ -15,9 +15,14 @@ pt-BR:
     models:
       promo: Promoção
     attributes:
+      promo/status:
+        waiting: Em aberto
+        accepted: Aprovado
       promo:
         title: Título
         discount: Desconto em (%)
         start_date: Data de Início
         end_date: Data de Término
         limit_order: Limite de pedidos
+        status: Situação da promoção
+        employee_id: Vendedor

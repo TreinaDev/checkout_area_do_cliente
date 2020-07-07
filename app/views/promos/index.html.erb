@@ -1,7 +1,4 @@
 <h1>Listas de Promoções</h1>
-<<<<<<< HEAD
-<%= render 'shared/promos' %>
-=======
 <% @promos.each do |promo|%>        
 <dl>
     <dt><%= Promo.human_attribute_name(:title) %>: </dt>
@@ -14,7 +11,8 @@
         <dd><%= promo.end_date %></dd>
     <dt><%= Promo.human_attribute_name(:limit_order) %>: </dt>
         <dd><%= promo.limit_order %></dd>
+    <dt><%= Promo.human_attribute_name(:employee_id) %>: </dt>
+        <dd><%= promo.employee.email %></dd>
 </dl>
 <br>
 <%end%>
->>>>>>> 2f1bb13cca0ed3401774a2826124baf00ec4d49f
