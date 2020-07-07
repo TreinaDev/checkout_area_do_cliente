@@ -14,6 +14,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails', '>= 6'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
+gem 'webmock', '~> 2.1'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do

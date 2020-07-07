@@ -2,12 +2,14 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
-    plan = Plan.new(id: '1', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
+    plan = Plan.new(id: '1', platform: 'Whatsapp', price: 3000.00, limit_daily: 800,
                     limit_monthly: 18_000, cost: 0.80,
                     promo: 'Promoção Whatsapp')
     plan2 = Plan.new(id: '2', platform: 'Facebook', price: 3000.00, limit_daily: 400,
                      limit_monthly: 10_000, cost: 0.50,
                      promo: 'Promoção Facebook')
+
+    allow(Plan).to receive(:all).and_return([plan, plan2])
 
     visit root_path
 

@@ -14,13 +14,14 @@ class Plan
   end
 
   def self.all
-    response = Faraday.get('spec/fixtures/plans.json')
+    response = File.read(Rails.root.join('spec/fixtures/plans.json'))
 
-    return {} unless response.status == 200
+    json = JSON.parse(response, symbolize_names: true)[:data]
 
-    json = JSON.parse(response.body, symbolize_names: true)[:data]
     result = json.map do |hash|
-      new(hash)
+      new(id: hash[:id], platform: hash[:platform], price: hash[:price],
+          limit_daily: hash[:limit_daily], limit_monthly: hash[:limit_monthly],
+          cost: hash[:cost], promo: hash[:promo])
     end
     result
   end
