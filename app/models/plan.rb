@@ -17,7 +17,7 @@ class Plan
     @extra_chat_price = extra_chat_price
     @current_price = current_price
   end
-  
+
   def self.all
     json = JSON.parse(response, symbolize_names: true)
     result = json.map do |hash|
@@ -29,7 +29,7 @@ class Plan
     end
     result
   end
-  
+
   def self.response
     File.read(Rails.root.join('spec/fixtures/plans.json'))
   end
