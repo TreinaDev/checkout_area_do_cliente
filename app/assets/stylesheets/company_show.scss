@@ -1,0 +1,52 @@
+/*Mobile First*/
+.container-company {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  max-height: 500px;
+}
+
+.info-company {
+  margin: auto;
+  margin-top: 10%;
+  width: 400px;
+}
+
+/*Link para editar informações*/
+.btn.btn-dark.edit {
+  margin-top: 5%;
+  width: 100px;
+}
+
+.btn.btn-dark.edit a {
+  color: white;
+  text-decoration: none;
+}
+
+.personal_info {
+  display: none;
+}
+
+/*Tablet*/
+@media screen and (min-width: 710px) and (max-width: 1200px) {
+  .info-company {
+    width: 700px;
+  }
+}
+
+/*Desktop*/
+@media screen and (min-width: 1200px) {
+  .container-company {
+    grid-template-columns: repeat(2,1fr); 
+  }
+
+  .personal_info {
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 200px;
+  }
+}
+
+
+

@@ -1,0 +1,11 @@
+<%= link_to 'Voltar', order_clients_path %>
+
+<dl>
+  <dt>Token da Empresa: </dt>
+	<dd><%= link_to @order_client.token, @order_client %></dd>
+	<dt>Plano: </dt>
+	<dd><%= @order_client.plan %></dd>
+	<dt>Status: </dt>
+	<dd><%= OrderClient.human_attribute_name("status.#{@order_client.status}") %></dd>
+</dl>
+<%= link_to 'Aprovar Pedido', order_client_approved_orders_path(@order_client), method: :post %>

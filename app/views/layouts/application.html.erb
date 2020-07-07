@@ -2,30 +2,59 @@
 <html>
   <head>
     <title>CheckoutAreaDoCliente</title>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <!--Icon-->
+    <link rel="icon" href="https://valepublicitando.com/wp-content/uploads/2018/01/bot-icon-2883144_640.png">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= render partial: 'shared/flashes' %>
-    <nav>
-	    <% if employee_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %>
-	    <% else %> 
-	      <%= link_to t('.employee_sign_in'), new_employee_session_path %>
-        <%= link_to 'Cadastrar promoção', new_promo_path %>
-	    <% end %>
-
-	    <% if client_signed_in? %>
-	      <%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %>
-        <%= link_to 'Minha conta', current_client.company %>
-	    <% else %>
-	      <%= link_to t('.sign_in'), new_client_session_path %>
-	    <% end %>      
-    </nav>   
-    <%= yield %>
+    <div class="background-menu">  
+      <div class="div-logo">
+        <li class="logo"><%= image_tag("bot-icon.png", size: "50x50", alt: "")%></li> 
+        <li class="title">Commits</li> 
+      </div>
+      <nav class="menu">
+        <li><%= link_to 'Home', root_path, {:class => "active"} %></li>
+        <% if employee_signed_in? || client_signed_in? %>                                                                  
+          <% if employee_signed_in? %>
+            <li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
+            <li><%= link_to 'Pedidos', order_clients_path %></li>
+            <li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
+          <% end %>
+          <% if client_signed_in? %>
+            <li><%= link_to 'Minha conta', current_client.company %></li>
+            <li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
+          <% end %>
+        <% else %>
+          <li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>
+          <li class="sign-client"><%= link_to t('.sign_in'), new_client_session_path %></li>
+        <% end %>
+      </nav>
+    </div>
+    <div class="container-messages">
+      <div class="col-12">
+        <% if notice %>
+          <p class="alert alert-success message">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%= notice %>
+          </p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger message">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%= alert %>
+          </p>
+        <% end %>
+        <%= yield %>         
+      </div>
+    </div>
   </body>
 </html>

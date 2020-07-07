@@ -1,23 +1,29 @@
-<% if @plans.empty? %>
-  <p class="msg-error"><%= 'Sem planos cadastrados' %></p>
-<% end %>
+<div id="go_to_plans" class="div-plans">
+  <h2 class="h2-active-plans">Planos Disponíveis</h2>
+  <% if @plans.empty? %>
+    <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+    <strong class="without-plans"><%= 'Sem planos cadastrados' %></strong>
+  <% end %>
 
-<% @plans.each do |plan| %>
-<dl>
-  <dt>Plataforma: </dt>
-  <dd><%= plan.platform %></dd>
-  <dt>Preço: </dt>
-  <dd><%= plan.price %></dd>
-  <dt>Limite mensal: </dt>
-  <dd><%= plan.limit_monthly %></dd>
-  <dt>Limite diário: </dt>
-  <dd><%= plan.limit_daily %></dd>
-  <dt>Custo: </dt>
-  <dd><%= plan.cost %> por mensagem</dd>
-  <dt>Promoção: </dt>
-  <dd><%= plan.promo %></dd>
-  <div id="plan-<%= plan.id %>">
-    <%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %>
+  <div class="all-plans">
+    <% @plans.each do |plan| %>
+      <div class="each-card">
+        <strong>Plataforma: </strong>
+        <h5><%= plan.platform %></h5>
+        <strong>Preço: </strong>
+        <h5><%= plan.price %></h5>
+        <strong>Limite mensal: </strong>
+        <h5><%= plan.limit_monthly %></h5>
+        <strong>Limite diário: </strong>
+        <h5><%= plan.limit_daily %></h5>
+        <strong>Custo: </strong>
+        <h5><%= plan.cost %> por mensagem</h5>
+        <strong>Promoção: </strong>
+        <h5><%= plan.promo %></h5>
+        <div id="plan-<%= plan.id %>">
+          <%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %>
+        </div>
+      </div>
+    <% end %>
   </div>
-</dl>
-<% end %>
+</div>

@@ -10,6 +10,7 @@ pt-BR:
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
+        remember_me: Lembrar senha
   clients:
     sessions:
       new:
@@ -20,7 +21,9 @@ pt-BR:
         password_confirmation: Confirmação de senha
     shared:
       links:
+        sign_in: Já tenho uma conta
         sign_up: Registrar-se
+        forget_password: Esqueceu sua senha?
     registrations:
       new:
         sign_up: Registrar-se
@@ -29,3 +32,4 @@ pt-BR:
       sign_in: Entrar
       sign_out: Sair
       my_account: Minha conta
+      

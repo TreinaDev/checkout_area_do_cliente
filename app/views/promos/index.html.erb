@@ -1,0 +1,16 @@
+<h1>Listas de Promoções</h1>
+<% @promos.each do |promo|%>        
+<dl>
+    <dt><%= Promo.human_attribute_name(:title) %>: </dt>
+        <dd><%= promo.title %></dd>          
+    <dt><%= Promo.human_attribute_name(:discount) %>: </dt>
+        <dd><%= promo.discount %></dd>
+    <dt><%= Promo.human_attribute_name(:start_date) %>: </dt>
+        <dd><%= promo.start_date %></dd>
+    <dt><%= Promo.human_attribute_name(:end_date) %>: </dt>
+        <dd><%= promo.end_date %></dd>
+    <dt><%= Promo.human_attribute_name(:limit_order) %>: </dt>
+        <dd><%= promo.limit_order %></dd>
+</dl>
+<br>
+<%end%>

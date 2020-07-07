@@ -15,6 +15,7 @@ pt-BR:
     sessions:
       check_company: 'Você ainda não completou a sua conta, para continuar finalize-a.'
       company_created: 'Empresa criada com sucesso.'
+      authenticate: 'Faça login para continuar.'
 
     actions:
       edit: 'Editar'

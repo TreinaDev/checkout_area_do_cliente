@@ -1,18 +1,38 @@
-<section>
-  <dl>
-      <dt><%= Company.human_attribute_name('fantasy_name') %>:</dt>
-      <dd><%= @company.fantasy_name %></dd>
-      <dt><%= Company.human_attribute_name('corporate_name') %>:</dt>
-      <dd><%= @company.corporate_name %></dd>
-      <dt><%= Company.human_attribute_name('email') %>:</dt>
-      <dd><%= @company.email %></dd>
-      <dt><%= Company.human_attribute_name('document_number') %>:</dt>
-      <dd><%= @company.document_number %></dd>
-      <dt><%= Company.human_attribute_name('address') %>:</dt>
-      <dd><%= @company.address %></dd>
-  </dl>
+<p class="link-back"><i class="fa fa-arrow-left" aria-hidden="true"></i><%= link_to 'Voltar', root_path %></p>
+
+<section class="container-company">
+  <div class="info-company">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-dark">
+        <strong><%= Company.human_attribute_name('fantasy_name') %>:</strong>
+	<%= @company.fantasy_name %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong><%= Company.human_attribute_name('corporate_name') %>:</strong>
+	<%= @company.corporate_name %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong><%= Company.human_attribute_name('email') %>:</strong>
+	<%= @company.email %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+	<strong><%= Company.human_attribute_name('document_number') %>:</strong>
+	<%= @company.document_number %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+	<strong><%= Company.human_attribute_name('address') %>:</strong>
+	<%= @company.address %>
+      </li>
+    </ul>
+    <p class="btn btn-dark edit"><%= link_to 'Editar', edit_company_path %></p>
+  </div>
+  <div>
+    <div class="personal_info"><%= image_tag("personal_info.svg", size: "400x400", alt: "")%></div>
+  </div>
 </section>
-<%= link_to t('edit', scope: %i[company actions]), edit_company_path %>
+
 <% if @company.client == current_client %>
   <%= link_to 'Compras', orders_companies_path %>
 <% end %>
+
+

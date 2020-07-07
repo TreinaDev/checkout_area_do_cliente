@@ -1,0 +1,24 @@
+---
+pt-BR:
+  promos: 
+    create: 
+      notice: 'Promoção cadastrada com sucesso'
+  activerecord:
+    errors:
+      models:
+        promo:
+          attributes:
+            start_date:
+              in_the_past: 'não pode estar no passado'
+            end_date:
+              in_the_past: 'não pode estar no passado'
+              date_compare_error: 'não pode ser menor que Data de Início'
+    models:
+      promo: Promoção
+    attributes:
+      promo:
+        title: Título
+        discount: Desconto em (%)
+        start_date: Data de Início
+        end_date: Data de Término
+        limit_order: Limite de pedidos

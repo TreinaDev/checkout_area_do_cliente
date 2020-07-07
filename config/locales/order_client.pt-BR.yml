@@ -1,0 +1,17 @@
+---
+pt-BR:
+  activerecord:
+    enums:
+    models:
+      order_client: Pedido
+    attributes:
+      order_client/status:
+        waiting: Aguardando aprovação
+        accepted: Aprovado
+        rejected: Rejeitado
+      order_client:
+        token: Token
+        plan: Plano
+        status: Status
+        first_employee: Primeiro Vendedor
+        second_employee: Segundo Vendedor
