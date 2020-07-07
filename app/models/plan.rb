@@ -20,9 +20,7 @@ class Plan
 
   def self.all
     response = File.read(Rails.root.join('spec/fixtures/plans.json'))
-
     json = JSON.parse(response, symbolize_names: true)
-
     result = json.map do |hash|
       new(id: hash[:id], name: hash[:name], platforms: hash[:platforms],
           limit_daily_chat: hash[:limit_daily_chat], limit_monthly_chat: hash[:limit_monthly_chat],
