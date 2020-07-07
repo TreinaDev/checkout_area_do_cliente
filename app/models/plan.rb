@@ -19,7 +19,6 @@ class Plan
   end
   
   def self.all
-    response = File.read(Rails.root.join('spec/fixtures/plans.json'))
     json = JSON.parse(response, symbolize_names: true)
     result = json.map do |hash|
       new(id: hash[:id], name: hash[:name], platforms: hash[:platforms],
@@ -29,5 +28,9 @@ class Plan
           current_price: hash[:current_price])
     end
     result
+  end
+  
+  def self.response
+    File.read(Rails.root.join('spec/fixtures/plans.json'))
   end
 end
