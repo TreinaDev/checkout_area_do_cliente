@@ -3,9 +3,11 @@ require 'rails_helper'
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
     plans = [Plan.new(id: '1', name: 'Para Conectar', platforms: 'Facebook', limit_daily_chat: 100,
+                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
                       limit_monthly_chat: 200, limit_daily_messages: 300, limit_monthly_messages: 500,
                       extra_message_price: 0.60, extra_chat_price: 0.50, current_price: 60.00),
              Plan.new(id: '2', name: 'Para Conversar', platforms: 'Whatsapp', limit_daily_chat: 200,
+                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
                       limit_monthly_chat: 300, limit_daily_messages: 600, limit_monthly_messages: 100,
                       extra_message_price: 0.50, extra_chat_price: 0.40, current_price: 100.00)]
 
