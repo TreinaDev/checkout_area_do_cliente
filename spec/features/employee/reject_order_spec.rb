@@ -47,7 +47,7 @@ feature 'Employee reject orders' do
     fill_in 'Motivo', with: ' '
     click_on 'Enviar'
 
-    # expect(current_path).to eq(order_client_rejected_order_path(order))
+    expect(current_path).to eq(order_client_rejected_orders_path(order))
     expect(page).to have_content('Motivo não pode ficar em branco')
   end
 end
