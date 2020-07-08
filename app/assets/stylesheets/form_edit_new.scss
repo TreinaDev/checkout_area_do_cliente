@@ -24,10 +24,27 @@
   background: none;
 }
 
-/*Submit*/
+/*Submit Company*/
 .btn.btn-dark.company {
   width: 100%;
 }
+
+/*Submit Promo*/
+.btn.btn-dark.promo {
+  width: 200px;
+}
+
+/*Cadastro de promoções*/
+
+/*Campos para numberos*/
+.form-control.field-number {
+  width: 260px;
+} 
+
+/*Campos para data*/
+.form-control.field-date {
+  width: 200px;
+} 
 
 /*Mobile*/
 @media screen and (max-width: 600px) {
