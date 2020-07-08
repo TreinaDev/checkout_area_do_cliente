@@ -16,14 +16,13 @@
           <strong>Status:</strong>
 	  <%= OrderClient.human_attribute_name("status.#{@order_client.status}") %>
         </li>
-      <% else %>
-        <li class="list-group-item list-group-item-warning">
+      <% elsif @order_client.rejected? %>
+        <li class="list-group-item list-group-item-danger">
           <strong>Status:</strong>
 	  <%= OrderClient.human_attribute_name("status.#{@order_client.status}") %>
         </li>
-      <% end %>
-      <% if @order_client.rejected? %>
-        <li class="list-group-item list-group-item-danger">
+      <% else %>
+        <li class="list-group-item list-group-item-warning">
           <strong>Status:</strong>
 	  <%= OrderClient.human_attribute_name("status.#{@order_client.status}") %>
         </li>

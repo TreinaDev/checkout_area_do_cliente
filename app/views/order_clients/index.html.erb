@@ -25,13 +25,12 @@
               <td><strong class="status-accepted">
                 <%= OrderClient.human_attribute_name("status.#{order.status}") %>
               </strong></td>
-            <% else %>
-              <td><strong>
+            <% elsif order.rejected? %>
+              <td><strong class="status-rejected">
                 <%= OrderClient.human_attribute_name("status.#{order.status}") %>
               </strong></td>
-            <% end %>
-            <% if order.rejected? %>
-              <td><strong class="status-rejected">
+            <% else %>
+              <td><strong>
                 <%= OrderClient.human_attribute_name("status.#{order.status}") %>
               </strong></td>
             <% end %>
