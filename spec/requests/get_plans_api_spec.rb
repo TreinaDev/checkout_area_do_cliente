@@ -21,7 +21,7 @@ feature 'Visitor see plans in home page' do
 
     it 'should return empty array if API error' do      
       url = 'http://localhost:4000/api/v1/plans/'      
-      response = double('spec/fixtures/plans.json', body: '', status: 500)
+      response = double('faraday_response', body: '', status: 500)
       allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(response)
 
       plans = Plan.all
