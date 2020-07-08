@@ -1,18 +1,16 @@
 require 'faker'
 
 #Vendedores
-first_employee = Employee.create(email: 'first@teste.com', password: '123456')
-Employee.create(email: 'second@teste.com', password: '123456')
-Employee.create(email: 'third@teste.com', password: '123456')
+FactoryBot.create(:employee, email: 'first@teste.com')
+FactoryBot.create(:employee, email: 'second@teste.com')
+FactoryBot.create(:employee, email: 'third@teste.com')
 
 #Pedidos
-10.times do |this|
-	OrderClient.create(token: Faker::Code.nric, plan: Faker::Name.name)
-end
+FactoryBot.create_list(:order_client, 10)
 
 #Pedidos aprovados
-ApprovedOrder.create(order_client_id: OrderClient.first.id)
-ApprovedOrder.create(order_client_id: OrderClient.last.id)
+FactoryBot.create(:approved_order, order_client: OrderClient.first)
+FactoryBot.create(:approved_order, order_client: OrderClient.last)
 
 #Clientes
 client_one = Client.create!(email: 'cliente01@email.com', password: '12345678')
