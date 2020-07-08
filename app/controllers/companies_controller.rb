@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_client!
-  before_action :complete_company, only: %i[show edit]
+  before_action :complete_company, only: %i[show edit orders]
 
   def new
     @company = Company.new
@@ -31,6 +31,10 @@ class CompaniesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def orders
+    @orders = current_client.order_clients
   end
 
   private

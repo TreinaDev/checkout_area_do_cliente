@@ -1,0 +1,42 @@
+.table-order-clients {
+  margin-top: 5%;
+}
+
+/* Lista de Pedidos */
+.table-order-clients h2 {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+/* Link para ver detalhes do pedido */
+.table-order-clients a, .table-order-clients a:hover {
+  text-decoration: none;
+  color: var(--dark-violet);
+}
+
+/* Botão para aprovar pedido */
+.btn.btn-success.approved-order a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Indica pedido aceito */
+.status-accepted {
+   color: green;
+}
+
+/* Indica pedido rejeitado */
+.status-rejected {
+   color: red;
+}
+
+/* Sem pedidos cadastrados */
+.without-order-clients {
+  text-align: center;
+}
+
+.without-order-clients h3 {
+  color: red;
+}
+
+
