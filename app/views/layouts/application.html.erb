@@ -28,6 +28,7 @@
           <% if client_signed_in? %>
             <li><%= link_to 'Minha conta', current_client.company %></li>
             <li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
+            <li><%= link_to 'Meus Pedidos', client_order_clients_path %></li>
           <% end %>
         <% else %>
           <li><%= link_to t('.employee_sign_in'), new_employee_session_path %></li>

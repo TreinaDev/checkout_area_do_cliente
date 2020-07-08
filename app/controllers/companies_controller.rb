@@ -34,7 +34,7 @@ class CompaniesController < ApplicationController
   end
 
   def orders
-    @orders = current_client.orders
+    @orders = current_client.order_clients
   end
 
   private

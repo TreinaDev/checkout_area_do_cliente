@@ -3,7 +3,6 @@ pt-BR:
   activerecord:
     models:
       plan: Plano
-      order: Pedido
     attributes:
       plan:
         platform: Plataforma
