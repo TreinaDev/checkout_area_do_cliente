@@ -12,8 +12,8 @@ feature 'Employee view orders' do
     expect(current_path).to eq(order_clients_path)
     expect(page).to have_content(order.token)
     expect(page).to have_content(order.plan)
-    expect(page).to have_content('Status: Aguardando aprovação')
-    expect(page).not_to have_content('Status: Aprovado')
+    expect(page).to have_content('Aguardando aprovação')
+    expect(page).not_to have_content('Aprovado')
   end
 
   scenario 'and view details' do
@@ -26,8 +26,8 @@ feature 'Employee view orders' do
 
     expect(page).to have_content(order.token)
     expect(page).to have_content(order.plan)
-    expect(page).to have_content('Status: Aguardando aprovação')
-    expect(page).not_to have_content('Status: Aprovado')
+    expect(page).to have_content('Aguardando aprovação')
+    expect(page).not_to have_content('Aprovado')
     expect(page).to have_link('Aprovar Pedido', href: order_client_approved_orders_path(order.id))
   end
 
@@ -56,9 +56,9 @@ feature 'Employee view orders' do
     click_on 'Aprovar Pedido'
 
     expect(current_path).to eq("/order_clients/#{order.id}")
-    expect(page).to have_content('Status: Aprovado')
-    expect(page).not_to have_content('Status: Aguardando aprovação')
-    expect(page).not_to have_content('Status: Rejeitado')
+    expect(page).to have_content('Aprovado')
+    expect(page).not_to have_content('Aguardando aprovação')
+    expect(page).not_to have_content('Rejeitado')
   end
 
   scenario 'and other order remains unchanged' do
@@ -74,7 +74,7 @@ feature 'Employee view orders' do
     click_on 'Aprovar Pedido'
     click_on 'Voltar'
     click_on 'AAAAAA'
-    expect(page).to have_content('Status: Aguardando aprovação')
+    expect(page).to have_content('Aguardando aprovação')
   end
   scenario 'but no have any order' do
     employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
