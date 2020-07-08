@@ -3,12 +3,20 @@ Rails.application.routes.draw do
   devise_for :clients
   
   resources :plans, only: [:index]
+
   resources :order_clients, only: [:index, :show] do
 	  resources :approved_orders, only: [:create]
   end
   root to: 'home#index'
   resources :companies, only: %i[show new create edit update]
-  resources :orders, only: %i[show create]
+
+  namespace :client do
+    resources :order_clients, only: %i[index show create] do
+      post 'cancel', on: :member
+    end
+  end
+
+
   resources :plans, only: [:index]
   resources :promos, only: %i[index new create]
 end
