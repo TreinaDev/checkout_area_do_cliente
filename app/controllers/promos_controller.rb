@@ -8,8 +8,7 @@ class PromosController < ApplicationController
   end
 
   def create
-    @promo = Promo.new(promo_model_params)
-    @promo.employee_id = current_employee.id
+    @promo = current_employee.build_promo(promo_model_params) 
     if @promo.save
       redirect_to promos_path, notice: t('.notice')
     else
@@ -25,6 +24,6 @@ class PromosController < ApplicationController
 
   def promo_model_params
     params.require(:promo).permit(:title, :discount, :start_date, :end_date,
-                                  :limit_order, :employee_id)
+                                  :limit_order)
   end
 end
