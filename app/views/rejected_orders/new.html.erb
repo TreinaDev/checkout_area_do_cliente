@@ -1,5 +1,8 @@
-<%= render 'form' %>
+<p class="link-back">
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  <%= link_to 'Voltar', order_clients_path %>
+</p>
 
-<br/>
-
-<%= link_to 'Voltar', order_clients_path %>
+<section class="d-flex justify-content-center">
+  <%= render 'form' %>
+</section>
