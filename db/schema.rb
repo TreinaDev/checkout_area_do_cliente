@@ -85,16 +85,6 @@ ActiveRecord::Schema.define(version: 2020_07_06_220815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "promos", force: :cascade do |t|
-    t.string "title"
-    t.integer "discount"
-    t.date "start_date"
-    t.date "end_date"
-    t.integer "limit_order", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   add_foreign_key "approved_orders", "order_clients"
   add_foreign_key "companies", "clients"
   add_foreign_key "order_clients", "clients"
