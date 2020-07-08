@@ -1,22 +1,30 @@
-<h1>Nova Promoção</h1>
+<div class="text-center company">
+  <h2>Nova Promoção</h2>
+</div>
 <% if @promo.errors.any? %>
-  <ul>
-    <% @promo.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
+  <% @promo.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger company" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= message %>
+  </div>
+  <% end %>
 <% end %>
-<%= form_with model: @promo, local: true do |promo|%>
-  <%= promo.label :title %>
-  <%= promo.text_field :title %>
-  <%= promo.label :discount %>
-  <%= promo.number_field :discount %>
-  <%= promo.label :start_date %>
-  <%= promo.date_field :start_date %>
-  <%= promo.label :end_date %>
-  <%= promo.date_field :end_date %>
-  <%= promo.label :limit_order %>
-  <%= promo.number_field :limit_order %>
-  <%= promo.submit 'Enviar' %>
-<%end%>
+
+<div class="form-group company">
+  <%= form_with model: @promo, local: true do |promo|%>
+    <%= promo.label :title %>
+    <li class="form-control"><%= promo.text_field :title %></li><br>
+    <%= promo.label :discount %>
+    <li class="form-control field-number"><%= promo.number_field :discount %></li><br>
+    <%= promo.label :limit_order %>
+    <li class="form-control field-number"><%= promo.number_field :limit_order %></li><br>
+    <%= promo.label :start_date %>
+    <li class="form-control field-date"><%= promo.date_field :start_date %></li><br>
+    <%= promo.label :end_date %>
+    <li class="form-control field-date"><%= promo.date_field :end_date %></li><br>
+    <button type="submit" class="btn btn-dark promo">Enviar</button>
+  <% end %>
+</div>
 

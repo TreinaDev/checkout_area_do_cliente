@@ -56,9 +56,9 @@ feature 'Employee view orders' do
     click_on 'Aprovar Pedido'
 
     expect(current_path).to eq("/order_clients/#{order.id}")
-    expect(page).to have_content('Status: Aprovado')
-    expect(page).not_to have_content('Status: Aguardando aprovação')
-    expect(page).not_to have_content('Status: Rejeitado')
+    expect(page).to have_content('Aprovado')
+    expect(page).not_to have_content('Aguardando aprovação')
+    expect(page).not_to have_content('Rejeitado')
   end
 
   scenario 'and other order remains unchanged' do

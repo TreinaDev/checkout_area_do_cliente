@@ -8,7 +8,7 @@ class PromosController < ApplicationController
   end
 
   def create
-    @promo = current_employee.build_promo(promo_model_params) 
+    @promo = current_employee.build_promo(promo_model_params)
     if @promo.save
       redirect_to promos_path, notice: t('.notice')
     else
