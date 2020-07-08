@@ -1,0 +1,12 @@
+<div class="col-6">
+  <%= form_with model: [@order_client, @rejected_order], local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :reason %></label>
+      <%= f.text_area :reason, class: 'form-control' %>
+    </div>
+
+    <br/>
+
+    <button type="submit" class="btn btn-dark company">Enviar</button>
+  <% end %>
+</div>

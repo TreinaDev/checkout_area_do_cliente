@@ -10,7 +10,11 @@ feature 'Employee reject orders' do
     click_on order.token
     click_on 'Reprovar Pedido'
 
-    expect(current_path).to eq("/order_clients/#{order.id}")
+    expect(current_path).to eq(new_order_client_rejected_order_path(order))
+    fill_in 'Motivo', with: 'A empresa não tem infraestrutura.'
+    click_on 'Enviar'
+
+    expect(current_path).to eq(order_client_path(order))
     expect(page).to have_content('Rejeitado')
     expect(page).not_to have_content('Aguardando aprovação')
     expect(page).not_to have_content('Aceito')

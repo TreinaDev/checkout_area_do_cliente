@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :approved_order do
-    order_client { nil }
+    order_client
   end
 end
