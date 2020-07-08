@@ -2,11 +2,10 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   describe Plan do
-    it 'should get all states' do
-      raw_json = File.read(Rails.root.join('spec/fixtures/plans.json'))
-      url = 'localhost:4000/api/v1/plans'
-      fake_response = double('faraday_response', body: raw_json, status: 200)      
-      allow(Faraday).to receive(:get).with(url).and_return(fake_response)
+    it 'should get all states' do      
+      url = 'http://localhost:4000/api/v1/plans/'
+      response = double('faraday_response', status: 200)
+      allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(response)
 
       plans = Plan.all
       expect(plans[0].name).to eq 'totam'
@@ -21,12 +20,12 @@ feature 'Visitor see plans in home page' do
     end
 
     it 'should return empty array if API error' do      
-      url = 'localhost:4000/api/v1/plans'
-      response = double('faraday_response', body: "{}", status: 500)
-      allow(Faraday).to receive(:get).with(url).and_return(response)
+      url = 'http://localhost:4000/api/v1/plans/'      
+      response = double('spec/fixtures/plans.json', body: '', status: 500)
+      allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(response)
 
-      result = StateInfo.all
-      expect(result.length).to eq 0
+      plans = Plan.all
+      expect(plans.length).to eq 0
     end
   end
 end
