@@ -10,9 +10,9 @@ class RejectedOrdersController < ApplicationController
     @order_client.rejected!
 
     if @rejected_order.save
-      flash[:notice] = 'Pedido rejeitado com sucesso'	
+      flash[:notice] = 'Pedido rejeitado com sucesso'
       redirect_to @order_client
-    else 
+    else
       render :new
     end
   end
