@@ -1,14 +1,43 @@
-<% if @order_clients.empty? %>
-  <p class="msg-error"><%= 'Nenhum pedido cadastrado' %></p>
-<% end %>
-
-<% @order_clients.each do |order| %>
-  <dl>
-    <dt>Token da Empresa: </dt>
-    <dd><%= link_to order.token, order %></dd>
-    <dt>Plano: </dt>
-    <dd><%= order.plan %></dd>
-    <dt>Status: </dt>
-    <dd><%= OrderClient.human_attribute_name("status.#{order.status}") %></dd>		
-  </dl>
-<% end %>
+<div class="table-order-clients">
+  <% if @order_clients.empty? %>
+    <div class="without-order-clients">
+      <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+      <h3><%= 'Nenhum pedido cadastrado' %></h3>
+    </div>
+  <% else %>
+    <h2>Lista de Pedidos</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Token da Empresa</th>
+          <th scope="col">Plano</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_clients.each do |order| %>
+          <tr>
+            <th scope="row"><%= order.id %></th>
+            <td ><%= link_to order.token, order %></td>
+            <td><%= order.plan %></td>
+            <% if order.accepted? %>
+              <td><strong class="status-accepted">
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% else %>
+              <td><strong>
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% end %>
+            <% if order.rejected? %>
+              <td><strong class="status-rejected">
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
