@@ -25,6 +25,8 @@ feature 'Visitor see plans in home page' do
       allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(response)
 
       plans = Plan.all
+      expect(response.body).to be_empty 
+      expect(response).to have_http_status(500)
       expect(plans.length).to eq 0
     end
   end
