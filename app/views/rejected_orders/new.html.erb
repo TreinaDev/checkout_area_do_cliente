@@ -1,5 +1,19 @@
-<%= render 'form' %>
+<p class="link-back">
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  <%= link_to 'Voltar', order_clients_path %>
+</p>
 
-<br/>
+<% if @rejected_order.errors.any? %>
+  <% @rejected_order.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger company" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
 
-<%= link_to 'Voltar', order_clients_path %>
+<section class="d-flex justify-content-center">
+  <%= render 'form' %>
+</section>
