@@ -29,7 +29,9 @@ feature 'Visitor see plans in home page' do
   end
 
   scenario 'by have not any plan register' do
-    allow(Plan).to receive(:all).and_return([])
+    stub_request(:get, 'http://exemplo.com/api/v1/plans/')
+      .to_return(status: 200, body: '[]')
+
     visit root_path
     expect(page).to have_content('Sem planos cadastrados')
   end
