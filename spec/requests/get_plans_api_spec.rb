@@ -19,7 +19,6 @@ feature 'Visitor see plans in home page' do
     it 'should return empty array if API error' do
       stub_request(:get, 'http://exemplo.com/api/v1/plans/')
         .to_return(status: 500)
-
       plans = Plan.all
 
       expect(plans.length).to eq 0
