@@ -34,7 +34,7 @@ class CompaniesController < ApplicationController
   end
 
   def orders
-    @orders = Order.where({ client: current_client })
+    @orders = current_client.orders
   end
 
   private
