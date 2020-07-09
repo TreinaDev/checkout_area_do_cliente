@@ -20,7 +20,10 @@
         <h5><%= plan.cost %> por mensagem</h5>
         <strong>Promoção: </strong>
         <h5><%= plan.promo %></h5>
-        <p class="link-buy"><%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %></p>
+        <div id="plan-<%= plan.id %>">
+          <p class="link-buy"><%= link_to 'Comprar',
+              client_order_clients_path(plan_id: plan.id), method: :post %></p>
+        </div>
       </div>
     <% end %>
   </div>

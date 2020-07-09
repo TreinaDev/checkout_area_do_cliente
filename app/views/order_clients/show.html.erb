@@ -28,10 +28,16 @@
         </li>
       <% end %>
     </ul>
+
     <p class="btn btn-success approved-order">
-      <%= link_to 'Aprovar Pedido', order_client_approved_orders_path(@order_client), method: :post %>      
+      <%= link_to 'Aprovar Pedido', order_client_approved_orders_path(@order_client), method: :post %>
     </p> 
+
+    <p class="btn btn-danger rejected-order">
+      <%= link_to 'Reprovar Pedido', new_order_client_rejected_order_path(@order_client) %>
+    </p>
   </div>
+
   <div>
     <div class="personal_info"><%= image_tag("order_confirmed.png", size: "470x400", alt: "")%></div>
   </div>		

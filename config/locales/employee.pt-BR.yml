@@ -22,7 +22,7 @@ pt-BR:
     shared:
       links:
         sign_up: Registrar-se
-        forget_password: Esqueceu sua senha?       
+        forget_password: Esqueceu sua senha?
     registrations:
       new:
         sign_up: Registrar-se

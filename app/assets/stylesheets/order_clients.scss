@@ -20,6 +20,12 @@
   text-decoration: none;
 }
 
+/* Botão para aprovar pedido */
+.btn.btn-danger.rejected-order a {
+  color: white;
+  text-decoration: none;
+}
+
 /* Indica pedido aceito */
 .status-accepted {
    color: green;

@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row'>
+    <div class='card'>
+      <div class='col-sm-5'>
+        <% @orders.each do |order| %>
+          <div class='card-body'>
+            <%= order.plan_id %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='actions'>
+    <br/>
+    <%= link_to t('back', scope: %i[company actions]),
+        :back, class: 'btn btn-primary' %>
+  </div>
+</div>

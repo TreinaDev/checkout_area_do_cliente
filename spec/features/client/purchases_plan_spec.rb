@@ -2,15 +2,14 @@ require 'rails_helper'
 
 feature 'Client purchases a plan' do
   scenario 'sucessfully' do
-    client = create(:client)
-    login_as client, scope: :client
+    client = client_login
     create(:company, client: client)
 
     visit root_path
     expect(current_path).to eq(root_path)
     first('a', text: 'Comprar').click
 
-    order = Order.last
+    order = OrderClient.last
     expect(order.client).to eq(client)
     expect(order.plan_id).to eq(1)
     expect(page).to have_content('Compra efetuada com sucesso')

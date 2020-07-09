@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_214906) do
+ActiveRecord::Schema.define(version: 2020_07_08_220518) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
@@ -65,14 +65,9 @@ ActiveRecord::Schema.define(version: 2020_06_30_214906) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
-  end
-
-  create_table "orders", force: :cascade do |t|
     t.integer "plan_id"
-    t.integer "client_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_order_clients_on_client_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -88,9 +83,22 @@ ActiveRecord::Schema.define(version: 2020_06_30_214906) do
     t.integer "limit_order", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
+    t.integer "employee_id", null: false
+    t.index ["employee_id"], name: "index_promos_on_employee_id"
+  end
+
+  create_table "rejected_orders", force: :cascade do |t|
+    t.integer "order_client_id", null: false
+    t.text "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_client_id"], name: "index_rejected_orders_on_order_client_id"
   end
 
   add_foreign_key "approved_orders", "order_clients"
   add_foreign_key "companies", "clients"
-  add_foreign_key "orders", "clients"
+  add_foreign_key "order_clients", "clients"
+  add_foreign_key "promos", "employees"
+  add_foreign_key "rejected_orders", "order_clients"
 end
