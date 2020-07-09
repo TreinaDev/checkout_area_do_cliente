@@ -11,8 +11,8 @@ feature 'Employee view orders' do
     expect(current_path).to eq(order_clients_path)
     expect(page).to have_content(order.token)
     expect(page).to have_content(order.plan)
-    expect(page).to have_content('Status: Em aberto')
-    expect(page).not_to have_content('Status: Aprovado')
+    expect(page).to have_content('Em aberto')
+    expect(page).not_to have_content('Aprovado')
   end
 
   scenario 'and view details' do
@@ -24,8 +24,8 @@ feature 'Employee view orders' do
 
     expect(page).to have_content(order.token)
     expect(page).to have_content(order.plan)
-    expect(page).to have_content('Status: Em aberto')
-    expect(page).not_to have_content('Status: Aprovado')
+    expect(page).to have_content('Em aberto')
+    expect(page).not_to have_content('Aprovado')
     expect(page).to have_link('Aprovar Pedido', href: order_client_approved_orders_path(order.id))
   end
 
