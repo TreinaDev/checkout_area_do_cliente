@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :clients
   
   resources :plans, only: [:index]
+  resources :approved_orders, only: %i[index]
 
   resources :order_clients, only: %i[index show] do
     resources :approved_orders, only: %i[create]

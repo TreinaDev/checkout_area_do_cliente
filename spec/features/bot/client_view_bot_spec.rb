@@ -9,7 +9,7 @@ feature 'Client view bots' do
     bot_three = create(:approved_order)
 
     visit root_path
-    click_on 'Planos adquiridos'
+    click_on 'Planos Adquiridos'
 
     expect(current_path).to eq(approved_orders_path)
     expect(page).to have_content(order.plan)
@@ -29,7 +29,7 @@ feature 'Client view bots' do
     bot = create(:approved_order, order_client: order)
 
     visit root_path
-    click_on 'Planos adquiridos'
+    click_on 'Planos Adquiridos'
     click_on order.plan
 
     expect(current_path).to eq("/approved_order/#{bot.id}")
@@ -45,7 +45,7 @@ feature 'Client view bots' do
     client_login
 
     visit root_path
-    click_on 'Planos adquiridos'
+    click_on 'Planos Adquiridos'
 
     expect(current_path).to eq(approved_orders_path)
     expect(page).to have_content('Você ainda não adquiriu um bot ou seu pedido está mediante à aprovação')

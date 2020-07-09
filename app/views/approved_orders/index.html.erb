@@ -1,0 +1,36 @@
+<div class="table-order-clients">
+  <% if @order_clients.empty? %>
+  <div class="without-order-clients">
+    <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+    <h3>Você ainda não adquiriu um bot ou seu pedido está mediante à aprovação</h3>
+  </div>
+  <% else %>
+     <h2>Lista de Bots</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:token) %></th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:plan) %></th>
+          <th scope="col"><%= Client.human_attribute_name(:email) %></th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:status) %></th>
+          <% if client_signed_in? %>
+            <th scope="col">Cancelamento</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+
+<% if @order_clients.empty? %>
+  <div class="without-order-clients">
+    <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+    <h3>Você ainda não adquiriu um bot ou seu pedido está mediante à aprovação</h3>
+  </div>
+<% else %>
+  <% @order_clients.each do |order_client| %>
+    <%= order_client.plan %>
+    <%= order_client.token %>
+    <%= OrderClient.human_attribute_name("status.#{@order_client.status}") %>
+  <% end %>
+<% end %>
+
