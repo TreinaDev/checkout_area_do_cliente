@@ -2,6 +2,7 @@ require 'faker'
 
 # Vendedores - Senhas geradas automaticamente pela factory
 FactoryBot.create(:employee, email: 'first@teste.com')
+
 FactoryBot.create(:employee, email: 'second@teste.com')
 FactoryBot.create(:employee, email: 'third@teste.com')
 
