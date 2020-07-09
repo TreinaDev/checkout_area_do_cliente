@@ -30,7 +30,7 @@
             <li><%= link_to 'Minha conta', current_client.company %></li>
             <li><%= link_to 'Meus Pedidos', client_order_clients_path %></li>
             <% order_client = OrderClient.find_by(client: current_client)%>
-            <li><%= link_to 'Planos adquiridos', approved_orders_path %></li>
+            <li><%= link_to 'Planos Adquiridos', approved_orders_path %></li>
             <li><%= link_to t('.sign_out'), destroy_client_session_path, method: :delete %></li>
           <% end %>
         <% else %>

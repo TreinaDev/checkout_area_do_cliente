@@ -1,6 +1,6 @@
 class ApprovedOrdersController < ApplicationController
   def index
-    @order_clients = OrderClient.where(client_id: 1)
+    @order_clients = OrderClient.where(client_id: current_client.id, status: :accepted)
   end
   def create
     @order_client = OrderClient.find(params[:order_client_id])
