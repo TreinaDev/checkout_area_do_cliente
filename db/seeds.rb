@@ -1,9 +1,9 @@
 require 'faker'
 
-#Vendedores
-first_employee = Employee.create(email: 'first@teste.com', password: '123456')
-Employee.create(email: 'second@teste.com', password: '123456')
-Employee.create(email: 'third@teste.com', password: '123456')
+# Vendedores
+FactoryBot.create(:employee, email: 'first@teste.com')
+FactoryBot.create(:employee, email: 'second@teste.com')
+FactoryBot.create(:employee, email: 'third@teste.com')
 
 #Clientes
 client_one = Client.create!(email: 'cliente01@email.com', password: '12345678')

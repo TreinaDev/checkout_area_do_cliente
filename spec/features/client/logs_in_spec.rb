@@ -15,9 +15,7 @@ feature 'Client logs in' do
     expect(page).to have_link('Sair')
   end
   scenario 'logs out' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
-
-    login_as client, scope: :client
+    client_login
 
     visit root_path
 

@@ -1,0 +1,11 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      rejected_order:
+        one: Rejeição de Pedido
+        other: Rejeições de Pedido
+
+    attributes:
+      rejected_order:
+        reason: Motivo

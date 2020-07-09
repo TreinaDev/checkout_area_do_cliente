@@ -34,9 +34,7 @@ feature 'Employee login' do
   end
 
   scenario 'logs out' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-
-    login_as employee, scope: :employee
+    employee_login
 
     visit root_path
 
