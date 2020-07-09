@@ -7,12 +7,14 @@ gem 'bcrypt', '~> 3.1.12'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cpf_cnpj'
 gem 'devise'
+gem 'faraday', '~> 0.9.2'
 gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails', '>= 6'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
+gem 'webmock', '~> 2.1'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do

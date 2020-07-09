@@ -1,24 +1,21 @@
 class Plan
-  attr_reader :id, :platform, :price, :limit_daily,
-              :limit_monthly, :cost, :promo
+  attr_reader :id, :name, :platforms, :created_at, :updated_at, :limit_daily_chat,
+              :limit_monthly_chat, :limit_daily_messages, :limit_monthly_messages,
+              :extra_message_price, :extra_chat_price, :current_price
 
-  def initialize(id:, platform:, price:, limit_daily:,
-                 limit_monthly:, cost:, promo:)
-    @id = id
-    @platform = platform
-    @price = price
-    @limit_daily = limit_daily
-    @limit_monthly = limit_monthly
-    @cost = cost
-    @promo = promo
+  def initialize(**args)
+    args.each do |key, value|
+      instance_variable_set("@#{key}", value)
+    end
   end
 
   def self.all
-    [
-      new(id: '1', platform: 'Facebook', price: 3000.00, limit_daily: 400,
-          limit_monthly: 10_000, cost: 0.50, promo: 'Promoção Facebook'),
-      new(id: '2', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
-          limit_monthly: 18_000, cost: 0.80, promo: 'Promoção Whatsapp')
-    ]
+    response = Faraday.get("#{Rails.configuration.management_api[:base_url]}/plans/")
+    return [] unless response.status == 200
+
+    json = JSON.parse(response.body, symbolize_names: true)
+    json.map do |hash|
+      new(hash)
+    end
   end
 end

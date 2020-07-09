@@ -33,5 +33,7 @@ module CheckoutAreaDoCliente
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.management_api = config_for(:management_api)
   end
 end
