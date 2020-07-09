@@ -5,5 +5,7 @@ FactoryBot.define do
     start_date { Time.zone.today }
     end_date { 7.days.from_now }
     limit_order { 1 }
+    employee
+    status { 0 }
   end
 end

@@ -22,6 +22,7 @@
         <% if employee_signed_in? || client_signed_in? %>                                                                  
           <% if employee_signed_in? %>
             <li><%= link_to 'Cadastrar promoção', new_promo_path %></li>
+            <li><%= link_to 'Promoções', promos_path %></li>
             <li><%= link_to 'Pedidos', order_clients_path %></li>
             <li><%= link_to t('.sign_out'), destroy_employee_session_path, method: :delete %></li>
           <% end %>
