@@ -1,0 +1,6 @@
+---
+pt-BR:
+  client:
+    approve_order:
+      api_sync:
+        notice:  'Compra não registrada'
