@@ -2,32 +2,36 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
-    plan = Plan.new(id: '1', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
-                    limit_monthly: 18_000, cost: 0.80,
-                    promo: 'Promoção Whatsapp')
-    plan2 = Plan.new(id: '2', platform: 'Facebook', price: 3000.00, limit_daily: 400,
-                     limit_monthly: 10_000, cost: 0.50,
-                     promo: 'Promoção Facebook')
+    plans = [Plan.new(id: '1', name: 'Para Conectar', platforms: 'Facebook', limit_daily_chat: 100,
+                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
+                      limit_monthly_chat: 200, limit_daily_messages: 300, limit_monthly_messages: 500,
+                      extra_message_price: 0.60, extra_chat_price: 0.50, current_price: 60.00),
+             Plan.new(id: '2', name: 'Para Conversar', platforms: 'Whatsapp', limit_daily_chat: 200,
+                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
+                      limit_monthly_chat: 300, limit_daily_messages: 600, limit_monthly_messages: 100,
+                      extra_message_price: 0.50, extra_chat_price: 0.40, current_price: 100.00)]
+
+    allow(Plan).to receive(:all).and_return(plans)
 
     visit root_path
 
-    expect(page).to have_content(plan.platform)
-    expect(page).to have_content(plan.price)
-    expect(page).to have_content(plan.limit_monthly)
-    expect(page).to have_content(plan.limit_daily)
-    expect(page).to have_content(plan.cost)
-    expect(page).to have_content(plan.promo)
-
-    expect(page).to have_content(plan2.platform)
-    expect(page).to have_content(plan2.price)
-    expect(page).to have_content(plan2.limit_monthly)
-    expect(page).to have_content(plan2.limit_daily)
-    expect(page).to have_content(plan2.cost)
-    expect(page).to have_content(plan2.promo)
+    (0..1).each do |index|
+      expect(page).to have_content(plans[index].name)
+      expect(page).to have_content(plans[index].platforms)
+      expect(page).to have_content(plans[index].limit_daily_chat)
+      expect(page).to have_content(plans[index].limit_monthly_chat)
+      expect(page).to have_content(plans[index].limit_daily_messages)
+      expect(page).to have_content(plans[index].limit_monthly_messages)
+      expect(page).to have_content(plans[index].extra_message_price)
+      expect(page).to have_content(plans[index].extra_chat_price)
+      expect(page).to have_content(plans[index].current_price)
+    end
   end
 
   scenario 'by have not any plan register' do
-    allow(Plan).to receive(:all).and_return([])
+    stub_request(:get, 'http://exemplo.com/api/v1/plans/')
+      .to_return(status: 200, body: '[]')
+
     visit root_path
     expect(page).to have_content('Sem planos cadastrados')
   end
