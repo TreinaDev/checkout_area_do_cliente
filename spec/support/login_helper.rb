@@ -5,8 +5,7 @@ module LoginHelper
     client
   end
 
-  def employee_login
-    employee = create(:employee)
+  def employee_login(employee = create(:employee))
     login_as employee, scope: :employee
     employee
   end
