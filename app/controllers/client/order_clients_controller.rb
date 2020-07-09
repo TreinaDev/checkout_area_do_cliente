@@ -13,6 +13,8 @@ class Client::OrderClientsController < ApplicationController
 
   def create
     @order_client = current_client.order_clients.new(plan_id: params[:plan_id])
+    @plan = Plan.find(params[:plan_id])
+    @order_client.plan = @plan.first.platform
     @order_client.save
     redirect_to @order_client, notice: t('.notice')
   end

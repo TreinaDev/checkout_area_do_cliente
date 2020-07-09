@@ -1,7 +1,7 @@
 require 'faker'
 
 # Vendedores
-FactoryBot.create(:employee, email: 'first@teste.com')
+first_employee = FactoryBot.create(:employee, email: 'first@teste.com')
 FactoryBot.create(:employee, email: 'second@teste.com')
 FactoryBot.create(:employee, email: 'third@teste.com')
 
