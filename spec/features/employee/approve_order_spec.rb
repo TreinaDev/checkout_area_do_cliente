@@ -10,9 +10,15 @@ feature 'Employee view orders' do
 
     expect(current_path).to eq(order_clients_path)
     expect(page).to have_content(order.token)
+<<<<<<< HEAD
     expect(page).to have_content(order.plan(order.plan_id).platform)
     expect(page).to have_content('Status: Em aberto')
     expect(page).not_to have_content('Status: Aprovado')
+=======
+    expect(page).to have_content(order.plan)
+    expect(page).to have_content('Em aberto')
+    expect(page).not_to have_content('Aprovado')
+>>>>>>> 38b19cf264792ad0661c30a416e00d3e0674d1f1
   end
 
   scenario 'and view details' do
@@ -23,9 +29,15 @@ feature 'Employee view orders' do
     click_on order.token
 
     expect(page).to have_content(order.token)
+<<<<<<< HEAD
     expect(page).to have_content(order.plan(order.plan_id).platform)
     expect(page).to have_content('Status: Em aberto')
     expect(page).not_to have_content('Status: Aprovado')
+=======
+    expect(page).to have_content(order.plan)
+    expect(page).to have_content('Em aberto')
+    expect(page).not_to have_content('Aprovado')
+>>>>>>> 38b19cf264792ad0661c30a416e00d3e0674d1f1
     expect(page).to have_link('Aprovar Pedido', href: order_client_approved_orders_path(order.id))
   end
 
