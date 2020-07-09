@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Employee reject orders' do
   scenario 'successfully' do
     employee_login
-    order = create(:order_client, token: 'FHDBFHDB', plan_id: 1)
+    order = create(:order_client, plan_id: 1)
 
     visit order_clients_path
     click_on order.token
@@ -24,7 +24,7 @@ feature 'Employee reject orders' do
     employee_login
 
     order_to_reprove = create(:order_client, plan_id: 1)
-    order = create(:order_client, token: 'AAAAAA', plan_id: 2)
+    order = create(:order_client, plan_id: 2)
 
     visit order_clients_path
 
@@ -37,7 +37,7 @@ feature 'Employee reject orders' do
 
   scenario 'and rejection must have a reason' do
     employee_login
-    order = create(:order_client, token: 'FHDBFHDB', plan_id: 1)
+    order = create(:order_client, plan_id: 1)
 
     visit order_clients_path
     click_on order.token
