@@ -7,14 +7,14 @@ feature 'Client view historic purchases' do
     create(:company, client: client)
     create(:company, client: other_client)
 
-    login_as other_client, scope: :client
+    client_login other_client
     visit root_path
     within('div#plan-1') do
       first(:link, 'Comprar').click
     end
     logout(:client)
 
-    login_as client, scope: :client
+    client_login client
     visit root_path
     within('div#plan-2') do
       first(:link, 'Comprar').click

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_220815) do
+ActiveRecord::Schema.define(version: 2020_07_08_220518) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
@@ -85,7 +85,16 @@ ActiveRecord::Schema.define(version: 2020_07_06_220815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rejected_orders", force: :cascade do |t|
+    t.integer "order_client_id", null: false
+    t.text "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_client_id"], name: "index_rejected_orders_on_order_client_id"
+  end
+
   add_foreign_key "approved_orders", "order_clients"
   add_foreign_key "companies", "clients"
   add_foreign_key "order_clients", "clients"
+  add_foreign_key "rejected_orders", "order_clients"
 end

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'Employee creates a promo' do
   scenario 'successfully' do
-    employee = create(:employee)
-    login_as employee, scope: :employee
+    employee_login
 
     visit root_path
     click_on 'Cadastrar promoção'
@@ -19,8 +18,7 @@ feature 'Employee creates a promo' do
     expect(current_path).to eq(promos_path)
   end
   scenario 'Fields cannot be blank' do
-    employee = create(:employee)
-    login_as employee, scope: :employee
+    employee_login
 
     visit root_path
     click_on 'Cadastrar promoção'
@@ -34,8 +32,7 @@ feature 'Employee creates a promo' do
   end
 
   scenario 'Discount cannot be more or equal to 100' do
-    employee = create(:employee)
-    login_as employee, scope: :employee
+    employee_login
 
     visit root_path
     click_on 'Cadastrar promoção'
@@ -51,8 +48,7 @@ feature 'Employee creates a promo' do
   end
 
   scenario 'Start date cannot be in the past' do
-    employee = create(:employee)
-    login_as employee, scope: :employee
+    employee_login
 
     visit root_path
     click_on 'Cadastrar promoção'
