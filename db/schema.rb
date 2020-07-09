@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_220518) do
+ActiveRecord::Schema.define(version: 2020_07_09_201639) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_07_08_220518) do
 
   create_table "order_clients", force: :cascade do |t|
     t.string "token"
-    t.string "plan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0

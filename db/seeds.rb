@@ -11,11 +11,11 @@ client_two = Client.create!(email: 'cliente02@email.com', password: '12345678')
 
 #Pedidos
 5.times do |this|
-  OrderClient.create(token: Faker::Code.nric, plan: Faker::Name.name, 
+  OrderClient.create(token: Faker::Code.nric, plan_id: 1, 
                     client: client_one)
 end
 5.times do |this|
-  OrderClient.create(token: Faker::Code.nric, plan: Faker::Name.name, 
+  OrderClient.create(token: Faker::Code.nric, plan_id: 2, 
                     client: client_two)
 end
 #Pedidos aprovados

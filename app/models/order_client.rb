@@ -6,7 +6,11 @@ class OrderClient < ApplicationRecord
 
   enum status: { waiting: 0, accepted: 5, rejected: 10, canceled: 15 }
 
-  private 
+  def plan(plan_id)
+    Plan.find(plan_id)
+  end
+
+  private
 
   def generate_token
     self.token = loop do

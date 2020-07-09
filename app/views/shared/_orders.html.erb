@@ -3,7 +3,7 @@
     <dt><%= OrderClient.human_attribute_name(:token)   %></dt>
       <dd><%= link_to order.token, order %></dd>
     <dt><%= OrderClient.human_attribute_name(:plan)   %></dt>
-      <dd><%= order.plan %></dd>
+      <dd><%= order.plan(order.plan_id).platform %></dd>
     <dt><%= OrderClient.human_attribute_name(:plan_id) %>: </dt>
       <dd><%= order.plan_id %></dd>
     <dt><%= Client.human_attribute_name(:email) %>: </dt>

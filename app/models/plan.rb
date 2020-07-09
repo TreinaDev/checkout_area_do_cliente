@@ -15,16 +15,14 @@ class Plan
 
   def self.all
     [
-      new(id: '1', platform: 'Facebook', price: 3000.00, limit_daily: 400,
+      new(id: 1, platform: 'Facebook', price: 3000.00, limit_daily: 400,
           limit_monthly: 10_000, cost: 0.50, promo: 'Promoção Facebook'),
-      new(id: '2', platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
+      new(id: 2, platform: 'Whatsapp', price: 4000.00, limit_daily: 800,
           limit_monthly: 18_000, cost: 0.80, promo: 'Promoção Whatsapp')
     ]
   end
 
   def self.find(id)
-    x = new(id: id, platform: '', price: 0, limit_daily: 0,
-      limit_monthly: 0, cost: 0, promo: '')
-    all.select{ |element| element.id == x.id }
+    all.find { |element| element.id == id }
   end
 end
