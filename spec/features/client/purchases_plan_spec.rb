@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'Client purchases a plan' do
   scenario 'sucessfully' do
-    client = create(:client)
-    login_as client, scope: :client
+    client = client_login
     create(:company, client: client)
 
     visit root_path

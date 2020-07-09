@@ -2,12 +2,11 @@ require 'rails_helper'
 
 feature 'client see your orders' do
   scenario 'sucessfully' do
-    client1 = create(:client, email: 'teste@teste.com', password: '123456')
+    client1 = client_login
     client2 = create(:client, email: 'teste2@teste.com', password: '123456')
     orders_client1 = create_list(:order_client, 5, plan_id: 1, client: client1)
     orders_client2 = create_list(:order_client, 5, plan_id: 2, client: client2)
 
-    login_as client1, scope: :client
     visit root_path
     click_on 'Meus Pedidos'
 
@@ -19,11 +18,10 @@ feature 'client see your orders' do
   end
 
   scenario 'have no orders' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
+    client_login
     client2 = create(:client, email: 'teste2@teste.com', password: '123456')
     orders_client2 = create_list(:order_client, 5, plan_id: 2, client: client2)
 
-    login_as client, scope: :client
     visit root_path
 
     click_on 'Meus Pedidos'

@@ -2,11 +2,10 @@ require 'rails_helper'
 
 feature 'client cancel an open order' do
   scenario 'sucessfully' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
+    client = client_login
     order = create(:order_client, plan_id: 1, client: client)
     order2 = create(:order_client, plan_id: 2, client: client)
 
-    login_as client, scope: :client
     visit root_path
 
     click_on 'Meus Pedidos'
@@ -29,12 +28,11 @@ end
 
 feature 'client cannot cancel order approved/canceled/rejected' do
   scenario 'sucessfully' do
-    client = create(:client, email: 'teste@teste.com', password: '123456')
+    client = client_login
     order = create(:order_client, plan_id: 1, client: client, status: 5)
     order2 = create(:order_client, plan_id: 2, client: client, status: 10)
     order3 = create(:order_client, plan_id: 2, client: client, status: 15)
 
-    login_as client, scope: :client
     visit root_path
 
     click_on 'Meus Pedidos'

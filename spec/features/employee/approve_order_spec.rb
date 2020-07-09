@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'Employee view orders' do
   scenario 'successfully' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
     order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
 
     visit plans_path
@@ -17,8 +16,7 @@ feature 'Employee view orders' do
   end
 
   scenario 'and view details' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
     order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
 
     visit order_clients_path
@@ -32,8 +30,7 @@ feature 'Employee view orders' do
   end
 
   scenario 'and not view details of other order' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
     order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
     other_order = create(:order_client, token: 'AAAAAA', plan: 'Extraordinário')
 
@@ -47,8 +44,7 @@ feature 'Employee view orders' do
   end
 
   scenario 'and approve order' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
     order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
 
     visit order_clients_path
@@ -62,8 +58,7 @@ feature 'Employee view orders' do
   end
 
   scenario 'and other order remains unchanged' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
 
     create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
     create(:order_client, token: 'AAAAAA', plan: 'Extraordinário')
@@ -77,8 +72,7 @@ feature 'Employee view orders' do
     expect(page).to have_content('Status: Em aberto')
   end
   scenario 'but no have any order' do
-    employee = create(:employee, email: 'vendedor@empresa.com', password: '123456')
-    login_as employee, scope: :employee
+    employee_login
     visit order_clients_path
 
     expect(current_path).to eq(order_clients_path)

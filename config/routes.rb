@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   
   resources :plans, only: [:index]
 
-  resources :order_clients, only: [:index, :show] do
-	  resources :approved_orders, only: [:create]
+  resources :order_clients, only: %i[index show] do
+    resources :approved_orders, only: %i[create]
+    resources :rejected_orders, only: %i[new create]
   end
   root to: 'home#index'
   resources :companies, only: %i[show new create edit update] do
