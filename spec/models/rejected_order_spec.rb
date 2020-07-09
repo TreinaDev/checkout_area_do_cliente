@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe RejectedOrder, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { create :rejected_order }
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
 end
