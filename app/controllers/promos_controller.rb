@@ -8,12 +8,18 @@ class PromosController < ApplicationController
   end
 
   def create
-    @promo = Promo.new(promo_model_params)
+    @promo = current_employee.build_promo(promo_model_params)
     if @promo.save
       redirect_to promos_path, notice: t('.notice')
     else
       render :new
     end
+  end
+
+  def approve
+    @promo = Promo.find(params[:id])
+    @promo.accepted!
+    redirect_to promos_path, notice: t('.success')
   end
 
   def promo_model_params

@@ -83,6 +83,9 @@ ActiveRecord::Schema.define(version: 2020_07_08_220518) do
     t.integer "limit_order", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
+    t.integer "employee_id", null: false
+    t.index ["employee_id"], name: "index_promos_on_employee_id"
   end
 
   create_table "rejected_orders", force: :cascade do |t|
@@ -96,5 +99,6 @@ ActiveRecord::Schema.define(version: 2020_07_08_220518) do
   add_foreign_key "approved_orders", "order_clients"
   add_foreign_key "companies", "clients"
   add_foreign_key "order_clients", "clients"
+  add_foreign_key "promos", "employees"
   add_foreign_key "rejected_orders", "order_clients"
 end
