@@ -1,7 +1,7 @@
 class ApprovedOrdersController < ApplicationController
   def create
     @order_client = OrderClient.find(params[:order_client_id])
-    @url = 'http://localhost:3000/api/v1/purchases'
+    @url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
     sync_api
   end
 
@@ -10,13 +10,10 @@ class ApprovedOrdersController < ApplicationController
   def sync_api
     response = Faraday.post(@url, { company_token: @order_client.token,
                                     plan_id: @order_client.plan_id })
-    if response.status == 200
-      @order_client.accepted!
-      @approved_order = @order_client.create_approved_order
-      @approved_order.update(bot_token: response.body[:bot][:token])
-      redirect_to @order_client, notice: t('.success')
-    else
-      redirect_to @order_client, alert: t('.fail')
-    end
+    return redirect_to @order_client, alert: t('.fail') if response.status != 200
+
+    @order_client.accepted!
+    @approved_order = @order_client.create_approved_order(bot_token: response.body[:bot][:token])
+    redirect_to @order_client, notice: t('.success')
   end
 end

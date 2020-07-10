@@ -54,7 +54,7 @@ feature 'Employee view orders' do
     create(:order_client, token: 'AAAAAA', plan: 'Extraordinário',
                           client: other_client)
 
-    url = 'http://localhost:3000/api/v1/purchases'
+    url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
     json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
                       plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
