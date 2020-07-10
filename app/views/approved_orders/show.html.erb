@@ -1,0 +1,35 @@
+<p class="link-back"><i class="fa fa-arrow-left" aria-hidden="true"></i><%= link_to 'Voltar', approved_orders_path %></p>
+
+<section class="container-company">
+  <div class="info-company">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-dark">
+        <strong>Plano:</strong>
+	<%= @plan.name %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Token:</strong>
+	<%= @approved_order.order_client.token %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Status:</strong>
+	<%= OrderClient.human_attribute_name("status.#{@approved_order.order_client.status}") %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Plataformas:</strong>
+	<%= @plan.platforms %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Limite diário de mensagens:</strong>
+	<%= @plan.limit_daily_messages %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Limite mensal de mensagens:</strong>
+	<%= @plan.limit_monthly_messages %>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <div class="personal_info"><%= image_tag("personal_info.svg", size: "400x400", alt: "")%></div>
+  </div>
+</section>

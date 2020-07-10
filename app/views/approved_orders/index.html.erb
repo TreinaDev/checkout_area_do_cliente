@@ -13,17 +13,29 @@
           <th scope="col"><%= OrderClient.human_attribute_name(:plan) %></th>
           <th scope="col"><%= OrderClient.human_attribute_name(:token) %> do bot</th>
           <th scope="col"><%= Client.human_attribute_name(:email) %></th>
-          <th scope="col"><%= OrderClient.human_attribute_name(:status) %></th>
+          <th scope="col">Cancelamento</th>
         </tr>
       </thead>
       <tbody>
-          <% @order_clients.each do |order_client| %>
+          <% @order_clients.each do |order_client| %>            
           <tr>
-            <td><%= order_client.id %></td>
-            <td><%= order_client.plan %></td>
+            <td><%= order_client.approved_order.id %></td>
+            <td><%= link_to order_client.plan, approved_order_path(order_client.approved_order) %></td>
             <td><%= order_client.token %></td>
             <td><%= order_client.client.email %></td>
-            <td><%= OrderClient.human_attribute_name("status.#{order_client.status}") %></td>
+            <% if order_client.approved_order.cancel_bot_client %>
+              <td>
+                <%= link_to 'Processo de Cancelamento', 
+                    approved_order_cancel_bot_client_path(
+                    order_client.approved_order, 
+                    order_client.approved_order.cancel_bot_client)
+                %>
+              </td>
+            <% else %>
+              <td class="link-cancel-order">
+                <%= link_to 'Cancelar Bot', new_approved_order_cancel_bot_client_path(order_client.approved_order) %>
+              </td>
+            <% end %>
           </tr>
           <% end %>
       </tbody>

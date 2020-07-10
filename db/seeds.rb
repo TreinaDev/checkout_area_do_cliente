@@ -18,6 +18,9 @@ FactoryBot.create_list(:order_client, 5, client: Client.last)
 FactoryBot.create(:approved_order, order_client: OrderClient.first)
 FactoryBot.create(:approved_order, order_client: OrderClient.last)
 
+OrderClient.first.accepted!
+OrderClient.last.accepted!
+
 # Empresas
 FactoryBot.create(:company, fantasy_name: 'Mc Donalds',
                             corporate_name: 'Arcos Dourados',

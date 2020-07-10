@@ -34,7 +34,7 @@
 
         <strong>Preço: </strong>
         <h5><%= plan.current_price %></h5>
-        <p class="link-buy"><%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %></p>
+        <p class="link-buy"><%= link_to 'Comprar', order_client_path(plan), method: :post %></p>
       </div>
     <% end %>
   </div>

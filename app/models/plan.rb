@@ -18,4 +18,10 @@ class Plan
       new(hash)
     end
   end
+
+  def self.find(id)
+    find_each do |plan|
+      return plan if plan.id == id
+    end
+  end
 end

@@ -1,0 +1,19 @@
+<p class="link-back">
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  <%= link_to 'Voltar', approved_orders_path %>
+</p>
+
+<% if @cancel_bot_client.errors.any? %>
+  <% @cancel_bot_client.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger company" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<section class="d-flex justify-content-center">
+  <%= render 'form' %>
+</section>

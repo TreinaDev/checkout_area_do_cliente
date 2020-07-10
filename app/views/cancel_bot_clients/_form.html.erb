@@ -1,0 +1,11 @@
+<%= form_with model: [@approved_order, @cancel_bot_client], local: true, 
+              class: 'col-6 text-center' do |f| %>
+  <div class="form-group">
+    <%= f.label :reason %></label>
+    <%= f.text_area :reason, class: 'form-control' %>
+  </div>
+
+  <br/>
+
+  <button type="submit" class="btn btn-dark company">Enviar</button>
+<% end %>

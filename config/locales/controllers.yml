@@ -3,3 +3,7 @@ pt-BR:
   flash:
     order:
       rejected: Pedido rejeitado com sucesso
+    cancel_bot_client:
+      waiting: Pedido de cancelamento enviado com sucesso
+      accepted: Pedido de cancelamento aceito
+      rejected: Pedido de cancelamento rejeitado

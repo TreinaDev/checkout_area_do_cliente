@@ -1,0 +1,20 @@
+<p class="link-back"><i class="fa fa-arrow-left" aria-hidden="true"></i><%= link_to 'Voltar', approved_orders_path %></p>
+
+<section class="container-company">
+  <div class="info-company">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action">
+        <strong>Mensagem de Cancelamento:</strong>
+	<%= @cancel_bot_client.reason %>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <strong>Status:</strong>
+	<%= CancelBotClient.human_attribute_name("status.#{@cancel_bot_client.status}") %>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="personal_info"><%= image_tag("cancel.svg", size: "470x400", alt: "")%></div>
+  </div>		
+</section> 

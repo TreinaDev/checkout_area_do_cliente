@@ -15,6 +15,10 @@ pt-BR:
         accepted: Aprovado
         rejected: Rejeitado
         canceled: Cancelado
+      cancel_bot_client/status:
+        waiting: Em processamento
+        accepted: Aprovado
+        rejected: Rejeitado
       order_client:
         plan_id: Plano
         token: Token
