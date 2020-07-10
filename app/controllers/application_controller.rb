@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
 
     redirect_to root_path, alert: t('authenticate', scope: %i[company sessions])
   end
+
+  def authorize_employee
+    return if employee_signed_in?
+
+    redirect_to root_path, alert: t('authorization', scope: %i[company sessions])
+  end
 end
