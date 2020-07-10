@@ -28,7 +28,7 @@
           <tr>
             <th scope="row"><%= order.id %></th>
             <td ><%= link_to order.token, order %></td>
-            <td><%= order.plan(order.plan_id).name %></td>
+            <td><%= order.plan.name %></td>
             <td><%= order.client.email %></td>
             <% if order.accepted? %>
               <td><strong class="status-accepted">

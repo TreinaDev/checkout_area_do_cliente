@@ -6,7 +6,7 @@ class OrderClient < ApplicationRecord
 
   enum status: { waiting: 0, accepted: 5, rejected: 10, canceled: 15 }
 
-  def plan(plan_id)
+  def plan
     Plan.find(plan_id)
   end
 
