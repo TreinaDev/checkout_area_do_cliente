@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :approved_order do
-    order_client { nil }
+    order_client
     bot_token { Faker::Code.nric }
   end
 end

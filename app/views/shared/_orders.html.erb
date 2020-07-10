@@ -1,22 +1,58 @@
-<% @order_clients.each do |order|%> 
-  <dl>
-    <dt><%= OrderClient.human_attribute_name(:token)   %></dt>
-      <dd><%= link_to order.token, order %></dd>
-    <dt><%= OrderClient.human_attribute_name(:plan)   %></dt>
-      <dd><%= order.plan %></dd>
-    <dt><%= OrderClient.human_attribute_name(:plan_id) %>: </dt>
-      <dd><%= order.plan_id %></dd>
-    <dt><%= Client.human_attribute_name(:email) %>: </dt>
-      <dd><%= order.client.email %></dd>
-    <dt><%= OrderClient.human_attribute_name(:status) %>: </dt>
-    <dd><%= OrderClient.human_attribute_name("status.#{order.status}") %></dd>
-    <% if client_signed_in? %>
-      <% if order.waiting? %>
-      <%= link_to 'Cancelar Pedido', cancel_client_order_client_path(order),
-                                  id:"cancel-#{order.id}",
-                                  method: :post  %>
+<div class="table-order-clients">
+  <% if @order_clients.empty? %>
+    <div class="without-order-clients">
+      <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+      <% if client_signed_in? %>
+        <h3>Você não possui pedidos</h3>
+      <% else %>
+        <h3>Nenhum pedido cadastrado</h3>
       <% end %>
-    <% end %>
-  </dl>
-<br>
-<% end %>
+    </div>
+  <% else %>
+    <h2>Lista de Pedidos</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:token) %></th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:plan) %></th>
+          <th scope="col"><%= Client.human_attribute_name(:email) %></th>
+          <th scope="col"><%= OrderClient.human_attribute_name(:status) %></th>
+          <% if client_signed_in? %>
+            <th scope="col">Cancelamento</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_clients.each do |order| %>
+          <tr>
+            <th scope="row"><%= order.id %></th>
+            <td ><%= link_to order.token, order %></td>
+            <td><%= order.plan %></td>
+            <td><%= order.client.email %></td>
+            <% if order.accepted? %>
+              <td><strong class="status-accepted">
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% elsif order.rejected? %>
+              <td><strong class="status-rejected">
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% else %>
+              <td><strong>
+                <%= OrderClient.human_attribute_name("status.#{order.status}") %>
+              </strong></td>
+            <% end %>
+            <% if client_signed_in? %>
+              <% if order.waiting? %>
+                <td class="link-cancel-order"><%= link_to 'Cancelar Pedido', cancel_client_order_client_path(order),
+                                id:"cancel-#{order.id}",
+                                method: :post  %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

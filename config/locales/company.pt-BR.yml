@@ -2,7 +2,7 @@
 pt-BR:
   activerecord:
     models:
-      company:
+      company: 'Empresa'
     attributes:
       company:
         fantasy_name: 'Nome fantasia'
@@ -16,3 +16,8 @@ pt-BR:
       check_company: 'Você ainda não completou a sua conta, para continuar finalize-a.'
       company_created: 'Empresa criada com sucesso.'
       authenticate: 'Faça login para continuar.'
+      authorization: 'Usuário não autorizado.'
+
+    actions:
+      edit: 'Editar'
+      back: 'Voltar'

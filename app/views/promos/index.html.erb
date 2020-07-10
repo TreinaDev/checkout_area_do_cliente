@@ -1,2 +1,6 @@
 <h1>Listas de Promoções</h1>
-<%= render 'shared/promos' %>
+<% if @promos.empty?%>
+  <p><%= 'Nenhuma promoção cadastrada'%><p>
+<%else%>
+  <%= render @promos %>
+<% end %>

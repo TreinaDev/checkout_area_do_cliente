@@ -31,4 +31,8 @@
   </div>
 </section>
 
+<% if current_client.from?(@company) %>
+  <%= link_to 'Compras', orders_companies_path %>
+<% end %>
+
 

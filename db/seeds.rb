@@ -1,25 +1,34 @@
 require 'faker'
 
-#Vendedores
-first_employee = Employee.create(email: 'first@teste.com', password: '123456')
-Employee.create(email: 'second@teste.com', password: '123456')
-Employee.create(email: 'third@teste.com', password: '123456')
+# Vendedores - Senhas geradas automaticamente pela factory
+FactoryBot.create(:employee, email: 'first@teste.com')
+FactoryBot.create(:employee, email: 'second@teste.com')
+FactoryBot.create(:employee, email: 'third@teste.com')
 
-#Pedidos
-10.times do |this|
-	OrderClient.create(token: Faker::Code.nric, plan: Faker::Name.name)
-end
+# Clientes - Senhas geradas automaticamente pela factory
+FactoryBot.create(:client, email: 'cliente01@email.com')
+FactoryBot.create(:client, email: 'cliente02@email.com')
 
-#Pedidos aprovados
-ApprovedOrder.create(order_client_id: OrderClient.first.id)
-ApprovedOrder.create(order_client_id: OrderClient.last.id)
+# Pedidos
+FactoryBot.create_list(:order_client, 5, client: Client.first)
+FactoryBot.create_list(:order_client, 5, client: Client.last)
 
-#Clientes
-client_one = Client.create!(email: 'cliente01@email.com', password: '12345678')
-client_two = Client.create!(email: 'cliente02@email.com', password: '12345678')
+# Pedidos aprovados
+FactoryBot.create(:approved_order, order_client: OrderClient.first)
+FactoryBot.create(:approved_order, order_client: OrderClient.last)
 
-#Empresas
-Company.create!(fantasy_name: 'Mc Donalds', corporate_name: 'Arcos Dourados',
-                email: 'empresa01@email.com',
-                document_number: '11.903578/0001-74',
-                address: 'Rua das flores', client: client_two)
+# Empresas
+FactoryBot.create(:company, fantasy_name: 'Mc Donalds',
+                            corporate_name: 'Arcos Dourados',
+                            email: 'empresa01@email.com',
+                            document_number: '11.903578/0001-74',
+                            address: 'Rua das flores',
+                            client: Client.first)
+
+# Promo
+FactoryBot.create(:promo, title: 'Promoção em aberto', discount: 0,
+                          start_date: Time.zone.today, end_date: 7.days.from_now,
+                          status: 0, limit_order: 0, employee: Employee.first)
+FactoryBot.create(:promo, title: 'Promoção aprovada', discount: 100,
+                          start_date: Time.zone.today, end_date: 7.days.from_now,
+                          status: 5, limit_order: 1000, employee: Employee.first)

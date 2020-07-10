@@ -2,17 +2,17 @@ require 'rails_helper'
 
 feature 'Order to api' do
   scenario 'successfully' do
-    client = client_login
+    client = create(:client)
     company = create(:company, client: client)
     employee = create(:employee, email: 'vendedor@empresa.com',
-                      password: '123456')
-    order = OrderClient.create!(token: 'ASDSAFdfsdfd', plan: 'Simples',
-                               plan_id: 1, client: client)
+                                 password: '123456')
+    order = OrderClient.create!(token: 'ASDSAFdfsdfd',
+                                plan: 'Simples', plan_id: 1, client: client)
 
     url = 'http://localhost:3000/api/v1/purchases'
     json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
-                      plan: { name: 'Simples' }, bot: { token: 'ABC123'} }
+                      plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
     response = double('faraday_response', body: response_json, status: 200)
     allow(Faraday).to receive(:post).with(url, json).and_return(response)
 
@@ -29,20 +29,22 @@ feature 'Order to api' do
     expect(ao.order_client.plan_id).to eq(order.plan_id)
     expect(response_json[:bot][:token]).to eq(ao.bot_token)
     expect(page).to have_content('Compra registrada')
+    expect(page).not_to have_content('Aguardando aprovação')
+    expect(page).not_to have_content('Rejeitado')
   end
 
   scenario 'failed' do
-    client = client_login
+    client = create(:client)
     company = create(:company, client: client)
     employee = create(:employee, email: 'vendedor@empresa.com',
-                      password: '123456')
+                                 password: '123456')
     order = OrderClient.create!(token: 'ASDSAFdfsdfd', plan: 'Simples',
                                 plan_id: 1, client: client)
 
     url = 'http://localhost:3000/api/v1/purchases'
     json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
-                      plan: { name: 'Simples' }, bot: { token: 'ABC123'} }
+                      plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
     response = double('faraday_response', body: response_json, status: 500)
     allow(Faraday).to receive(:post).with(url, json).and_return(response)
 

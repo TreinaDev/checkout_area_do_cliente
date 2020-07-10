@@ -20,6 +20,22 @@
   text-decoration: none;
 }
 
+/* Botão para aprovar pedido */
+.btn.btn-danger.rejected-order a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Link para o cliente cancelar pedido */
+.link-cancel-order a {
+  color: gray;
+  text-decoration: none;
+}
+
+.link-cancel-order a:hover {
+  color: red;
+}
+
 /* Indica pedido aceito */
 .status-accepted {
    color: green;
