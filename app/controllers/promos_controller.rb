@@ -1,4 +1,6 @@
 class PromosController < ApplicationController
+  before_action :authorize_employee
+
   def index
     @promos = Promo.all
   end
