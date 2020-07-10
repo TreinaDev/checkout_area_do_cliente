@@ -1,6 +1,6 @@
 ---
 pt-BR:
-  client:
-    approve_order:
-      api_sync:
-        notice:  'Compra não registrada'
+  approved_orders:
+    create:
+      fail: 'Compra não registrada'
+      success: 'Compra registrada'
