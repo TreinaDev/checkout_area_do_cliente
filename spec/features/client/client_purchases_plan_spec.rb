@@ -13,7 +13,7 @@ feature 'client purchases a plan' do
     expect(order.client).to eq(client)
     expect(order.plan_id).to eq(1)
     expect(page).to have_content(order.token)
-    expect(page).to have_content(order.plan(order.plan_id).platform)
+    expect(page).to have_content(order.plan(order.plan_id).name)
     expect(page).to have_content('Compra efetuada com sucesso')
   end
 
