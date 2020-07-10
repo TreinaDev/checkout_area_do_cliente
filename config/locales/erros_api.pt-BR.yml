@@ -1,0 +1,6 @@
+---
+pt-BR:
+  api:
+    v1:
+      errors:
+        not_found: '%{model} não encontrada(o).'

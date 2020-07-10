@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :employees
   devise_for :clients
+
+  namespace :api do
+    namespace :v1 do
+      resources :cancel_bot_clients, only: %i[index show]
+    end
+  end
   
   resources :plans, only: [:index]
   resources :approved_orders, only: %i[index show] do
