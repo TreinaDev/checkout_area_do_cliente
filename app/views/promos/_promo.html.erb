@@ -1,23 +1,28 @@
-<dl>
-    <dt><%= Promo.human_attribute_name(:title) %>: </dt>
-        <dd><%= promo.title %></dd>          
-    <dt><%= Promo.human_attribute_name(:discount) %>: </dt>
-        <dd><%= promo.discount %></dd>
-    <dt><%= Promo.human_attribute_name(:start_date) %>: </dt>
-        <dd><%= promo.start_date %></dd>
-    <dt><%= Promo.human_attribute_name(:end_date) %>: </dt>
-        <dd><%= promo.end_date %></dd>
-    <dt><%= Promo.human_attribute_name(:limit_order) %>: </dt>
-        <dd><%= promo.limit_order %></dd>
-    <dt><%= Promo.human_attribute_name(:employee_id) %>: </dt>
-        <dd><%= promo.employee.email %></dd>
-    <dt><%= Promo.human_attribute_name(:status) %>: </dt>
-        <dd><%= Promo.human_attribute_name("status.#{promo.status}") %>
-        </dd>
-    <% if promo.end_date > Time.zone.today && promo.waiting? %>
-        <%= link_to 'Aprovar Promoção', approve_promo_path(promo),
-                                id:"approve-#{promo.id}",
-                                method: :post  %>
+<div class="card bg-light mb-3" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= promo.title %></h5>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:discount) %>:</h6>
+    <h6 class="card-content"><%= promo.discount %></h6>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:start_date) %>:</h6>
+    <h6 class="card-content"><%= promo.start_date %></h6>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:end_date) %>:</h6>
+    <h6 class="card-content"><%= promo.end_date %></h6>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:limit_order) %>:</h6>
+    <h6 class="card-content"><%= promo.limit_order %></h6>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:employee_id) %>:</h6>
+    <h6 class="card-content"><%= promo.employee_id %></h6>
+    <h6 class="card-subtitle"><%= Employee.human_attribute_name(:email) %>:</h6>
+    <h6 class="card-content"><%= promo.employee.email %></h6>
+    <h6 class="card-subtitle"><%= Promo.human_attribute_name(:status) %>:</h6>
+    <% if promo.accepted? %>
+      <strong class="status-accepted"><%= Promo.human_attribute_name("status.#{promo.status}") %></strong><br/>
+    <% else %>
+      <strong><%= Promo.human_attribute_name("status.#{promo.status}") %></strong><br/>
     <% end %>
-</dl>
-<br>
+    <a href="#"><% if promo.end_date > Time.zone.today && promo.waiting? %>
+        <p class="btn btn-success promo"><%= link_to 'Aprovar Promoção', approve_promo_path(promo),
+                                id:"approve-#{promo.id}",
+                                method: :post  %></p>
+    <% end %></a>
+  </div>
+</div>

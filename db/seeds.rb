@@ -24,7 +24,6 @@ FactoryBot.create(:company, fantasy_name: 'Mc Donalds',
                             document_number: '11.903578/0001-74',
                             address: 'Rua das flores',
                             client: Client.first)
-
 # Promo
 FactoryBot.create(:promo, title: 'Promoção em aberto', discount: 0,
                           start_date: Time.zone.today, end_date: 7.days.from_now,
@@ -32,3 +31,5 @@ FactoryBot.create(:promo, title: 'Promoção em aberto', discount: 0,
 FactoryBot.create(:promo, title: 'Promoção aprovada', discount: 100,
                           start_date: Time.zone.today, end_date: 7.days.from_now,
                           status: 5, limit_order: 1000, employee: Employee.first)
+
+
