@@ -12,8 +12,6 @@ feature 'Employee aproves a promo' do
 
     expect(page).to have_content(promo.title)
     expect(page).to have_content(promo.discount)
-    expect(page).to have_content(promo.start_date)
-    expect(page).to have_content(promo.end_date)
     expect(page).to have_content(promo.limit_order)
     expect(page).to have_content('Em aberto')
     expect(page).to have_content(promo.employee.email)
@@ -64,13 +62,10 @@ feature 'Employee aproves a promo' do
 
     expect(page).to have_content(promo.title)
     expect(page).to have_content(promo.discount)
-    expect(page).to have_content(promo.start_date)
-    expect(page).to have_content(promo.end_date)
     expect(page).to have_content(promo.limit_order)
     expect(page).to have_content('Aprovado')
     expect(page).to have_content(promo_out_dated.title)
     expect(page).to have_content(promo_out_dated.discount)
-    expect(page).to have_content(promo_out_dated.start_date)
     expect(page).to have_content(promo_out_dated.limit_order)
     expect(page).to have_content('Em aberto')
     expect(page).not_to have_content("a#approve-#{promo.id}")

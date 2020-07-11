@@ -1,0 +1,66 @@
+/*Lista de Promoções*/
+.title-promo {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/*Div com os cards das promoções*/
+.all-promos {
+  display: grid;
+  grid-template-columns: repeat(1,1fr); 
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.card-title {
+  color: orange;
+  margin-bottom: 5%;
+}
+
+.card-subtitle {
+  color: black;
+}
+
+.card-content {
+  color: gray;
+  margin-bottom: 3%;
+}
+
+/*Aprovar promoção*/
+.btn.btn-success.promo a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn.btn-success.promo {
+  width: 15rem;
+}
+
+/*Sem promoções cadastradas*/
+.without-promo {
+  text-align: center;
+}
+
+.without-promo p {
+  color: red;
+}
+
+/*Desktop*/
+@media screen and (min-width: 900px) and (max-width: 1200px){
+  .all-promos {
+    grid-template-columns: repeat(2,1fr); 
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .all-promos {
+    grid-template-columns: repeat(3,1fr); 
+  }
+}
