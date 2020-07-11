@@ -1,12 +1,7 @@
 require 'faker'
 
-<<<<<<< HEAD
-# Vendedores
-first_employee = FactoryBot.create(:employee, email: 'first@teste.com')
-=======
 # Vendedores - Senhas geradas automaticamente pela factory
 FactoryBot.create(:employee, email: 'first@teste.com')
->>>>>>> 959cc9ecf9aac8f3e97fbac4d903db40c8682e1b
 FactoryBot.create(:employee, email: 'second@teste.com')
 FactoryBot.create(:employee, email: 'third@teste.com')
 
