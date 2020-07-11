@@ -6,7 +6,7 @@ FactoryBot.create(:employee, email: 'second@teste.com')
 FactoryBot.create(:employee, email: 'third@teste.com')
 
 # Clientes - Senhas geradas automaticamente pela factory
-FactoryBot.create(:client, email: 'cliente01@email.com')
+FactoryBot.create(:client, email: 'cliente01@email.com', password: '123456')
 FactoryBot.create(:client, email: 'cliente02@email.com')
 
 # Pedidos
