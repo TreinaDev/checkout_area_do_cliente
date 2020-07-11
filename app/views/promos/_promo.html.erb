@@ -4,9 +4,9 @@
     <h6 class="card-subtitle"><%= Promo.human_attribute_name(:discount) %>:</h6>
     <h6 class="card-content"><%= promo.discount %></h6>
     <h6 class="card-subtitle"><%= Promo.human_attribute_name(:start_date) %>:</h6>
-    <h6 class="card-content"><%= promo.start_date %></h6>
+    <h6 class="card-content"><%= promo.start_date && localize(promo.start_date) %></h6>
     <h6 class="card-subtitle"><%= Promo.human_attribute_name(:end_date) %>:</h6>
-    <h6 class="card-content"><%= promo.end_date %></h6>
+    <h6 class="card-content"><%= promo.end_date && localize(promo.end_date) %></h6>
     <h6 class="card-subtitle"><%= Promo.human_attribute_name(:limit_order) %>:</h6>
     <h6 class="card-content"><%= promo.limit_order %></h6>
     <h6 class="card-subtitle"><%= Promo.human_attribute_name(:employee_id) %>:</h6>
