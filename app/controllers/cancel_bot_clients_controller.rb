@@ -22,18 +22,18 @@ class CancelBotClientsController < ApplicationController
   end
 
   def sync_api
-    response = Faraday.post(@url, { purchase: { token: @approved_order.order_client.token },
-                                                reason: @cancel_bot_client.reason } )
+    response = Faraday.post(@url, { purchase: { token: 'MMM000' },
+                                    reason: @cancel_bot_client.reason })
 
-    # return redirect_to approved_orders_path, alert: t('flash.cancel_bot_client.fail') if response.status != 200
-    return redirect_to approved_orders_path, alert: 'Este bot já está em cancelamento' if response.status == 400
-    return redirect_to approved_orders_path, alert: 'Token do bot não existe' if response.status == 404
+    return redirect_to approved_orders_path, alert: t('flash.cancel_bot_client.fail') if response.status != 200
+    return redirect_to approved_orders_path, alert: t('flash.cancel_bot_client.existent') if response.status == 400
+    return redirect_to approved_orders_path, alert: t('flash.cancel_bot_client.not_found') if response.status == 404
 
     cancel_bot_client = @approved_order.create_cancel_bot_client(cancel_bot_client)
 
-    if cancel_bot_client.save
-      cancel_bot_client.waiting!
-      redirect_to approved_orders_path, notice: t('flash.cancel_bot_client.waiting')
-    end
+    return unless cancel_bot_client.save
+
+    cancel_bot_client.waiting!
+    redirect_to approved_orders_path, notice: t('flash.cancel_bot_client.waiting')
   end
 end

@@ -20,7 +20,7 @@ class Plan
   end
 
   def self.find(id)
-    all.each do |plan|
+    find_each do |plan|
       return plan if plan.id == id
     end
   end

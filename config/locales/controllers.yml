@@ -8,3 +8,5 @@ pt-BR:
       accepted: Pedido de cancelamento aceito
       rejected: Pedido de cancelamento rejeitado
       fail: Não foi possível enviar o pedido de cancelamento
+      existent: Este bot já está em cancelamento
+      not_found: Token do bot não existe
