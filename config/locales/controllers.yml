@@ -7,3 +7,4 @@ pt-BR:
       waiting: Pedido de cancelamento enviado com sucesso
       accepted: Pedido de cancelamento aceito
       rejected: Pedido de cancelamento rejeitado
+      fail: Não foi possível enviar o pedido de cancelamento
