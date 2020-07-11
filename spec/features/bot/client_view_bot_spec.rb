@@ -22,28 +22,25 @@ feature 'Client view bots' do
   end
 
   scenario 'and view bot details' do
-    Plan.new(id: 1, name: 'totam', created_at: '2020-07-07T09:36:39.688-03:00',
+    create(:company, client: client_login)
+    plan = Plan.new(id: 1, name: 'totam', created_at: '2020-07-07T09:36:39.688-03:00',
              updated_at: '2020-07-07T09:36:39.688-03:00', platforms: 'Whatsapp',
              limit_daily_chat: 1, limit_monthly_chat: 1, limit_daily_messages: 1,
              limit_monthly_messages: 1, extra_message_price: 1.5, extra_chat_price: 1.5,
              current_price: 67.27)
-
+    allow(Plan).to receive(:find).and_return(plan)
     order = create(:order_client, client: client_login, plan_id: '1')
     order.accepted!
     bot = create(:approved_order, order_client: order)
 
-    visit root_path
-    click_on 'Planos Adquiridos'
-    expect(current_path).to eq(approved_orders_path)
-    first('a', text: order.plan).click
+    visit approved_order_path(bot.id)
 
-    expect(current_path).to eq("/approved_order/#{bot.id}")
+    expect(current_path).to eq("/approved_orders/#{bot.id}")
     expect(page).to have_content(order.token)
     expect(page).to have_content(order.plan)
-    expect(page).to have_content(order.status)
-    expect(page).to have_content(order.plan.platforms)
-    expect(page).to have_content(order.plan.limit_daily_messages)
-    expect(page).to have_content(order.plan.limit_monthly_messages)
+    expect(page).to have_content(plan.platforms)
+    expect(page).to have_content(plan.limit_daily_messages)
+    expect(page).to have_content(plan.limit_monthly_messages)
   end
 
   scenario 'and dont have bots' do
