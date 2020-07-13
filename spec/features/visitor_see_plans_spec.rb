@@ -2,44 +2,32 @@ require 'rails_helper'
 
 feature 'Visitor see plans in home page' do
   scenario 'successfully' do
-    plans = [Plan.new(id: '1', name: 'Para Conectar', platforms: 'Facebook', limit_daily_chat: 100,
-                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
-                      limit_monthly_chat: 200, limit_daily_messages: 300, limit_monthly_messages: 500,
-                      extra_message_price: 0.60, extra_chat_price: 0.50, current_price: 60.00),
-             Plan.new(id: '2', name: 'Para Conversar', platforms: 'Whatsapp', limit_daily_chat: 200,
-                      created_at: '2020-07-07T09:36:39.688-03:00', updated_at: '2020-07-07T09:36:39.688-03:00',
-                      limit_monthly_chat: 300, limit_daily_messages: 600, limit_monthly_messages: 100,
-                      extra_message_price: 0.50, extra_chat_price: 0.40, current_price: 100.00)]
-
-    allow(Plan).to receive(:all).and_return(plans)
-
     visit root_path
 
-    (0..1).each do |index|
-      expect(page).to have_content(plans[index].name)
-      expect(page).to have_content(plans[index].platforms)
-      expect(page).to have_content(plans[index].limit_daily_chat)
-      expect(page).to have_content(plans[index].limit_monthly_chat)
-      expect(page).to have_content(plans[index].limit_daily_messages)
-      expect(page).to have_content(plans[index].limit_monthly_messages)
-      expect(page).to have_content(plans[index].extra_message_price)
-      expect(page).to have_content(plans[index].extra_chat_price)
-      expect(page).to have_content(plans[index].current_price)
-    end
+    expect(page).to have_content('totam')
+    expect(page).to have_content('non')
+    expect(page).to have_content('Whatsapp')
+    expect(page).to have_content('Facebook')
+    expect(page).to have_content(/1/)
+    expect(page).to have_content(/10/)
+    expect(page).to have_content(/55/)
+    expect(page).to have_content(/65/)
+    expect(page).to have_content(/21/)
+    expect(page).to have_content(/22/)
+    expect(page).to have_content('R$ 1,60')
+    expect(page).to have_content('R$ 1,50')
+    expect(page).to have_content('R$ 1,80')
+    expect(page).to have_content('R$ 1,70')
+    expect(page).to have_content('R$ 67,27')
+    expect(page).to have_content('R$ 57,89')
   end
 
   scenario 'by have not any plan register' do
-    stub_request(:get, 'http://exemplo.com/api/v1/plans/')
+    stub_request(:get, 'http://exemplo.com/api/v1/plans')
       .to_return(status: 200, body: '[]')
 
     visit root_path
     expect(page).to have_content('Sem planos cadastrados')
-  end
-
-  scenario 'and cannot visit history unless be logged' do
-    visit plans_path
-
-    expect(current_path).to eq(new_client_session_path)
   end
 
   scenario 'and cannot view order clients path unless be logged' do
@@ -47,11 +35,5 @@ feature 'Visitor see plans in home page' do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content('Faça login para continuar')
-  end
-
-  scenario 'and cannot view history unless be logged' do
-    visit root_path
-
-    expect(page).not_to have_link('Histórico de pedidos')
   end
 end

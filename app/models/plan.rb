@@ -10,12 +10,10 @@ class Plan
   end
 
   def self.all
-    response = Faraday.get("#{Rails.configuration.management_api[:base_url]}/plans/")
+    response = ManagementSystem.client.get { |req| req.url 'plans' }
     return [] unless response.status == 200
 
     json = JSON.parse(response.body, symbolize_names: true)
-    json.map do |hash|
-      new(hash)
-    end
+    json.map { |hash| new(hash) }
   end
 end
