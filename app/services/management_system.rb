@@ -23,6 +23,5 @@ class ManagementSystem
     def api_version
       'v1'
     end
-
   end
 end

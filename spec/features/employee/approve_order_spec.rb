@@ -5,7 +5,7 @@ feature 'Employee view orders' do
     employee_login
     order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
 
-    visit plans_path
+    visit root_path
     click_on 'Pedidos'
 
     expect(current_path).to eq(order_clients_path)

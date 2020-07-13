@@ -3,7 +3,7 @@ require 'rails_helper'
 describe ManagementSystem do
   context '.client' do
     subject { ManagementSystem.client }
-    it { is_expected.to be_instance_of(Faraday::Connection)  }
+    it { is_expected.to be_instance_of(Faraday::Connection) }
 
     it 'Content-Type: application/json header' do
       expect(subject.headers['Content-Type']).to eq('application/json')

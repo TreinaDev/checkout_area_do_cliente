@@ -1,12 +1,12 @@
 <div id="go_to_plans" class="div-plans">
   <h2 class="h2-active-plans">Planos Disponíveis</h2>
-  <% if @plans.empty? %>
+  <% if plans.empty? %>
     <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
     <strong class="without-plans"><%= 'Sem planos cadastrados' %></strong>
   <% end %>
 
   <div class="all-plans">
-    <% @plans.each do |plan| %>
+    <% plans.each do |plan| %>
       <div class="each-card">
         <strong>Plano: </strong>
         <h5><%= plan.name %></h5>
@@ -24,17 +24,20 @@
         <h5><%= plan.limit_daily_messages %></h5>
 
         <strong>Limite mensal de mensagens: </strong>
-        <h5><%= plan.limit_daily_messages %></h5>
+        <h5><%= plan.limit_monthly_messages %></h5>
 
         <strong>Custo por mensagens extras: </strong>
-        <h5><%= plan.extra_message_price %> por mensagem</h5>
+        <h5><%= number_to_currency plan.extra_message_price %> por mensagem</h5>
 
         <strong>Custo por conversas extras: </strong>
-        <h5><%= plan.extra_chat_price %> por conversa</h5>
+        <h5><%= number_to_currency plan.extra_chat_price %> por conversa</h5>
 
         <strong>Preço: </strong>
-        <h5><%= plan.current_price %></h5>
-        <p class="link-buy"><%= link_to 'Comprar', orders_path(plan_id: plan.id), method: :post %></p>
+        <h5><%= number_to_currency plan.current_price %></h5>
+        <div id="plan-<%= plan.id %>">
+          <p class="link-buy"><%= link_to 'Comprar',
+              client_order_clients_path(plan_id: plan.id), method: :post %></p>
+        </div>
       </div>
     <% end %>
   </div>
