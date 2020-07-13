@@ -43,25 +43,23 @@ feature 'Employee view orders' do
     expect(page).not_to have_content(other_order.plan)
   end
 
-  scenario 'and approve order' do
-    employee_login
-    order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
-
-    visit order_clients_path
-    click_on order.token
-    click_on 'Aprovar Pedido'
-
-    expect(current_path).to eq("/order_clients/#{order.id}")
-    expect(page).to have_content('Aprovado')
-    expect(page).not_to have_content('Aguardando aprovação')
-    expect(page).not_to have_content('Rejeitado')
-  end
-
   scenario 'and other order remains unchanged' do
     employee_login
 
-    create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
-    create(:order_client, token: 'AAAAAA', plan: 'Extraordinário')
+    client = create(:client)
+    other_client = create(:client)
+    company = create(:company, client: client)
+    order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples',
+                                  client: client)
+    create(:order_client, token: 'AAAAAA', plan: 'Extraordinário',
+                          client: other_client)
+
+    url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
+    json = { company_token: order.token, plan_id: order.plan_id }
+    response_json = { company: { name: company.fantasy_name },
+                      plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
+    response = double('faraday_response', body: response_json, status: 200)
+    allow(Faraday).to receive(:post).with(url, json).and_return(response)
 
     visit order_clients_path
 
@@ -71,6 +69,7 @@ feature 'Employee view orders' do
     click_on 'AAAAAA'
     expect(page).to have_content('Status: Em aberto')
   end
+
   scenario 'but no have any order' do
     employee_login
     visit order_clients_path

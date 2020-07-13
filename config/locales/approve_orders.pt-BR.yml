@@ -1,0 +1,6 @@
+---
+pt-BR:
+  approved_orders:
+    create:
+      fail: 'Compra não registrada'
+      success: 'Compra registrada'
