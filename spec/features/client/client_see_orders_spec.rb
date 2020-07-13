@@ -10,10 +10,10 @@ feature 'client see your orders' do
     visit root_path
     click_on 'Meus Pedidos'
 
-    expect(page).to have_content(orders_client1[0].plan_id)
+    expect(page).to have_content(orders_client1[0].token)
     expect(page).to have_content('Em aberto')
     expect(page).to have_content(client1.email)
-    expect(page).not_to have_content("Plano: #{orders_client2[0].plan_id}")
+    expect(page).not_to have_content(orders_client2[0].token)
     expect(page).not_to have_content(client2.email)
   end
 
@@ -29,5 +29,29 @@ feature 'client see your orders' do
     expect(page).not_to have_content(orders_client2[0].plan_id)
 
     expect(page).to have_content('Você não possui pedidos')
+  end
+
+  scenario 'but cannot see of other clients' do
+    client1 = client_login
+    create(:company, client: client_login)
+    create(:order_client, plan_id: 1, client: client1)
+    order_client2 = create(:order_client)
+
+    visit order_client_path(order_client2.id)
+
+    expect(page).to have_content(I18n.t('authorization', scope: %i[company sessions]))
+    expect(current_path).to eq root_path
+  end
+
+  scenario 'but cannot see all orders from all clients' do
+    client1 = client_login
+    create(:company, client: client_login)
+    create_list(:order_client, 2, plan_id: 1, client: client1)
+    create_list(:order_client, 2)
+
+    visit order_clients_path
+
+    expect(page).to have_content(I18n.t('authorization', scope: %i[company sessions]))
+    expect(current_path).to eq root_path
   end
 end

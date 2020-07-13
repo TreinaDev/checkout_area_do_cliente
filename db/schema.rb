@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_201639) do
+ActiveRecord::Schema.define(version: 2020_07_10_184510) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bot_token"
     t.index ["order_client_id"], name: "index_approved_orders_on_order_client_id"
   end
 

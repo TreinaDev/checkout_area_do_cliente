@@ -1,6 +1,11 @@
-<h1>Listas de Promoções</h1>
-<% if @promos.empty?%>
-  <p><%= 'Nenhuma promoção cadastrada'%><p>
-<%else%>
-  <%= render @promos %>
+<h2 class="title-promo">Listas de Promoções</h2>
+<% if @promos.empty? %>
+  <div class="without-promo">
+    <div><%= image_tag("empty.svg", size: "300x300", alt: "")%></div>
+    <p>Nenhuma promoção cadastrada<p>
+  </p>
+<% else %>
+  <div class="all-promos">
+    <%= render @promos %>
+  </div>
 <% end %>
