@@ -9,12 +9,10 @@ feature 'Order to api' do
     order = OrderClient.create!(token: 'ASDSAFdfsdfd',
                                 plan: 'Simples', plan_id: 1, client: client)
 
-    url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
-    json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
                       plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
-    response = double('faraday_response', body: response_json, status: 200)
-    allow(Faraday).to receive(:post).with(url, json).and_return(response)
+    stub_request(:post, 'http://exemplo.com/api/v1/purchases')
+      .to_return(status: 200, body: response_json.to_json)
 
     login_as employee, scope: :employee
 
@@ -41,12 +39,10 @@ feature 'Order to api' do
     order = OrderClient.create!(token: 'ASDSAFdfsdfd', plan: 'Simples',
                                 plan_id: 1, client: client)
 
-    url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
-    json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
                       plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
-    response = double('faraday_response', body: response_json, status: 500)
-    allow(Faraday).to receive(:post).with(url, json).and_return(response)
+    stub_request(:post, 'http://exemplo.com/api/v1/purchases')
+      .to_return(status: 500, body: response_json.to_json)
 
     login_as employee, scope: :employee
 
