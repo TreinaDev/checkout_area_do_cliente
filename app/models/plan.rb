@@ -16,4 +16,8 @@ class Plan
     json = JSON.parse(response.body, symbolize_names: true)
     json.map { |hash| new(hash) }
   end
+
+  def self.find(id)
+    all.find { |element| element.id == id }
+  end
 end

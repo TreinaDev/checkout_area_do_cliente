@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2020_07_10_184510) do
 
   create_table "order_clients", force: :cascade do |t|
     t.string "token"
-    t.string "plan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0

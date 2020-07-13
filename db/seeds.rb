@@ -10,8 +10,8 @@ FactoryBot.create(:client, email: 'cliente01@email.com', password: '123456')
 FactoryBot.create(:client, email: 'cliente02@email.com')
 
 # Pedidos
-FactoryBot.create_list(:order_client, 5, client: Client.first)
-FactoryBot.create_list(:order_client, 5, client: Client.last)
+FactoryBot.create_list(:order_client, 5, plan_id: 1, client: Client.first)
+FactoryBot.create_list(:order_client, 5, plan_id: 2, client: Client.last)
 
 # Pedidos aprovados
 FactoryBot.create(:approved_order, order_client: OrderClient.first)

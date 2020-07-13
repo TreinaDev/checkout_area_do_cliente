@@ -7,7 +7,7 @@ feature 'Order to api' do
     employee = create(:employee, email: 'vendedor@empresa.com',
                                  password: '123456')
     order = OrderClient.create!(token: 'ASDSAFdfsdfd',
-                                plan: 'Simples', plan_id: 1, client: client)
+                                plan_id: 1, client: client)
 
     url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
     json = { company_token: order.token, plan_id: order.plan_id }
@@ -38,7 +38,7 @@ feature 'Order to api' do
     company = create(:company, client: client)
     employee = create(:employee, email: 'vendedor@empresa.com',
                                  password: '123456')
-    order = OrderClient.create!(token: 'ASDSAFdfsdfd', plan: 'Simples',
+    order = OrderClient.create!(token: 'ASDSAFdfsdfd',
                                 plan_id: 1, client: client)
 
     url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
