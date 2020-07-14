@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.update(company_params)
     if @company.save
-      flash[:alert] = 'Empresa editada com sucesso'
+      flash[:success] = 'Empresa editada com sucesso'
       redirect_to @company
     else
       render 'edit'
@@ -41,6 +41,6 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:fantasy_name, :corporate_name,
-                                    :email, :document_number, :address)
+                                    :email, :cnpj, :address)
   end
 end

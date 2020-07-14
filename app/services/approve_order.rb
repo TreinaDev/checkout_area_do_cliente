@@ -20,14 +20,16 @@ class ApproveOrder
     ManagementSystem.client.post do |req|
       req.url 'purchases'
       req.body = {
-        company_token: order_client.token,
-        plan_id: order_client.plan_id
-      }
+        purchase: {
+          company_token: order_client.company_token,
+          plan_id: order_client.plan_id
+        }
+      }.to_json
     end
   end
 
   def create_approved_order
-    token = JSON.parse(@response.body, symbolize_names: true)[:bot][:token]
+    token = JSON.parse(@response.body, symbolize_names: true)[:bot_token]
     order_client.create_approved_order bot_token: token
   end
 end

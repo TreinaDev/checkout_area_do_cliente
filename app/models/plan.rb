@@ -16,4 +16,11 @@ class Plan
     json = JSON.parse(response.body, symbolize_names: true)
     json.map { |hash| new(hash) }
   end
+
+  def self.find(id)
+    response = ManagementSystem.client.get { |req| req.url "plans/#{id}" }
+
+    hash = JSON.parse(response.body, symbolize_names: true)
+    new(hash)
+  end
 end

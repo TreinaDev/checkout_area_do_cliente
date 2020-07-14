@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_184510) do
+ActiveRecord::Schema.define(version: 2020_07_14_174207) do
 
   create_table "approved_orders", force: :cascade do |t|
     t.integer "order_client_id", null: false
@@ -38,14 +38,16 @@ ActiveRecord::Schema.define(version: 2020_07_10_184510) do
     t.string "fantasy_name"
     t.string "corporate_name"
     t.string "email"
-    t.string "document_number"
+    t.string "cnpj"
     t.string "address"
     t.integer "client_id", null: false
+    t.string "token"
     t.index ["client_id"], name: "index_companies_on_client_id"
+    t.index ["cnpj"], name: "index_companies_on_cnpj", unique: true
     t.index ["corporate_name"], name: "index_companies_on_corporate_name", unique: true
-    t.index ["document_number"], name: "index_companies_on_document_number", unique: true
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["fantasy_name"], name: "index_companies_on_fantasy_name", unique: true
+    t.index ["token"], name: "index_companies_on_token", unique: true
   end
 
   create_table "employees", force: :cascade do |t|
@@ -61,14 +63,14 @@ ActiveRecord::Schema.define(version: 2020_07_10_184510) do
   end
 
   create_table "order_clients", force: :cascade do |t|
-    t.string "token"
-    t.string "plan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
     t.integer "plan_id"
     t.integer "client_id"
+    t.string "token"
     t.index ["client_id"], name: "index_order_clients_on_client_id"
+    t.index ["token"], name: "index_order_clients_on_token", unique: true
   end
 
   create_table "plans", force: :cascade do |t|

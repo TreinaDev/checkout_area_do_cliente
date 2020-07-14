@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'client see your orders' do
   scenario 'sucessfully' do
-    client1 = client_login
-    client2 = create(:client, email: 'teste2@teste.com', password: '123456')
+    client1 = client_login(create(:client, :with_company))
+    client2 = create(:client, :with_company, email: 'teste2@teste.com')
     orders_client1 = create_list(:order_client, 5, plan_id: 1, client: client1)
     orders_client2 = create_list(:order_client, 5, plan_id: 2, client: client2)
 

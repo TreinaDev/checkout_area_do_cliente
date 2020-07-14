@@ -19,7 +19,7 @@
           <th scope="col"><%= Client.human_attribute_name(:email) %></th>
           <th scope="col"><%= OrderClient.human_attribute_name(:status) %></th>
           <% if client_signed_in? %>
-            <th scope="col">Cancelamento</th>
+            <th scope="col">#</th>
           <% end %>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
           <tr>
             <th scope="row"><%= order.id %></th>
             <td ><%= link_to order.token, order %></td>
-            <td><%= order.plan %></td>
+            <td><%= order.plan.name %></td>
             <td><%= order.client.email %></td>
             <% if order.accepted? %>
               <td><strong class="status-accepted">
@@ -48,6 +48,8 @@
                 <td class="link-cancel-order"><%= link_to 'Cancelar Pedido', cancel_client_order_client_path(order),
                                 id:"cancel-#{order.id}",
                                 method: :post  %></td>
+              <% else %>
+                <td></td>
               <% end %>
             <% end %>
           </tr>

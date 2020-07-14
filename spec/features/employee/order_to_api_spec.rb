@@ -9,8 +9,8 @@ feature 'Order to api' do
     order = OrderClient.create!(token: 'ASDSAFdfsdfd',
                                 plan: 'Simples', plan_id: 1, client: client)
 
-    response_json = { company: { name: company.fantasy_name },
-                      plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
+    response_json = { company_id: company.id,
+                      token: 'ABC123' }
     stub_request(:post, 'http://exemplo.com/api/v1/purchases')
       .to_return(status: 200, body: response_json.to_json)
 
@@ -25,7 +25,7 @@ feature 'Order to api' do
     expect(ao.order_client.id).to eq(order.id)
     expect(ao.order_client.token).to eq(order.token)
     expect(ao.order_client.plan_id).to eq(order.plan_id)
-    expect(response_json[:bot][:token]).to eq(ao.bot_token)
+    expect(response_json[:token]).to eq(ao.bot_token)
     expect(page).to have_content('Compra registrada')
     expect(page).not_to have_content('Aguardando aprovação')
     expect(page).not_to have_content('Rejeitado')
@@ -36,7 +36,7 @@ feature 'Order to api' do
     company = create(:company, client: client)
     employee = create(:employee, email: 'vendedor@empresa.com',
                                  password: '123456')
-    order = OrderClient.create!(token: 'ASDSAFdfsdfd', plan: 'Simples',
+    order = OrderClient.create!(plan: 'Simples',
                                 plan_id: 1, client: client)
 
     response_json = { company: { name: company.fantasy_name },

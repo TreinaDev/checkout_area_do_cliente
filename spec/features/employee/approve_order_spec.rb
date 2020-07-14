@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Employee view orders' do
   scenario 'successfully' do
     employee_login
-    order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
+    order = create(:order_client, plan: 'Simples')
 
     visit root_path
     click_on 'Pedidos'
