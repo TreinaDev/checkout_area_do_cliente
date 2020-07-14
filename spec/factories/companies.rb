@@ -3,7 +3,7 @@ FactoryBot.define do
     fantasy_name { Faker::Company.name }
     corporate_name { Faker::Company.name }
     email { Faker::Internet.email }
-    document_number { Faker::Company.brazilian_company_number(formatted: true) }
+    cnpj { Faker::Company.brazilian_company_number(formatted: true) }
     address { Faker::Address.city }
     client
   end

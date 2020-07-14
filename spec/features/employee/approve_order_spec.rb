@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Employee view orders' do
   scenario 'successfully' do
     employee_login
-    order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples')
+    order = create(:order_client, plan: 'Simples')
 
     visit root_path
     click_on 'Pedidos'
@@ -49,17 +49,13 @@ feature 'Employee view orders' do
     client = create(:client)
     other_client = create(:client)
     company = create(:company, client: client)
-    order = create(:order_client, token: 'FHDBFHDB', plan: 'Simples',
-                                  client: client)
-    create(:order_client, token: 'AAAAAA', plan: 'Extraordinário',
-                          client: other_client)
+    create(:order_client, token: 'FHDBFHDB', client: client, plan_id: 1)
+    create(:order_client, token: 'AAAAAA', client: other_client)
 
-    url = "#{Rails.configuration.management_api[:base_url]}/puschases/"
-    json = { company_token: order.token, plan_id: order.plan_id }
     response_json = { company: { name: company.fantasy_name },
                       plan: { name: 'Simples' }, bot: { token: 'ABC123' } }
-    response = double('faraday_response', body: response_json, status: 200)
-    allow(Faraday).to receive(:post).with(url, json).and_return(response)
+    stub_request(:post, 'http://exemplo.com/api/v1/purchases')
+      .to_return(status: 200, body: response_json.to_json)
 
     visit order_clients_path
 

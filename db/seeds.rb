@@ -6,7 +6,7 @@ FactoryBot.create(:employee, email: 'second@teste.com')
 FactoryBot.create(:employee, email: 'third@teste.com')
 
 # Clientes - Senhas geradas automaticamente pela factory
-FactoryBot.create(:client, email: 'cliente01@email.com', password: '123456')
+FactoryBot.create(:client, email: 'cliente01@email.com')
 FactoryBot.create(:client, email: 'cliente02@email.com')
 
 # Pedidos
@@ -21,7 +21,7 @@ FactoryBot.create(:approved_order, order_client: OrderClient.last)
 FactoryBot.create(:company, fantasy_name: 'Mc Donalds',
                             corporate_name: 'Arcos Dourados',
                             email: 'empresa01@email.com',
-                            document_number: '11.903578/0001-74',
+                            cnpj: '13.831.646/0003-24',
                             address: 'Rua das flores',
                             client: Client.first)
 # Promo

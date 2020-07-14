@@ -58,7 +58,7 @@ feature 'Client edit company' do
     fill_in 'Nome fantasia', with: company.fantasy_name
     fill_in 'Razão social',	with: company.corporate_name
     fill_in 'Email da empresa', with: company.email
-    fill_in 'CNPJ',	with: company.document_number
+    fill_in 'CNPJ',	with: company.cnpj
     fill_in 'Endereço de faturamento', with: company.address
     click_on 'Enviar'
 
